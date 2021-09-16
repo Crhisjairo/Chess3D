@@ -1,0 +1,13 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/contentModel.xml
+/.idea.ChessDevLogiciel.iml
+/projectSettingsUpdater.xml
+/modules.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../../../../:\Users\Crhistian C\Documents\Projects\Unity\2020.3.18f1\DevLogicielUnity\DevLogicielUnity\ChessDevLogiciel\.idea\.idea.ChessDevLogiciel\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
