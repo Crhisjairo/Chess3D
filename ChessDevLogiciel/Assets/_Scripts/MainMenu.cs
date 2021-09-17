@@ -24,4 +24,9 @@ public class MainMenu : MonoBehaviour
          Application.Quit();
 #endif
     }
+
+    public void SetModeJeu(int _modeJeu)
+    {
+        QualitySettings.SetQualityLevel(_modeJeu);
+    }
 }
