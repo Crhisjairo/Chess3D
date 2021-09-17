@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private const string PieceTag = "Piece";
+    private const string CaseDuTableauTag = "CaseDuTableau";
+    
     private IPiece pieceSelectionne;
     
     // Update is called once per frame
@@ -27,12 +30,12 @@ public class PlayerController : MonoBehaviour
             
             //Ici, il faut déplacer la pièce au centre de la case désiré.
             //On attents que les cases soient programées
-            if (hit.collider.CompareTag("Piece"))
+            if (hit.collider.CompareTag(PieceTag))
             {
                 SelectionnerNouvellePiece(hit);
             }
 
-            if (hit.collider.CompareTag("Board"))
+            if (hit.collider.CompareTag(CaseDuTableauTag))
             {
                 if (pieceSelectionne is null)
                 {
@@ -40,19 +43,13 @@ public class PlayerController : MonoBehaviour
                     return;
                 }
                 
-                //On verifie si la pièce est seléctionnée
-                if (pieceSelectionne.IsSelected())
-                {
-                    //On déplace la pièce et on la déseléctionne
-                    pieceSelectionne.DeplacerPiece(hit.point);
-                    pieceSelectionne.DeselectionnerPiece();
+                //On déplace la pièce et on la déseléctionne
+                //On envoie la position du centre du collider de la case
+                pieceSelectionne.DeplacerPiece(hit.collider.gameObject.GetComponent<Case>());
+                pieceSelectionne.DeselectionnerPiece();
 
-                    pieceSelectionne = null;
-                }
-                else
-                {
-                    pieceSelectionne.SelectionnerPiece();
-                }
+                pieceSelectionne = null; //On efface la reférence à la pièce selecctionné
+                
             }
             
         }
@@ -62,7 +59,7 @@ public class PlayerController : MonoBehaviour
     {
         IPiece nouvellePiece = hit.collider.GetComponent<IPiece>();
 
-        //Si on n'a pas de pièce seléctionnée, on seléctionne la pièce.
+        //Si on n'a pas de pièce seléctionnée, on seléctionne la première pièce touchée.
         if (pieceSelectionne is null)
         {
             pieceSelectionne = nouvellePiece;

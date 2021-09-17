@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Piece
-  - Board
+  - CaseDuTableau
   layers:
   - Default
   - TransparentFX

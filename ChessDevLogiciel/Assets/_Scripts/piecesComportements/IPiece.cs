@@ -9,8 +9,8 @@ public interface IPiece
     /// Déplace la pièce.
     /// Selon le type de la pièce, celle-ci va se déplacer d'un façon ou une autre.
     /// </summary>
-    /// <param name="destination">Position de destination de la pièce</param>
-    public void DeplacerPiece(Vector3 destination);
+    /// <param name="caseDestination">Case de destination de la pièce</param>
+    public void DeplacerPiece(Case caseDestination);
 
     /// <summary>
     /// Returne si la pièce est seléctionne.

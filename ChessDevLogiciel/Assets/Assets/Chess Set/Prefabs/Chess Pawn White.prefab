@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 33000012760542366}
   - component: {fileID: 23000012148006776}
   - component: {fileID: 2903162303492673131}
-  - component: {fileID: 2479796777252643193}
   - component: {fileID: 771110510}
+  - component: {fileID: 2479796777252643193}
   m_Layer: 0
   m_Name: Chess Pawn White
   m_TagString: Piece
@@ -100,18 +100,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2479796777252643193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000013277376148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7b7124d4bd56874380d5621c11a973c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &771110510
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -125,3 +113,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.029786097, y: 0.029786106, z: 0.047155764}
   m_Center: {x: 0, y: 9.313228e-10, z: 0.0135778785}
+--- !u!114 &2479796777252643193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013277376148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7b7124d4bd56874380d5621c11a973c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
