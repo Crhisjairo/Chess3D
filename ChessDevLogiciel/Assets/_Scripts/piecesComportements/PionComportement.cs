@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class PionComportement : MonoBehaviour, IPiece
 {
+   /*
+    * Dans cette section du code, c'est ou nous allons initialiser tous les variables dont nous allons avoir besoin dans notre script.
+    */
    private Rigidbody _rb;
 
    private bool _isSelected;
