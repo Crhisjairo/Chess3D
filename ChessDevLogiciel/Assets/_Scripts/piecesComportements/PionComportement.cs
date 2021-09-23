@@ -27,7 +27,8 @@ public class PionComportement : MonoBehaviour, IPiece
       
       
       //Dans le cas qu'il ait une pièce dans la case qu'on veut se déplacer,
-      //on check si l'on peut la manger et se déplacer après
+      //on check si l'on peut la manger ou si c'est une de nos piece
+      //pour ensuite se déplacer 
       
       
       //On déplace
