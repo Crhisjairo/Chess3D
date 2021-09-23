@@ -38,7 +38,7 @@ public class PionComportement : MonoBehaviour, IPiece
       _rb.MovePosition(destination);
       
       //Finalemment, on ajoute la reférence de cette pièce à la case où l'on se déplace
-      caseDestination.SetPieceDansLaCase(this);
+      caseDestination.SetPieceDansLaCase(this.gameObject);
    }
    
    public void SelectionnerPiece()

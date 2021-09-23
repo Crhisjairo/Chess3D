@@ -8,9 +8,9 @@ public class Case : MonoBehaviour
     /// Reférence à la pièce qui est dans la case pour pouvoir
     /// manipuler cette pièce après.
     /// </summary>
-    private IPiece pieceDansLaCase;
+    private GameObject pieceDansLaCase;
 
-    public void SetPieceDansLaCase(IPiece nouvellePiece)
+    public void SetPieceDansLaCase(GameObject nouvellePiece)
     {
         pieceDansLaCase = nouvellePiece;
     }
