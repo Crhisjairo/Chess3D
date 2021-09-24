@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Rigidbody))]
-public class RookComportement : MonoBehaviour,IPiece
+public class RookComportement : MonoBehaviour, IPiece
 {
     private Rigidbody _rb;
     private bool _isSelected;
@@ -46,7 +46,12 @@ public class RookComportement : MonoBehaviour,IPiece
         caseDestination.SetPieceDansLaCase(this.gameObject);
     }
 
-    public bool IsSelected()
+    public bool PeutEtreSelectionne()
+    {
+        throw new NotImplementedException();
+    }
+
+    public bool EstSelectionne()
     {
         // On affiche les cases possibles au roque pour se deplacer
         //Il faudra se communiquer avec les cases du tableau
