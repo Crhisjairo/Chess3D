@@ -15,6 +15,8 @@ public class PionComportement : MonoBehaviour, IPiece
 
    private bool _isSelected;
    
+   
+   
    private void Start()
    {
       _rb = GetComponent<Rigidbody>();
@@ -41,7 +43,12 @@ public class PionComportement : MonoBehaviour, IPiece
       //Finalemment, on ajoute la reférence de cette pièce à la case où l'on se déplace
       caseDestination.SetPieceDansLaCase(this.gameObject);
    }
-   
+
+   public bool PeutEtreSelectionne()
+   {
+      throw new NotImplementedException();
+   }
+
    public void SelectionnerPiece()
    {
       _isSelected = true;
@@ -58,7 +65,7 @@ public class PionComportement : MonoBehaviour, IPiece
       //Il faudra se communiquer avec les cases du tableau.
    }
 
-   public bool IsSelected()
+   public bool EstSelectionne()
    {
       return _isSelected;
    }

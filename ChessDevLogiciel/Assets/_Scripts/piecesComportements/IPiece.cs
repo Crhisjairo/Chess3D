@@ -13,10 +13,16 @@ public interface IPiece
     public void DeplacerPiece(Case caseDestination);
 
     /// <summary>
-    /// Returne si la pièce est seléctionne.
+    /// Returne si la pièce peut être seléctionnée.
+    /// </summary>
+    /// <returns></returns>
+    public bool PeutEtreSelectionne();
+    
+    /// <summary>
+    /// Returne si la pièce est seléctionnée.
     /// </summary>
     /// <returns>Si la pièce est seléctionnée</returns>
-    public bool IsSelected();
+    public bool EstSelectionne();
 
     /// <summary>
     /// Seléctionne la pièce et affiche les possibilités du mouvement.
