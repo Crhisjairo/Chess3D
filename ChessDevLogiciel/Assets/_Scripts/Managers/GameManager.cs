@@ -7,7 +7,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { private set; get;}
-    
+
+    [SerializeField] private Camera _cam;
     private void Awake()
     {
         //On évite avoir deux instance de cette même classe lors du Awake
@@ -21,4 +22,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ChangerCameraTo(Transform transform)
+    {
+        //Faut changer la camera par Cinemachine Virtual Camera
+        _cam.transform.position = transform.position;
+        _cam.transform.rotation = transform.rotation;
+    }
 }

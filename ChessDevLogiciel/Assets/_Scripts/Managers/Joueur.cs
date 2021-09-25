@@ -12,6 +12,8 @@ public class Joueur : MonoBehaviour
     /// </summary>
     public NumeroJoueur numeroJoueur;
 
+    public Transform camPosition;
+
     public string Nom { get; set; }
     public int Pointage { get; set; } = 0;
     
