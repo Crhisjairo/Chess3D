@@ -133,6 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6142715479614601907}
+  - component: {fileID: 1291929834}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -157,6 +158,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1291929834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6142715479614601908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3645ff0273e04d744b31bad73e9d7338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2522688652221945966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -164,6 +177,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -219,6 +236,10 @@ PrefabInstance:
     - target: {fileID: 6520255341061642444, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_TagString
       value: CaseDuTableau
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: H8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
@@ -234,6 +255,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -289,6 +314,10 @@ PrefabInstance:
     - target: {fileID: 6520255341061642444, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_TagString
       value: CaseDuTableau
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: H7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
@@ -304,6 +333,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -360,6 +393,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: A3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147667520856 stripped
@@ -374,6 +411,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -430,6 +471,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: H2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147669576206 stripped
@@ -444,6 +489,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -500,6 +549,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: G3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147604841963 stripped
@@ -514,6 +567,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -570,6 +627,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: D6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147851199033 stripped
@@ -584,6 +645,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -640,6 +705,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: D8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147851989937 stripped
@@ -654,6 +723,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -710,6 +783,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: A7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147850066693 stripped
@@ -724,6 +801,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -780,6 +861,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: D4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147844424659 stripped
@@ -794,6 +879,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -850,6 +939,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: C5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147787387410 stripped
@@ -864,6 +957,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -920,6 +1017,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: C3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147734148892 stripped
@@ -934,6 +1035,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -990,6 +1095,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: F8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147749171207 stripped
@@ -1004,6 +1113,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -1060,6 +1173,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: D5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147971437196 stripped
@@ -1074,6 +1191,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -1130,6 +1251,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: G6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147983630203 stripped
@@ -1144,6 +1269,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1200,6 +1329,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: H4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147977823648 stripped
@@ -1214,6 +1347,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1270,6 +1407,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: F4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723148105812932 stripped
@@ -1284,6 +1425,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -1340,6 +1485,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: D3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723148115281894 stripped
@@ -1354,6 +1503,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1410,6 +1563,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: H6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723148081799162 stripped
@@ -1424,6 +1581,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -1480,6 +1641,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: D2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723148027688636 stripped
@@ -1494,6 +1659,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -1550,6 +1719,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: G2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147084244254 stripped
@@ -1564,6 +1737,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1620,6 +1797,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: D7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147066666973 stripped
@@ -1634,6 +1815,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1690,6 +1875,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: H3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147312456955 stripped
@@ -1704,6 +1893,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -1760,6 +1953,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: H1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147294758816 stripped
@@ -1774,6 +1971,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -1830,6 +2031,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: B5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147268185970 stripped
@@ -1844,6 +2049,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -1900,6 +2109,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: A2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147259981734 stripped
@@ -1914,6 +2127,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -1970,6 +2187,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: A5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147452985340 stripped
@@ -1984,6 +2205,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -2040,6 +2265,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: B1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147446436599 stripped
@@ -2054,6 +2283,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -2110,6 +2343,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: D1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147366175485 stripped
@@ -2124,6 +2361,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -2180,6 +2421,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: F3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147337759924 stripped
@@ -2194,6 +2439,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -2250,6 +2499,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: G4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146634271619 stripped
@@ -2264,6 +2517,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2320,6 +2577,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: B7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146636108791 stripped
@@ -2334,6 +2595,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -2390,6 +2655,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: A6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146593114503 stripped
@@ -2404,6 +2673,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -2460,6 +2733,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: E3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146602207286 stripped
@@ -2474,6 +2751,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -2530,6 +2811,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: C7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146562640800 stripped
@@ -2544,6 +2829,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -2600,6 +2889,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: B2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146552750515 stripped
@@ -2614,6 +2907,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2670,6 +2967,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: B8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146529872178 stripped
@@ -2684,6 +2985,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -2740,6 +3045,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: E6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146785726018 stripped
@@ -2754,6 +3063,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2810,6 +3123,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: A8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146707976831 stripped
@@ -2824,6 +3141,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -2880,6 +3201,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: E2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146886632786 stripped
@@ -2894,6 +3219,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -2950,6 +3279,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: B4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146828437010 stripped
@@ -2964,6 +3297,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -3020,6 +3357,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: B3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147048599431 stripped
@@ -3034,6 +3375,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -3090,6 +3435,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: F5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147020373097 stripped
@@ -3104,6 +3453,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -3160,6 +3513,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: G5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723147015461256 stripped
@@ -3174,6 +3531,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -3230,6 +3591,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: A4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146997764679 stripped
@@ -3244,6 +3609,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -3300,6 +3669,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: F1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146990574172 stripped
@@ -3314,6 +3687,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -3370,6 +3747,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: E5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146962848781 stripped
@@ -3384,6 +3765,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3440,6 +3825,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: F6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146959450522 stripped
@@ -3454,6 +3843,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3510,6 +3903,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: G8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146940995441 stripped
@@ -3524,6 +3921,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -3580,6 +3981,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: F7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146075921490 stripped
@@ -3594,6 +3999,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -3650,6 +4059,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: G1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146025652901 stripped
@@ -3664,6 +4077,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -3720,6 +4137,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: A1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146007755048 stripped
@@ -3734,6 +4155,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -3790,6 +4215,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: B6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146253121064 stripped
@@ -3804,6 +4233,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3860,6 +4293,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: C8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146220481825 stripped
@@ -3874,6 +4311,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -3930,6 +4371,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: E7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146190317111 stripped
@@ -3944,6 +4389,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 30
@@ -4000,6 +4449,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: C1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146182472180 stripped
@@ -4014,6 +4467,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -4070,6 +4527,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: F2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146184009915 stripped
@@ -4084,6 +4545,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -4140,6 +4605,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: G7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146161328358 stripped
@@ -4154,6 +4623,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -4210,6 +4683,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: C6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146146722070 stripped
@@ -4224,6 +4701,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -4280,6 +4761,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: H5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146142457985 stripped
@@ -4294,6 +4779,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -4350,6 +4839,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: E4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146143872518 stripped
@@ -4364,6 +4857,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4420,6 +4917,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: E8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146138282798 stripped
@@ -4434,6 +4935,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715479576833166}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -4490,6 +4995,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: E1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146514446011 stripped
@@ -4504,6 +5013,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -4560,6 +5073,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CaseDuTableau
       objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: C4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
 --- !u!4 &5680723146454368266 stripped
@@ -4574,6 +5091,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6142715478796720578}
     m_Modifications:
+    - target: {fileID: 114653487849171454, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2011618870494130507, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -4629,6 +5150,10 @@ PrefabInstance:
     - target: {fileID: 6520255341061642444, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
       propertyPath: m_TagString
       value: CaseDuTableau
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503904254316806321, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}
+      propertyPath: numeroDeCase
+      value: C2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daf1600ad327f44c8d6c4600fcf689c, type: 3}

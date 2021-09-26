@@ -10,16 +10,21 @@ public class PionComportement : Piece
 {
    private Rigidbody _rb;
 
+   [SerializeField] private Vector2Int[] _moveSet = new Vector2Int[]
+   {
+      new Vector2Int(0, 2),
+   };
+
    private void Start()
    {
       _rb = GetComponent<Rigidbody>();
+      
+      //On définit l'ensemble de mouvement de la pièce
+      moveSet = _moveSet;
    }
 
    public override void DeplacerPiece(Case caseDestination)
    {
-      //Il faut permettre seulement les déplacements possibles ici selon le type de pièce.
-      //Dans ce cas, c'est un Pion
-      
       
       //Dans le cas qu'il ait une pièce dans la case qu'on veut se déplacer,
       //on check si l'on peut la manger ou si c'est une de nos piece
@@ -33,16 +38,22 @@ public class PionComportement : Piece
       destination.y = transform.position.y;
       _rb.MovePosition(destination);
       
-      //Finalemment, on ajoute la reférence de cette pièce à la case où l'on se déplace
-      caseDestination.SetPieceDansLaCase(this.gameObject);
+      //Finalemment,
+      //On efface la réference de la pièce dans la case
+      //et on ajoute la reférence de cette pièce à la case où l'on se déplace
+      //caseDestination.SetPieceDansLaCase(this);
    }
 
    public override void SelectionnerPiece()
    {
+      //On peut changer la couleur de la pièce si l'on veut
       EstSelectionne = true;
+      //Il faut permettre seulement les déplacements possibles ici selon le type de pièce.
+      //C'est le BoardManager qui activera les cases pour se déplacer selon le moveSet envoyé.
       
       //On affiche les cases possibles du pion pour se déplacer
-      //Il faudra se communiquer avec les cases du tableau.
+      BoardManager.Instance.ActiverCasesRelativeTo(this);
+      
    }
 
    public override void DeselectionnerPiece()
@@ -51,6 +62,7 @@ public class PionComportement : Piece
       
       //On cache les cases disponibles
       //Il faudra se communiquer avec les cases du tableau.
+      BoardManager.Instance.DesactiverCases(this); //le this est temporel
    }
 
 }

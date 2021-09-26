@@ -1,14 +1,15 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class GameManager : MonoBehaviour
+public class BoardManager : MonoBehaviour
 {
-    public static GameManager Instance { private set; get;}
+    public static BoardManager Instance { private set; get;}
 
-    [SerializeField] private Camera _cam;
+    [SerializeField] private Case[] _cases;
+
+    private Vector2Int[] _actualMoveSet;
+
     private void Awake()
     {
         //On évite avoir deux instance de cette même classe lors du Awake
@@ -22,10 +23,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ChangerCameraTo(Transform transform)
+    public void ActiverCasesRelativeTo(Piece piece)
     {
-        //Faut changer la camera par Cinemachine Virtual Camera
-        _cam.transform.position = transform.position;
-        _cam.transform.rotation = transform.rotation;
+        piece.caseActuelle.EstActive = true;
+        _actualMoveSet = piece.moveSet;
+    }
+
+    public void DesactiverCases(Piece piece)
+    {
+        piece.caseActuelle.EstActive = false;
     }
 }
