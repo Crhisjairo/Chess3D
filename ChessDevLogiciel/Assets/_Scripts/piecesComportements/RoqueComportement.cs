@@ -7,11 +7,19 @@ using UnityEngine;
 public class RookComportement : Piece
 {
     private Rigidbody _rb;
+    
+    [SerializeField] private Vector2Int[] _moveSet = new Vector2Int[]
+    {
+        new Vector2Int(0, 2),
+    };
 
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        
+        //On définit l'ensemble de mouvement de la pièce
+        moveSet = _moveSet;
     }
     
     public override void DeplacerPiece(Case caseDestination)
@@ -37,15 +45,18 @@ public class RookComportement : Piece
         destination.y = transform.position.y;
         _rb.MovePosition(destination);
         
-        //Pour terminer, il faut ajouter la reference de cette piece a la case ou nous la deplacons
-        caseDestination.SetPieceDansLaCase(this.gameObject);
+        
     }
 
     public override void SelectionnerPiece()
     {
-        //On cache les cases disponibles
-        //Il faudra commiquer avec les cases du tableau
+        //On peut changer la couleur de la pièce si l'on veut
         EstSelectionne = true;
+        
+        //Il faut permettre seulement les déplacements possibles ici selon le type de pièce.
+        //C'est le BoardManager qui activera les cases pour se déplacer selon le moveSet envoyé.
+      
+        //On affiche les cases possibles du pion pour se déplacer
     }
 
     public override void DeselectionnerPiece()

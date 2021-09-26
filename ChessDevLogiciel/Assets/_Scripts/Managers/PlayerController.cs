@@ -56,7 +56,14 @@ public class PlayerController : MonoBehaviour
 
                 //On déplace la pièce, on la déseléctionne et on change de tour
                 //On envoie la position du centre du collider de la case
-                pieceSelectionne.DeplacerPiece(hit.collider.gameObject.GetComponent<Case>());
+                Case caseDestination = hit.collider.gameObject.GetComponent<Case>();
+                //POUR DEBUG, EFFACER APRÈS
+                if (caseDestination.HasPiece())
+                {
+                    return;
+                }
+                
+                pieceSelectionne.DeplacerPiece(caseDestination);
                 pieceSelectionne.DeselectionnerPiece();
 
                 pieceSelectionne = null; //On efface la reférence à la pièce selecctionné
@@ -91,7 +98,7 @@ public class PlayerController : MonoBehaviour
         
         //Si la pièce n'est pas la même pièce
         //On seléctionne la nouvelle pièce
-        if (!pieceSelectionne.Equals(nouvellePiece))
+        if (!pieceSelectionne.Equals(nouvellePiece) && !pieceSelectionne.EstActive)
         {
             Debug.Log("NOUVELLE pièce!");
          
