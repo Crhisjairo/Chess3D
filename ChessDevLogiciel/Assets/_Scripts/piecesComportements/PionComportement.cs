@@ -22,6 +22,18 @@ public class PionComportement : Piece
       //On définit l'ensemble de mouvement de la pièce
       moveSet = _moveSet;
    }
+   
+   public override void SelectionnerPiece()
+   {
+      //On peut changer la couleur de la pièce si l'on veut
+      EstSelectionne = true;
+      //Il faut permettre seulement les déplacements possibles ici selon le type de pièce.
+      //C'est le BoardManager qui activera les cases pour se déplacer selon le moveSet envoyé.
+      
+      //On affiche les cases possibles du pion pour se déplacer
+      BoardManager.Instance.ActiverCasesRelativeTo(this);
+      
+   }
 
    public override void DeplacerPiece(Case caseDestination)
    {
@@ -44,17 +56,7 @@ public class PionComportement : Piece
       //caseDestination.SetPieceDansLaCase(this);
    }
 
-   public override void SelectionnerPiece()
-   {
-      //On peut changer la couleur de la pièce si l'on veut
-      EstSelectionne = true;
-      //Il faut permettre seulement les déplacements possibles ici selon le type de pièce.
-      //C'est le BoardManager qui activera les cases pour se déplacer selon le moveSet envoyé.
-      
-      //On affiche les cases possibles du pion pour se déplacer
-      BoardManager.Instance.ActiverCasesRelativeTo(this);
-      
-   }
+   
 
    public override void DeselectionnerPiece()
    {
