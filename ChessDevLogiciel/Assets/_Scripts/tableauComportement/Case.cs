@@ -5,29 +5,14 @@ using UnityEngine;
 
 public class Case : MonoBehaviour
 {
-    public string numeroDeCase;
+    public string nomDeCase;
+    public Vector2Int coordonneesDeCasePourBlanc;
+    public Vector2Int coordonneesDeCasePourNoir;
 
     private Material _material;
     private Color _defaultColor;
 
-    public bool EstActive
-    {
-        set
-        {
-            if (value)
-            {
-                _material.color = Color.red;
-            }
-            else
-            {
-                _material.color = _defaultColor;
-            }
-        }
-        get
-        {
-            return EstActive;
-        }
-    }
+    [SerializeField] private bool _estActive = false;
 
     private void Start()
     {
@@ -46,7 +31,32 @@ public class Case : MonoBehaviour
         pieceDansLaCase = nouvellePiece;
     }
 
-    
+    public bool EstActive()
+    {
+        return _estActive;
+    }
+
+    public void SetEstActive(bool estActive)
+    {
+        //On change la couleur de la case en fontion si elle va être activée ou pas.
+        if (estActive)
+        {
+            if (pieceDansLaCase != null)
+            {
+                _material.color = Color.red;
+            }
+            else
+            {
+                _material.color = Color.cyan;
+            }
+        }
+        else
+        {
+            _material.color = _defaultColor;
+        }
+        
+        _estActive = estActive;
+    }
 
     //SEULEMENT POUR DEBUG. FAUT EFFACER
     public bool HasPiece()
