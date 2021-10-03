@@ -30,8 +30,10 @@ public class PionComportement : Piece
       //On définit l'ensemble de mouvement de la pièce
       moveSet = _moveSet;
       isFirstMove = true;
+
+      
    }
-   
+
    public override void SelectionnerPiece()
    {
       //On peut changer la couleur de la pièce icitte si l'on veut

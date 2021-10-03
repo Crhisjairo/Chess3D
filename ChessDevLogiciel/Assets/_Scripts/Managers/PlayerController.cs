@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     
     public static PlayerController Instance { private set; get;}
     
-    private Piece pieceSelectionne;
+    private Piece _pieceSelectionne;
 
     public Joueur _joueurActive;
     [SerializeField] private Joueur[] _joueurs;
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
             if (hit.collider.CompareTag(CaseDuTableauTag))
             {
-                if (pieceSelectionne is null)
+                if (_pieceSelectionne is null)
                 {
                     Debug.Log("Pas de pièce seléctionné");
                     return;
@@ -86,10 +86,10 @@ public class PlayerController : MonoBehaviour
                 }
                 
                 
-                pieceSelectionne.DeplacerPiece(caseDestination);
-                pieceSelectionne.DeselectionnerPiece();
+                _pieceSelectionne.DeplacerPiece(caseDestination);
+                _pieceSelectionne.DeselectionnerPiece();
 
-                pieceSelectionne = null; //On efface la reférence à la pièce selecctionné
+                _pieceSelectionne = null; //On efface la reférence à la pièce selecctionné
                 
                 ChangerTour(); //Finalement, on change de tour.
             }
@@ -102,45 +102,39 @@ public class PlayerController : MonoBehaviour
         Piece nouvellePiece = hit.collider.GetComponent<Piece>();
 
         //Si on n'a pas de pièce seléctionnée, on seléctionne la première pièce touchée.
-        if (pieceSelectionne is null)
+        if (_pieceSelectionne is null)
         {
-            pieceSelectionne = nouvellePiece;
+            _pieceSelectionne = nouvellePiece;
             
             //Si la pièce n'est pas active, on fait rien
-            if (!pieceSelectionne.EstActive)
+            if (!_pieceSelectionne.EstActive)
             {
                 Debug.Log("Pièce pas active");
-                pieceSelectionne = null;
+                _pieceSelectionne = null;
                 return;
             }
             
-            pieceSelectionne.SelectionnerPiece();
+            _pieceSelectionne.SelectionnerPiece();
             Debug.Log("toute nouvelle pièce");
             return;
         }
         
         //Si la pièce n'est pas la même pièce
         //On seléctionne la nouvelle pièce
-        if (!pieceSelectionne.Equals(nouvellePiece))
+        if (!_pieceSelectionne.Equals(nouvellePiece) && nouvellePiece.EstActive)
         {
-            //Si la pièce n'est pas active, on fait rien
-            if (!nouvellePiece.EstActive)
-            {
-                Debug.Log("Pièce pas active");
-                return;
-            }
             
             Debug.Log("NOUVELLE pièce!");
          
-            pieceSelectionne.DeselectionnerPiece();
+            _pieceSelectionne.DeselectionnerPiece();
             //On prends la nouvelle pièce
-            pieceSelectionne = nouvellePiece;
+            _pieceSelectionne = nouvellePiece;
             
-            pieceSelectionne.SelectionnerPiece();
+            _pieceSelectionne.SelectionnerPiece();
         }
         else
         {
-            Debug.Log("Meme pièce");
+            Debug.Log("Meme pièce ou pièce pas active");
         }
     }
 
