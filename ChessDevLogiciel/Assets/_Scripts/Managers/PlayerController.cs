@@ -8,11 +8,26 @@ public class PlayerController : MonoBehaviour
     private const string PieceTag = "Piece";
     private const string CaseDuTableauTag = "CaseDuTableau";
     
+    public static PlayerController Instance { private set; get;}
+    
     private Piece pieceSelectionne;
 
-    private Joueur _joueurActive;
+    public Joueur _joueurActive;
     [SerializeField] private Joueur[] _joueurs;
 
+    private void Awake()
+    {
+        //On évite avoir deux instance de cette même classe lors du Awake
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject); //On destroy le gameObject qui contient ce script. Faire attention.
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    
     private void Start()
     {
         //On débute avec le premier joueur
@@ -57,11 +72,19 @@ public class PlayerController : MonoBehaviour
                 //On déplace la pièce, on la déseléctionne et on change de tour
                 //On envoie la position du centre du collider de la case
                 Case caseDestination = hit.collider.gameObject.GetComponent<Case>();
+                
+                //Checker si on peut manger la pièce
                 //POUR DEBUG, EFFACER APRÈS
                 if (caseDestination.HasPiece())
                 {
                     return;
                 }
+
+                if (!caseDestination.EstActive())
+                {
+                    return;
+                }
+                
                 
                 pieceSelectionne.DeplacerPiece(caseDestination);
                 pieceSelectionne.DeselectionnerPiece();
@@ -98,8 +121,15 @@ public class PlayerController : MonoBehaviour
         
         //Si la pièce n'est pas la même pièce
         //On seléctionne la nouvelle pièce
-        if (!pieceSelectionne.Equals(nouvellePiece) && !pieceSelectionne.EstActive)
+        if (!pieceSelectionne.Equals(nouvellePiece))
         {
+            //Si la pièce n'est pas active, on fait rien
+            if (!nouvellePiece.EstActive)
+            {
+                Debug.Log("Pièce pas active");
+                return;
+            }
+            
             Debug.Log("NOUVELLE pièce!");
          
             pieceSelectionne.DeselectionnerPiece();
