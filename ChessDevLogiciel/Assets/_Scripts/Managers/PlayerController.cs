@@ -8,11 +8,26 @@ public class PlayerController : MonoBehaviour
     private const string PieceTag = "Piece";
     private const string CaseDuTableauTag = "CaseDuTableau";
     
-    private Piece pieceSelectionne;
+    public static PlayerController Instance { private set; get;}
+    
+    private Piece _pieceSelectionne;
 
-    private Joueur _joueurActive;
+    public Joueur _joueurActive;
     [SerializeField] private Joueur[] _joueurs;
 
+    private void Awake()
+    {
+        //On évite avoir deux instance de cette même classe lors du Awake
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject); //On destroy le gameObject qui contient ce script. Faire attention.
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    
     private void Start()
     {
         //On débute avec le premier joueur
@@ -48,7 +63,7 @@ public class PlayerController : MonoBehaviour
 
             if (hit.collider.CompareTag(CaseDuTableauTag))
             {
-                if (pieceSelectionne is null)
+                if (_pieceSelectionne is null)
                 {
                     Debug.Log("Pas de pièce seléctionné");
                     return;
@@ -57,16 +72,24 @@ public class PlayerController : MonoBehaviour
                 //On déplace la pièce, on la déseléctionne et on change de tour
                 //On envoie la position du centre du collider de la case
                 Case caseDestination = hit.collider.gameObject.GetComponent<Case>();
+                
+                //Checker si on peut manger la pièce
                 //POUR DEBUG, EFFACER APRÈS
                 if (caseDestination.HasPiece())
                 {
                     return;
                 }
-                
-                pieceSelectionne.DeplacerPiece(caseDestination);
-                pieceSelectionne.DeselectionnerPiece();
 
-                pieceSelectionne = null; //On efface la reférence à la pièce selecctionné
+                if (!caseDestination.EstActive())
+                {
+                    return;
+                }
+                
+                
+                _pieceSelectionne.DeplacerPiece(caseDestination);
+                _pieceSelectionne.DeselectionnerPiece();
+
+                _pieceSelectionne = null; //On efface la reférence à la pièce selecctionné
                 
                 ChangerTour(); //Finalement, on change de tour.
             }
@@ -79,38 +102,39 @@ public class PlayerController : MonoBehaviour
         Piece nouvellePiece = hit.collider.GetComponent<Piece>();
 
         //Si on n'a pas de pièce seléctionnée, on seléctionne la première pièce touchée.
-        if (pieceSelectionne is null)
+        if (_pieceSelectionne is null)
         {
-            pieceSelectionne = nouvellePiece;
+            _pieceSelectionne = nouvellePiece;
             
             //Si la pièce n'est pas active, on fait rien
-            if (!pieceSelectionne.EstActive)
+            if (!_pieceSelectionne.EstActive)
             {
                 Debug.Log("Pièce pas active");
-                pieceSelectionne = null;
+                _pieceSelectionne = null;
                 return;
             }
             
-            pieceSelectionne.SelectionnerPiece();
+            _pieceSelectionne.SelectionnerPiece();
             Debug.Log("toute nouvelle pièce");
             return;
         }
         
         //Si la pièce n'est pas la même pièce
         //On seléctionne la nouvelle pièce
-        if (!pieceSelectionne.Equals(nouvellePiece) && !pieceSelectionne.EstActive)
+        if (!_pieceSelectionne.Equals(nouvellePiece) && nouvellePiece.EstActive)
         {
+            
             Debug.Log("NOUVELLE pièce!");
          
-            pieceSelectionne.DeselectionnerPiece();
+            _pieceSelectionne.DeselectionnerPiece();
             //On prends la nouvelle pièce
-            pieceSelectionne = nouvellePiece;
+            _pieceSelectionne = nouvellePiece;
             
-            pieceSelectionne.SelectionnerPiece();
+            _pieceSelectionne.SelectionnerPiece();
         }
         else
         {
-            Debug.Log("Meme pièce");
+            Debug.Log("Meme pièce ou pièce pas active");
         }
     }
 
