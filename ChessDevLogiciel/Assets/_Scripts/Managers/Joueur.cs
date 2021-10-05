@@ -11,7 +11,7 @@ public class Joueur : MonoBehaviour
     /// Numero du joueur
     /// </summary>
     public NumeroJoueur numeroJoueur;
-
+    public string _nomJoueur = "";
     public Transform camPosition;
 
     public string Nom { get; set; }
@@ -22,10 +22,10 @@ public class Joueur : MonoBehaviour
     private void Start()
     {
         //Si jamais le nom est vide
-        if (Nom == string.Empty)
-        {
-            Nom = "Joueur " + (int) numeroJoueur;
-        }
+        //if (_nomJoueur == string.Empty)
+        //{
+            _nomJoueur = "Joueur " + (int) numeroJoueur;
+        //}
     }
 
     public void SetPiecesActives(bool sontPiecesActives)

@@ -5,37 +5,43 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public Slider timeSlider;
-    public Text timerText;
-    public float gameTime;
-    
+    [SerializeField] private Slider timeSlider;
+    [SerializeField] private Text timerText;
+    [SerializeField] private Image _couleur;
+    private float _tempsJeu = 20;
     private bool stopTimer;
+
 
     // Start is called before the first frame update
     void Start()
     {
         stopTimer = false;
-        timeSlider.maxValue = gameTime;
-        timeSlider.value = gameTime;
-        
+        timeSlider.maxValue = _tempsJeu;
+        timeSlider.value = _tempsJeu;
     }
 
     // Update is called once per frame
     void Update()
     {
-        float time = gameTime - Time.time;
+        float time = _tempsJeu - Time.time;
 
         int minutes = Mathf.FloorToInt(time / 60);
-        int seconds = Mathf.FloorToInt(time - minutes * 60f);
+        int secondes = Mathf.FloorToInt(time - minutes * 60f);
 
-        string textTime = string.Format("{0:00}:{1:00}", minutes, seconds);
+        string textTime = string.Format("{0:00}:{1:00}", minutes, secondes);
 
         if (time <= 0)
         {
             stopTimer = true;
+            _couleur.color = Color.red;
         }
 
-        if(stopTimer == false)
+        if (time <= 6)
+        {
+            _couleur.color = Color.red;
+        }
+
+        if (stopTimer == false)
         {
             timerText.text = textTime;
             timeSlider.value = time;
