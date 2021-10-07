@@ -227,8 +227,9 @@ GameObject:
   - component: {fileID: 1147342914}
   - component: {fileID: 1147342913}
   - component: {fileID: 1147342912}
+  - component: {fileID: 1147342915}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: CinemachineBrain
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,13 +293,52 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147342911}
-  m_LocalRotation: {x: -0.36049783, y: 0.6068943, z: -0.35785887, w: -0.6112755}
-  m_LocalPosition: {x: 30.22356, y: 43.72136, z: 0.2747688}
+  m_LocalRotation: {x: -0.40392923, y: 0.5796621, z: -0.40194306, w: -0.5824731}
+  m_LocalPosition: {x: 22.96093, y: 45.935184, z: 3.238423}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1147342915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147342911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 11400000, guid: cb610d41359d0e7448e52f27d5313934, type: 2}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!95 &1576046568 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1576046568, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+  m_PrefabInstance: {fileID: 1749325653}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1749325653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -306,17 +346,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1358297081, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 773130991, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: vcam_player2
       objectReference: {fileID: 0}
-    - target: {fileID: 1818735489, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 1576046569, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_ChildCameras.Array.size
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1075912063364708471, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
+    - target: {fileID: 2027470834, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: vcam_player1
       objectReference: {fileID: 0}
     - target: {fileID: 4716050949110630864, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_RootOrder
@@ -379,6 +419,10 @@ PrefabInstance:
       propertyPath: _cam
       value: 
       objectReference: {fileID: 1147342913}
+    - target: {fileID: 3215079724392862018, guid: 014ca052217b12b4a85a8cc3d3686230, type: 3}
+      propertyPath: _drivenCamAnimator
+      value: 
+      objectReference: {fileID: 1576046568}
     - target: {fileID: 3215079724392862020, guid: 014ca052217b12b4a85a8cc3d3686230, type: 3}
       propertyPath: m_Name
       value: GameManager
