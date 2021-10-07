@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public static PlayerController Instance { private set; get;}
     
     private Piece _pieceSelectionne;
+    private UIManager uIManager;
 
     public Joueur _joueurActive;
     [SerializeField] private Joueur[] _joueurs;

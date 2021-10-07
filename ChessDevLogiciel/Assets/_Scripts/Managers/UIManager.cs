@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text timerText;
     [SerializeField] private Image _couleur;
     private float _tempsJeu = 20;
+    public float _decompte;
     private bool stopTimer;
 
 
@@ -23,28 +25,33 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float time = _tempsJeu - Time.time;
+        tempsEcoule();
+       
+    }
 
-        int minutes = Mathf.FloorToInt(time / 60);
-        int secondes = Mathf.FloorToInt(time - minutes * 60f);
+    public void tempsEcoule()
+    {
+        _decompte = _tempsJeu - Time.time;
+
+        int minutes = Mathf.FloorToInt(_decompte / 60);
+        int secondes = Mathf.FloorToInt(_decompte - minutes * 60f);
 
         string textTime = string.Format("{0:00}:{1:00}", minutes, secondes);
 
-        if (time <= 0)
+        if (_decompte <= 6)
         {
-            stopTimer = true;
             _couleur.color = Color.red;
-        }
 
-        if (time <= 6)
-        {
-            _couleur.color = Color.red;
+            if (_decompte <= 0)
+            {
+                stopTimer = true;
+            }
         }
 
         if (stopTimer == false)
         {
             timerText.text = textTime;
-            timeSlider.value = time;
+            timeSlider.value = _decompte;
         }
     }
 }
