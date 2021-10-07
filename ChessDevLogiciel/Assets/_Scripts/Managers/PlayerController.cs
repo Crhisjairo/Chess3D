@@ -160,6 +160,6 @@ public class PlayerController : MonoBehaviour
         //On active les pièce du nouveau joueur qui es maintenant joueurActive.
         _joueurActive.SetPiecesActives(true);
         
-        GameManager.Instance.ChangerCameraTo(_joueurActive.camPosition);
+        GameManager.Instance.ChangerCameraTo(_joueurActive.numeroJoueur);
     }
 }

@@ -16,9 +16,11 @@ public class PionComportement : Piece
       new Vector2Int(0, 2), //Move au départ
       new Vector2Int(1, 1),  //move pour manger en diagonal droit
       new Vector2Int(-1, 1)  //move pour manger en diagonal gauche
+      
       //new Vector2Int(2, 1) //Exemple d'un mouvement en L (cheval)
       //new Vector2Int(BoardManager.MAX_BOARD_SIZE, 0) //Exemple de mouvement vers toute la droite
       //new Vector2Int(-BoardManager.MAX_BOARD_SIZE, 0) //Exemple de mouvement vers toute la gauche
+
    };
 
    private bool isFirstMove;
@@ -111,6 +113,7 @@ public class PionComportement : Piece
             //On active les cases par coordonnées dans le board
             BoardManager.Instance.ActiverCaseByCoord(xPosi, coordonneesDeCetteCase.y, true, numeroJoueur);
          }
+         
          //On active dans les coordonnées x negatif
          for (int xNega = coordonneesDeCetteCase.x; xNega >= nextMove.x; xNega--)
          {
@@ -133,6 +136,7 @@ public class PionComportement : Piece
             Debug.Log(nextMove.x + ":" + yPosi);
          }
       }
+      
       */
    }
 
