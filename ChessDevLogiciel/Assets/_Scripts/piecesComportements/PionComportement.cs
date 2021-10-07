@@ -76,6 +76,7 @@ public class PionComportement : Piece
          }
          
       }
+      
       //On check si on peut manger
       Vector2Int nextDiagonalMoveRight = moveSet[2]; //On utilise le move pour manger
       Vector2Int nextDiagonalMoveLeft = moveSet[3]; //On utilise le move pour manger
