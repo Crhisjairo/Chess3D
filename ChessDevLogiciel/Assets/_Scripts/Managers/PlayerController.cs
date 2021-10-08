@@ -10,8 +10,7 @@ public class PlayerController : MonoBehaviour
     
     public static PlayerController Instance { private set; get;}
     
-    private Piece _pieceSelectionne;
-    private UIManager uIManager;
+    public Piece _pieceSelectionne;
 
     public Joueur _joueurActive;
     [SerializeField] private Joueur[] _joueurs;
@@ -91,7 +90,8 @@ public class PlayerController : MonoBehaviour
                 _pieceSelectionne.DeselectionnerPiece();
 
                 _pieceSelectionne = null; //On efface la reférence à la pièce selecctionné
-                
+
+               // UIManager.Instance.tempsEcoule();
                 ChangerTour(); //Finalement, on change de tour.
             }
             
