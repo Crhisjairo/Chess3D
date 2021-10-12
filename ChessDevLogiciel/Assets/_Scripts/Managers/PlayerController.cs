@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private const string PieceTag = "Piece";
     private const string CaseDuTableauTag = "CaseDuTableau";
-    
+
     public static PlayerController Instance { private set; get;}
     
     public Piece _pieceSelectionne;
@@ -34,11 +34,33 @@ public class PlayerController : MonoBehaviour
         int numeroJoueurQuiCommence = (int) Joueur.NumeroJoueur.Joueur1 - 1; //Enum qui se trouve dans Joueur
         _joueurActive = _joueurs[numeroJoueurQuiCommence]; 
         _joueurActive.SetPiecesActives(true);
+        _joueurActive._estArrete = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        /// Débuter le temps
+        _joueurActive._tempsRestant = 60f - Time.time; /// 300f => 5 minutes
+        int minutes = Mathf.FloorToInt(_joueurActive._tempsRestant / 60);
+        int secondes = Mathf.FloorToInt(_joueurActive._tempsRestant - minutes * 60f);
+        _joueurActive._textTime = string.Format("{0:00}:{1:00}", minutes, secondes);
+
+        if (_joueurActive._estArrete == false)
+        {
+            _joueurActive._tempsRestantText.text = _joueurActive._textTime;
+            _joueurActive._timeSlider.value = _joueurActive._tempsRestant;
+        }
+        else if (_joueurActive._estArrete == true)
+        {
+            _joueurActive._tempsArrete = _joueurActive._tempsRestant;
+        }
+
+        if (_joueurActive._tempsRestant <= 0)
+        {
+            _joueurActive._estArrete = true;
+        }
+
         //Vérification du click de la souris
         if (Input.GetMouseButtonDown(0))
         {
@@ -91,7 +113,6 @@ public class PlayerController : MonoBehaviour
 
                 _pieceSelectionne = null; //On efface la reférence à la pièce selecctionné
 
-               // UIManager.Instance.tempsEcoule();
                 ChangerTour(); //Finalement, on change de tour.
             }
             
@@ -147,7 +168,10 @@ public class PlayerController : MonoBehaviour
     {
         //On désactive les pièces du joueur active.
         _joueurActive.SetPiecesActives(false);
-        
+
+        // On arrête le temps
+        _joueurActive._estArrete = true;
+
         //On change le joueur active.
         int nouveauNumeroJoueur = ((int) _joueurActive.numeroJoueur) + 1;
         //On vérifie qu'on dépasse pas les nombre max des joueurs
@@ -157,9 +181,11 @@ public class PlayerController : MonoBehaviour
         _joueurActive = _joueurs[nouveauNumeroJoueur - 1];
         Debug.Log("Le tour à joueur " + nouveauNumeroJoueur);
 
-        //On active les pièce du nouveau joueur qui es maintenant joueurActive.
+        //On active les pièce du nouveau joueur qui est maintenant joueurActive.
         _joueurActive.SetPiecesActives(true);
         
         GameManager.Instance.ChangerCameraTo(_joueurActive.numeroJoueur);
+        _joueurActive._estArrete = false;
+        _joueurActive._tempsArrete = _joueurActive._tempsRestant - Time.time;
     }
 }

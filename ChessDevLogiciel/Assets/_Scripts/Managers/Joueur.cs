@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Joueur : MonoBehaviour
 {
@@ -10,11 +11,20 @@ public class Joueur : MonoBehaviour
     /// </summary>
     public NumeroJoueur numeroJoueur;
     public string _nomJoueur = "";
+    public float _tempsRestant;
+    public float _tempsArrete;
+    public bool _estArrete;
     public Transform camPosition;
+
+    public Slider _timeSlider;
+    public Text _tempsRestantText;
+    public string _textTime;
 
     public string Nom { get; set; }
     public int Pointage { get; set; } = 0;
-    
+    public float TempsRestant { get; set; }
+    public bool TempsArrete { get; set; }
+
     [SerializeField] private Piece[] _piecesJoueur;
 
     private void Start()
@@ -23,6 +33,7 @@ public class Joueur : MonoBehaviour
         //if (_nomJoueur == string.Empty)
         //{
             _nomJoueur = "Joueur " + (int) numeroJoueur;
+            _estArrete = false;
         //}
     }
 
