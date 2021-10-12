@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         /// Débuter le temps
-        _joueurActive._tempsRestant = 60f - Time.time; /// 300f => 5 minutes
+        _joueurActive._tempsRestant = 300f - Time.time; /// 300f => 5 minutes
         int minutes = Mathf.FloorToInt(_joueurActive._tempsRestant / 60);
         int secondes = Mathf.FloorToInt(_joueurActive._tempsRestant - minutes * 60f);
         _joueurActive._textTime = string.Format("{0:00}:{1:00}", minutes, secondes);

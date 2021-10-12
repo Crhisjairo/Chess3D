@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5636631150492697484}
   - component: {fileID: 1075912063502953087}
   - component: {fileID: 3260486361331346345}
-  - component: {fileID: 1473052711189893603}
   m_Layer: 0
   m_Name: Chess Pawn White
   m_TagString: Piece
@@ -124,20 +123,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7b7124d4bd56874380d5621c11a973c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSet: []
-  caseActuelle: {fileID: 0}
---- !u!114 &1473052711189893603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3569212718552136358}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c590fd13df77f014c80db7f4e243f9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSet: []
