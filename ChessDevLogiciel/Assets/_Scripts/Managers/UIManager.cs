@@ -12,10 +12,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text _timerText;
     [SerializeField] private Text _timesUpText;
     [SerializeField] private Image _couleur;
-    private float _tempsJeu = 20;
+    private float _tempsJeu = 300f;
     public float _decompte;
     private bool _stopTimer;
-    private Case _caseDestination;
 
 
     // Start is called before the first frame update
