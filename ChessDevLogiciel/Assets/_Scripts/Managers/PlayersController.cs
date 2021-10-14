@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayersController : MonoBehaviour
 {
     private const string PieceTag = "Piece";
     private const string CaseDuTableauTag = "CaseDuTableau";
     
-    public static PlayerController Instance { private set; get;}
+    public static PlayersController Instance { private set; get;}
     
     private Piece _pieceSelectionne;
 

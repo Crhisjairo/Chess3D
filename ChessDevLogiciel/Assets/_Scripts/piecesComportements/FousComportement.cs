@@ -48,7 +48,7 @@ public class FousComportement : Piece
          */
 
         Vector2Int coordonneesDeCetteCase = new Vector2Int();
-        Joueur.NumeroJoueur numeroJoueur = PlayerController.Instance._joueurActive.numeroJoueur;
+        Joueur.NumeroJoueur numeroJoueur = PlayersController.Instance._joueurActive.numeroJoueur;
         //On va utiliser les coodonn�es d'une case relative au joueur. Si on ajoute plus de joueurs, le code reste flexible
         if (numeroJoueur is Joueur.NumeroJoueur.Joueur1)
         {

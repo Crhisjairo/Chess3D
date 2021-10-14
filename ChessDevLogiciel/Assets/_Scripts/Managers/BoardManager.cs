@@ -68,7 +68,7 @@ public class BoardManager : MonoBehaviour
     /// <returns>S'il existe une pièce dans la case</returns>
     public bool HasPieceOnCoord(int x, int y)
     {
-        Joueur.NumeroJoueur numeroJoueur = PlayerController.Instance._joueurActive.numeroJoueur;
+        Joueur.NumeroJoueur numeroJoueur = PlayersController.Instance._joueurActive.numeroJoueur;
         
         foreach (Case uneCase in _cases)
         {

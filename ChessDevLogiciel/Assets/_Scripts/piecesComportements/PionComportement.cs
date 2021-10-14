@@ -54,7 +54,7 @@ public class PionComportement : Piece
        */ 
       
       Vector2Int coordonneesDeCetteCase = new Vector2Int();
-      Joueur.NumeroJoueur numeroJoueur = PlayerController.Instance._joueurActive.numeroJoueur;
+      Joueur.NumeroJoueur numeroJoueur = PlayersController.Instance._joueurActive.numeroJoueur;
       //On va utiliser les coodonnées d'une case relative au joueur. Si on ajoute plus de joueurs, le code reste flexible
       if (numeroJoueur is Joueur.NumeroJoueur.Joueur1)
       {
@@ -146,8 +146,6 @@ public class PionComportement : Piece
       //Dans le cas qu'il ait une pièce dans la case qu'on veut se déplacer,
       //on check si l'on peut la manger ou si c'est une de nos piece
       //pour ensuite se déplacer 
-      
-      
       
       //On déplace
       //On remplace la coordonnée  y  pour qu'elle reste intacte

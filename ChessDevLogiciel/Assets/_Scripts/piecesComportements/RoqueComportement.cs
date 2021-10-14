@@ -43,7 +43,7 @@ public class RoqueComportement : Piece
         //C'est le BoardManager qui activera les cases pour se déplacer selon le moveSet envoyé.
 
         Vector2Int coordonneesDeCetteCase = new Vector2Int();
-        Joueur.NumeroJoueur numeroJoueur = PlayerController.Instance._joueurActive.numeroJoueur;
+        Joueur.NumeroJoueur numeroJoueur = PlayersController.Instance._joueurActive.numeroJoueur;
 
 
         if (numeroJoueur is Joueur.NumeroJoueur.Joueur1)

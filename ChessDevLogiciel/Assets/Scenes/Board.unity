@@ -238,7 +238,6 @@ GameObject:
   - component: {fileID: 1147342914}
   - component: {fileID: 1147342913}
   - component: {fileID: 1147342912}
-  - component: {fileID: 1147342915}
   m_Layer: 0
   m_Name: CinemachineBrain
   m_TagString: MainCamera
@@ -322,6 +321,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945a1bc0fd75add4aae10452f6934dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1580446661 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1576046568, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+  m_PrefabInstance: {fileID: 1749325653}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1749325653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -332,6 +336,18 @@ PrefabInstance:
     - target: {fileID: 773130991, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_Name
       value: vcam_player2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576046567, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576046567, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1576046567, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1576046569, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_ChildCameras.Array.size
@@ -481,7 +497,7 @@ PrefabInstance:
     - target: {fileID: 3215079724392862018, guid: 014ca052217b12b4a85a8cc3d3686230, type: 3}
       propertyPath: _drivenCamAnimator
       value: 
-      objectReference: {fileID: 1576046568}
+      objectReference: {fileID: 1580446661}
     - target: {fileID: 3215079724392862020, guid: 014ca052217b12b4a85a8cc3d3686230, type: 3}
       propertyPath: m_Name
       value: GameManager
