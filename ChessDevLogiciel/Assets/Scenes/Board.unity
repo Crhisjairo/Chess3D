@@ -227,102 +227,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &283591302 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6069865514181443272, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+--- !u!114 &1099652123 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 896353243677417217, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
   m_PrefabInstance: {fileID: 1749325653}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &283591306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283591302}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b537a7df5a959c4aa0c82396d2f9673, type: 3}
+  m_Script: {fileID: 11500000, guid: 945a1bc0fd75add4aae10452f6934dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSet: []
-  caseActuelle: {fileID: 0}
---- !u!54 &283591307
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283591302}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &283591308
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283591302}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.029786097, y: 0.029786093, z: 0.057704374}
-  m_Center: {x: 0.000000014901161, y: -0.000000006519258, z: 0.028852114}
---- !u!1 &1026380466 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6069865515686378566, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-  m_PrefabInstance: {fileID: 1749325653}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1026380470
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026380466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b537a7df5a959c4aa0c82396d2f9673, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSet: []
-  caseActuelle: {fileID: 0}
---- !u!54 &1026380471
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026380466}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &1026380472
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1026380466}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.029786097, y: 0.029786093, z: 0.057704374}
-  m_Center: {x: 0, y: -0.000000006519258, z: 0.028852114}
 --- !u!1 &1147342911
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,93 +322,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1147342915
+--- !u!114 &1299545285 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147342911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
-  m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_BlendUpdateMethod: 1
-  m_DefaultBlend:
-    m_Style: 1
-    m_Time: 2
-    m_CustomCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  m_CustomBlends: {fileID: 11400000, guid: cb610d41359d0e7448e52f27d5313934, type: 2}
-  m_CameraCutEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_CameraActivatedEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!1 &1239204727 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6069865515979161261, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+  m_CorrespondingSourceObject: {fileID: 896353243722374847, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
   m_PrefabInstance: {fileID: 1749325653}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1239204731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1239204727}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b537a7df5a959c4aa0c82396d2f9673, type: 3}
+  m_Script: {fileID: 11500000, guid: 945a1bc0fd75add4aae10452f6934dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSet: []
-  caseActuelle: {fileID: 0}
---- !u!54 &1239204732
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1239204727}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &1239204733
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1239204727}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.029786097, y: 0.029786093, z: 0.057704374}
-  m_Center: {x: 0.000000014901161, y: 9.313226e-10, z: 0.02885213}
---- !u!95 &1576046568 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1576046568, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-  m_PrefabInstance: {fileID: 1749325653}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1749325653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -513,77 +352,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: vcam_player1
       objectReference: {fileID: 0}
-    - target: {fileID: 2805627207819952684, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: _piecesJoueur.Array.size
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805627207819952684, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: _piecesJoueur.Array.data[8]
-      value: 
-      objectReference: {fileID: 1239204731}
-    - target: {fileID: 2805627207819952684, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: _piecesJoueur.Array.data[9]
-      value: 
-      objectReference: {fileID: 283591306}
-    - target: {fileID: 2805627207819952684, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: _piecesJoueur.Array.data[10]
-      value: 
-      objectReference: {fileID: 222893265}
-    - target: {fileID: 3022916552599595144, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+    - target: {fileID: 3514762815259097089, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_TagString
       value: Piece
       objectReference: {fileID: 0}
-    - target: {fileID: 3022916553707667886, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_Name
-      value: Chess King Blacks
-      objectReference: {fileID: 0}
-    - target: {fileID: 3022916553707667886, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+    - target: {fileID: 3514762815350716863, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_TagString
       value: Piece
-      objectReference: {fileID: 0}
-    - target: {fileID: 3514762815999430776, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_Name
-      value: Chess Rook Black
-      objectReference: {fileID: 0}
-    - target: {fileID: 3514762816731235999, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_Name
-      value: Chess Rook Black (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3569212718296308226, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_Name
-      value: Chess Pawn Black (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3569212718428213038, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_Name
-      value: Chess Pawn Black (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3569212718469528627, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_Name
-      value: Chess Pawn Black (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3569212718758975586, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_Name
-      value: Chess Pawn Black
-      objectReference: {fileID: 0}
-    - target: {fileID: 3569212719415396688, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_Name
-      value: Chess Pawn Black (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3569212719478777904, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_Name
-      value: Chess Pawn Black (6)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3569212719937871556, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_Name
-      value: Chess Pawn Black (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3569212720202242015, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_Name
-      value: Chess Pawn Black (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4514076438865182884, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_Name
-      value: Chess Queen Black
       objectReference: {fileID: 0}
     - target: {fileID: 4716050949110630864, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_RootOrder
@@ -633,17 +408,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Players
       objectReference: {fileID: 0}
-    - target: {fileID: 6069865514181443272, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_Name
-      value: Chess Bishop Black (1)
+    - target: {fileID: 6099117290801243147, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6069865514181443272, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_TagString
-      value: Piece
-      objectReference: {fileID: 0}
-    - target: {fileID: 6069865515083365774, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_TagString
-      value: Piece
+    - target: {fileID: 6099117290880017845, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6069865515686378566, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_TagString
@@ -667,20 +438,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8716772145429343225, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: _piecesJoueur.Array.size
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8716772145429343225, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: _piecesJoueur.Array.data[8]
       value: 
-      objectReference: {fileID: 1757177705}
+      objectReference: {fileID: 1299545285}
     - target: {fileID: 8716772145429343225, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: _piecesJoueur.Array.data[9]
       value: 
-      objectReference: {fileID: 1026380470}
-    - target: {fileID: 8716772145429343225, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: _piecesJoueur.Array.data[10]
-      value: 
-      objectReference: {fileID: 2062942756}
+      objectReference: {fileID: 1099652123}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
 --- !u!1 &1757177704 stripped
