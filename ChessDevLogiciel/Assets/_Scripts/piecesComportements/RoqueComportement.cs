@@ -12,11 +12,12 @@ public class RoqueComportement : Piece
     
     [SerializeField] private Vector2Int[] _moveSet = new Vector2Int[]
     {
-        new Vector2Int(BoardManager.MAX_BOARD_SIZE, 0), //Exemple de mouvement vers toute la droite
-        new Vector2Int(-BoardManager.MAX_BOARD_SIZE, 0), //Exemple de mouvement vers toute la gauche
-        new Vector2Int(0,BoardManager.MAX_BOARD_SIZE),
-        new Vector2Int(0,-BoardManager.MAX_BOARD_SIZE),
-        new Vector2Int(BoardManager.MAX_BOARD_SIZE,-BoardManager.MAX_BOARD_SIZE)
+        new Vector2Int(BoardManager.MAX_BOARD_SIZE, 0), //Mouvement vers toute la droite
+        new Vector2Int(-BoardManager.MAX_BOARD_SIZE, 0), //Mouvement vers toute la gauche
+        new Vector2Int(0,BoardManager.MAX_BOARD_SIZE),//Mouvement vers tous en haut
+        new Vector2Int(0,-BoardManager.MAX_BOARD_SIZE),//Mouvement vers tous en bas 
+        new Vector2Int(BoardManager.MAX_BOARD_SIZE,-BoardManager.MAX_BOARD_SIZE),//Mouvement pour manger une piece
+        new Vector2Int()
 
 
 
@@ -78,17 +79,18 @@ public class RoqueComportement : Piece
             //On active dans les coordonnées x positif
             for (int xPosi = coordonneesDeCetteCase.x; xPosi <= nextMove.x; xPosi++)
             {
-                if (BoardManager.Instance.HasPieceOnCoord(nextMove.x, nextMove.y))
+                if (BoardManager.Instance.HasPieceOnCoord(xPosi, nextMove.y) && xPosi!=coordonneesDeCetteCase.x)
                 {
                     break;
                 }
                 //On active les cases par coordonnées dans le board
                 BoardManager.Instance.ActiverCaseByCoord(xPosi, coordonneesDeCetteCase.y, true, numeroJoueur);
             }
+            
             //On active dans les coordonnées x negatif
             for (int xNega = coordonneesDeCetteCase.x; xNega >= nextMove.x; xNega--)
             {
-                if (BoardManager.Instance.HasPieceOnCoord(nextMove.x, nextMove.y))
+                if (BoardManager.Instance.HasPieceOnCoord(xNega, nextMove.y) && xNega!=coordonneesDeCetteCase.x)
                 {
                     break;
                 }
@@ -99,7 +101,7 @@ public class RoqueComportement : Piece
             //On active dans les coordonnées y positif
             for (int yPosi = coordonneesDeCetteCase.y; yPosi <= nextMove.y; yPosi++)
             {
-                if (BoardManager.Instance.HasPieceOnCoord(nextMove.x, nextMove.y))
+                if (BoardManager.Instance.HasPieceOnCoord(coordonneesDeCetteCase.x, yPosi)&& yPosi!=coordonneesDeCetteCase.y)
                 {
                     break;
                 }
@@ -110,7 +112,7 @@ public class RoqueComportement : Piece
             //On active dans les coordonnées y negatif
             for (int yPosi = coordonneesDeCetteCase.y; yPosi >= nextMove.y; yPosi--)
             {
-                if (BoardManager.Instance.HasPieceOnCoord(nextMove.x, nextMove.y))
+                if (BoardManager.Instance.HasPieceOnCoord(coordonneesDeCetteCase.x, yPosi) && yPosi!=coordonneesDeCetteCase.y)
                 {
                     break;
                 }
