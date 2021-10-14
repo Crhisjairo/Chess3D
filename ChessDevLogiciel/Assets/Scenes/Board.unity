@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &222893265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3789018798083734448, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+  m_PrefabInstance: {fileID: 1749325653}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81771deeb0f9b648a0ff580416b639e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &281998015
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +227,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &283591302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6069865514181443272, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+  m_PrefabInstance: {fileID: 1749325653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &283591306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283591302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b537a7df5a959c4aa0c82396d2f9673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSet: []
+  caseActuelle: {fileID: 0}
+--- !u!54 &283591307
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283591302}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &283591308
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283591302}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.029786097, y: 0.029786093, z: 0.057704374}
+  m_Center: {x: 0.000000014901161, y: -0.000000006519258, z: 0.028852114}
+--- !u!1 &1026380466 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6069865515686378566, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+  m_PrefabInstance: {fileID: 1749325653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1026380470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026380466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b537a7df5a959c4aa0c82396d2f9673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSet: []
+  caseActuelle: {fileID: 0}
+--- !u!54 &1026380471
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026380466}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1026380472
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026380466}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.029786097, y: 0.029786093, z: 0.057704374}
+  m_Center: {x: 0, y: -0.000000006519258, z: 0.028852114}
 --- !u!1 &1147342911
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +441,54 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1239204727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6069865515979161261, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+  m_PrefabInstance: {fileID: 1749325653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1239204731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239204727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b537a7df5a959c4aa0c82396d2f9673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSet: []
+  caseActuelle: {fileID: 0}
+--- !u!54 &1239204732
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239204727}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1239204733
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239204727}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.029786097, y: 0.029786093, z: 0.057704374}
+  m_Center: {x: 0.000000014901161, y: 9.313226e-10, z: 0.02885213}
 --- !u!95 &1576046568 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1576046568, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
@@ -357,6 +512,78 @@ PrefabInstance:
     - target: {fileID: 2027470834, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_Name
       value: vcam_player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2805627207819952684, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: _piecesJoueur.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2805627207819952684, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: _piecesJoueur.Array.data[8]
+      value: 
+      objectReference: {fileID: 1239204731}
+    - target: {fileID: 2805627207819952684, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: _piecesJoueur.Array.data[9]
+      value: 
+      objectReference: {fileID: 283591306}
+    - target: {fileID: 2805627207819952684, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: _piecesJoueur.Array.data[10]
+      value: 
+      objectReference: {fileID: 222893265}
+    - target: {fileID: 3022916552599595144, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_TagString
+      value: Piece
+      objectReference: {fileID: 0}
+    - target: {fileID: 3022916553707667886, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess King Blacks
+      objectReference: {fileID: 0}
+    - target: {fileID: 3022916553707667886, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_TagString
+      value: Piece
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514762815999430776, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Rook Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514762816731235999, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Rook Black (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212718296308226, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212718428213038, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212718469528627, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212718758975586, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212719415396688, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212719478777904, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212719937871556, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212720202242015, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514076438865182884, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Queen Black
       objectReference: {fileID: 0}
     - target: {fileID: 4716050949110630864, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_RootOrder
@@ -406,18 +633,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: Players
       objectReference: {fileID: 0}
+    - target: {fileID: 6069865514181443272, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Bishop Black (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069865514181443272, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_TagString
+      value: Piece
+      objectReference: {fileID: 0}
     - target: {fileID: 6069865515083365774, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_TagString
       value: Piece
       objectReference: {fileID: 0}
+    - target: {fileID: 6069865515686378566, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_TagString
+      value: Piece
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069865515979161261, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Bishop Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 6069865515979161261, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_TagString
+      value: Piece
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620100177877306189, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Knight Black (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8620100178376095328, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Knight Black
+      objectReference: {fileID: 0}
     - target: {fileID: 8716772145429343225, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: _piecesJoueur.Array.size
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8716772145429343225, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: _piecesJoueur.Array.data[8]
       value: 
       objectReference: {fileID: 1757177705}
+    - target: {fileID: 8716772145429343225, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: _piecesJoueur.Array.data[9]
+      value: 
+      objectReference: {fileID: 1026380470}
+    - target: {fileID: 8716772145429343225, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: _piecesJoueur.Array.data[10]
+      value: 
+      objectReference: {fileID: 2062942756}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
 --- !u!1 &1757177704 stripped
@@ -468,6 +731,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.029786097, y: 0.029786093, z: 0.057704378}
   m_Center: {x: 0, y: 9.313226e-10, z: 0.028852146}
+--- !u!114 &2062942756 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3789018799327597206, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+  m_PrefabInstance: {fileID: 1749325653}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a81771deeb0f9b648a0ff580416b639e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3215079724312679270
 PrefabInstance:
   m_ObjectHideFlags: 0

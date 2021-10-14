@@ -10,16 +10,10 @@ public class FousComportement : Piece
 
     private Vector2Int[] _moveSet = new Vector2Int[]
     {
-        //new Vector2Int(0, 1), //Move normal du pion
-        //new Vector2Int(0, 2), //Move au départ
         new Vector2Int(1, 1), //move pour manger en diagonal droit vers le haut
         new Vector2Int(-1, 1), //move pour manger en diagonal gauche vers le haut
         new Vector2Int(1, -1), //move pour manger en diagonal droite vers le bas
         new Vector2Int(-1, -1) //move pour manger en diagonal gauche vers le bas
-
-        //new Vector2Int(2, 1) //Exemple d'un mouvement en L (cheval)
-        //new Vector2Int(BoardManager.MAX_BOARD_SIZE, 0) //Exemple de mouvement vers toute la droite
-        //new Vector2Int(-BoardManager.MAX_BOARD_SIZE, 0) //Exemple de mouvement vers toute la gauche
     };
 
     private void Start()
@@ -108,77 +102,6 @@ public class FousComportement : Piece
 
             nextMove += moveSet[3];
         }
-        /**                     
-//Y négatif
-for (int yNegi = coordonneesDeCetteCase.y; yNegi >= BoardManager.MAX_BOARD_SIZE; yNegi--)
-{
-nextMove += moveSet[i];
-
-if (yNegi % 2 == 0)
-{
-//On active les cases par coordonn�es dans le board
-BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yNegi, true, numeroJoueur);
-Debug.Log(nextMove.x + ":" + yNegi);
-}
-
-}
-*/
-        /**
-        //On active dans les coordonn�es y negatif
-        for (int yPosi = coordonneesDeCetteCase.y; yPosi >= nextMove.y; yPosi--)
-        {
-            //On active les cases par coordonn�es dans le board
-            BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
-            Debug.Log(nextMove.x + ":" + yPosi);
-        }
-
-        //On active dans les coordonn�es x negatif
-        for (int xNega = coordonneesDeCetteCase.x; xNega >= nextMove.x; xNega--)
-        {
-            //On active les cases par coordonn�es dans le board
-            BoardManager.Instance.ActiverCaseByCoord(xNega, coordonneesDeCetteCase.y, true, numeroJoueur);
-        }
-        */
-
-        /*
-         //AUTRE EXEMPLE DE MOUVEMENT POUR UNE AUTRE PI�CE//
-         //C'EST CETTE PARTIE qui change SELON la pi�ce
-        //On rep�te pour tous les mouvements possibles dans _actualMoveSet
-        for (int i = 0; i < moveSet.Length; i++)
-        {
-           Vector2Int nextMove = moveSet[i];
-           nextMove += coordonneesDeCetteCase; //Pour conna�tre le mouvement r�latif � la position de cette case
-
-
-           //On active dans les coordonn�es x positif
-           for (int xPosi = coordonneesDeCetteCase.x; xPosi <= nextMove.x; xPosi++)
-           {
-              //On active les cases par coordonn�es dans le board
-              BoardManager.Instance.ActiverCaseByCoord(xPosi, coordonneesDeCetteCase.y, true, numeroJoueur);
-           }
-           //On active dans les coordonn�es x negatif
-           for (int xNega = coordonneesDeCetteCase.x; xNega >= nextMove.x; xNega--)
-           {
-              //On active les cases par coordonn�es dans le board
-              BoardManager.Instance.ActiverCaseByCoord(xNega, coordonneesDeCetteCase.y, true, numeroJoueur);
-           }
-
-           //On active dans les coordonn�es y positif
-           for (int yPosi = coordonneesDeCetteCase.y; yPosi <= nextMove.y; yPosi++)
-           {
-              //On active les cases par coordonn�es dans le board
-              BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
-              Debug.Log(nextMove.x + ":" + yPosi);
-           }
-           //On active dans les coordonn�es y negatif
-           for (int yPosi = coordonneesDeCetteCase.y; yPosi >= nextMove.y; yPosi--)
-           {
-              //On active les cases par coordonn�es dans le board
-              BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
-              Debug.Log(nextMove.x + ":" + yPosi);
-           }
-        }
-        */
     }
 
     public override void DeplacerPiece(Case caseDestination)
