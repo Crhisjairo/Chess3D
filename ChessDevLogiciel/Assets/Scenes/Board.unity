@@ -216,6 +216,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1099652123 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 896353243677417217, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+  m_PrefabInstance: {fileID: 1749325653}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945a1bc0fd75add4aae10452f6934dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1147342911
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,45 +311,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1147342915
+--- !u!114 &1299545285 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147342911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowDebugText: 0
-  m_ShowCameraFrustum: 1
-  m_IgnoreTimeScale: 0
-  m_WorldUpOverride: {fileID: 0}
-  m_UpdateMethod: 2
-  m_BlendUpdateMethod: 1
-  m_DefaultBlend:
-    m_Style: 1
-    m_Time: 2
-    m_CustomCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-  m_CustomBlends: {fileID: 11400000, guid: cb610d41359d0e7448e52f27d5313934, type: 2}
-  m_CameraCutEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_CameraActivatedEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!95 &1576046568 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1576046568, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+  m_CorrespondingSourceObject: {fileID: 896353243722374847, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
   m_PrefabInstance: {fileID: 1749325653}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945a1bc0fd75add4aae10452f6934dd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1749325653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -357,6 +340,14 @@ PrefabInstance:
     - target: {fileID: 2027470834, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_Name
       value: vcam_player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514762815259097089, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_TagString
+      value: Piece
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514762815350716863, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_TagString
+      value: Piece
       objectReference: {fileID: 0}
     - target: {fileID: 4716050949110630864, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_RootOrder
@@ -406,18 +397,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Players
       objectReference: {fileID: 0}
-    - target: {fileID: 6069865515083365774, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
-      propertyPath: m_TagString
-      value: Piece
+    - target: {fileID: 6099117290801243147, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6099117290880017845, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8716772145429343225, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: _piecesJoueur.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8716772145429343225, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: _piecesJoueur.Array.data[8]
       value: 
-      objectReference: {fileID: 1757177705}
+      objectReference: {fileID: 1299545285}
+    - target: {fileID: 8716772145429343225, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: _piecesJoueur.Array.data[9]
+      value: 
+      objectReference: {fileID: 1099652123}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
 --- !u!1 &1757177704 stripped
