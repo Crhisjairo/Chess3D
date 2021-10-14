@@ -13,8 +13,9 @@ public class FousComportement : Piece
     {
       //new Vector2Int(0, 1), //Move normal du pion
       //new Vector2Int(0, 2), //Move au départ
-     new Vector2Int(1, 1),  //move pour manger en diagonal droit
+      new Vector2Int(1, 1),  //move pour manger en diagonal droit
       new Vector2Int(-1, 1)  //move pour manger en diagonal gauche
+
                              //new Vector2Int(2, 1) //Exemple d'un mouvement en L (cheval)
                              //new Vector2Int(BoardManager.MAX_BOARD_SIZE, 0) //Exemple de mouvement vers toute la droite
                              //new Vector2Int(-BoardManager.MAX_BOARD_SIZE, 0) //Exemple de mouvement vers toute la gauche
@@ -95,8 +96,20 @@ public class FousComportement : Piece
 
             }
 
+            //On active dans les coordonn�es y negatif
+            for (int yPosi = coordonneesDeCetteCase.y; yPosi >= nextMove.y; yPosi--)
+            {
+                //On active les cases par coordonn�es dans le board
+                BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
+                Debug.Log(nextMove.x + ":" + yPosi);
+            }
 
-
+            //On active dans les coordonn�es x negatif
+            for (int xNega = coordonneesDeCetteCase.x; xNega >= nextMove.x; xNega--)
+            {
+                //On active les cases par coordonn�es dans le board
+                BoardManager.Instance.ActiverCaseByCoord(xNega, coordonneesDeCetteCase.y, true, numeroJoueur);
+            }
         }
 
         /*
