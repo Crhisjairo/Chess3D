@@ -8,9 +8,28 @@ public abstract class Piece : MonoBehaviour
 {
     /// <summary>
     /// Returne si la pièce est activée et peut être seléctionnée.
+    /// Si la pièce a été mangée, elle ne peut pas s'activer
     /// </summary>
     /// <returns></returns>
-    public bool EstActive { set; get; }
+    public bool EstActive
+    {
+        set
+        {
+            if (EstMangee)
+            {
+                EstActive = false;
+            }
+            else
+            {
+                EstActive = value;
+            }
+        }
+        get { return EstActive; }
+    }
+
+    public bool EstMangee { set; get; } = false;
+
+    protected Joueur.NumeroJoueur _joueurProprietaire;
     
     /// <summary>
     /// Ensemble de mouvement rélatives à la pièce.
@@ -69,4 +88,8 @@ public abstract class Piece : MonoBehaviour
         }
     }
 
+    public void SetPieceProprietaire(Joueur.NumeroJoueur joueurProprietaire)
+    {
+        _joueurProprietaire = joueurProprietaire;
+    }
 }

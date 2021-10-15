@@ -13,22 +13,27 @@ public class Case : MonoBehaviour
     private Color _defaultColor;
 
     [SerializeField] private bool _estActive = false;
-
+    
+    /// <summary>
+    /// Reférence à la pièce qui est dans la case pour pouvoir
+    /// manipuler cette pièce après.
+    /// </summary>
+    [SerializeField] private Piece pieceDansLaCase;
+    
     private void Start()
     {
         _material = GetComponent<Renderer>().material;
         _defaultColor = _material.color;
     }
 
-    /// <summary>
-    /// Reférence à la pièce qui est dans la case pour pouvoir
-    /// manipuler cette pièce après.
-    /// </summary>
-    [SerializeField] private Piece pieceDansLaCase;
-
     public void SetPieceDansLaCase(Piece nouvellePiece)
     {
         pieceDansLaCase = nouvellePiece;
+    }
+
+    public Piece GetPieceDansLaCase()
+    {
+        return pieceDansLaCase;
     }
 
     public bool EstActive()

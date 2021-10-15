@@ -82,27 +82,38 @@ public class PlayersController : MonoBehaviour
                     return;
                 }
 
-                //Checker si on peut manger la pièce
-                //POUR DEBUG, EFFACER APRÈS
-                
-                /*
+                //Checker s'il y a une piece dans la case qu'on veut se déplacer pour la manger.
                 if (caseDestination.HasPiece())
                 {
-                    return;
+                    MangerPiece(caseDestination);
+                    
                 }
-
-                */
                 
+                //Finalement, on se déplace.
+                DeplacerPieceToCase(caseDestination);
+                ChangerTour(); //on change de tour.
                 
-                _pieceSelectionne.DeplacerPiece(caseDestination);
-                _pieceSelectionne.DeselectionnerPiece();
-
-                _pieceSelectionne = null; //On efface la reférence à la pièce selecctionné
-                
-                ChangerTour(); //Finalement, on change de tour.
             }
             
         }
+    }
+
+    /// <summary>
+    /// On prends la pièce qui se trouve dans la case où l'on veut se déplacer et on l'ajoute à la liste de
+    /// piècesMangees du joueur contraire.
+    /// </summary>
+    /// <param name="caseDestination"></param>
+    private void MangerPiece(Case caseDestination)
+    {
+        
+    }
+
+    private void DeplacerPieceToCase(Case caseDestination)
+    {
+        _pieceSelectionne.DeplacerPiece(caseDestination);
+        _pieceSelectionne.DeselectionnerPiece();
+
+        _pieceSelectionne = null; //On efface la reférence à la pièce selecctionné
     }
 
     private void SelectionnerNouvellePiece(RaycastHit hit)

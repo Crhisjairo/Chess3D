@@ -26,6 +26,19 @@ public class Joueur : MonoBehaviour
         }
         
         _piecesMangees = new List<Piece>();
+        
+        SetProprietairePieces(); //On se donne comme proprietaire de ces pièces
+    }
+
+    /**
+     * On donne le numéro de joueur auquel les pièces appartiennent.
+     */
+    private void SetProprietairePieces()
+    {
+        foreach (Piece piece in _piecesJoueur)
+        {
+            piece.SetPieceProprietaire(numeroJoueur);
+        }
     }
 
     public void SetPiecesActives(bool sontPiecesActives)
@@ -37,8 +50,11 @@ public class Joueur : MonoBehaviour
         }
     }
 
+    
     public void AjouterPieceMangee(Piece piece)
     {
+        //On désactive la pièce.
+        
         _piecesMangees.Add(piece);
     }
 
