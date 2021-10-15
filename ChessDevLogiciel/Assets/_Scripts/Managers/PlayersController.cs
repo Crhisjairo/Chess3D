@@ -54,36 +54,44 @@ public class PlayersController : MonoBehaviour
         {
             //Debug.Log("Touché " + hit.collider.name);
             
-            //Ici, il faut déplacer la pièce au centre de la case désiré.
-            //On attents que les cases soient programées
+            //On vérifie s'il s'agit d'une pièce ou une case
             if (hit.collider.CompareTag(PieceTag))
             {
                 SelectionnerNouvellePiece(hit);
+                //Une fois que la pièce est séléctionnée, des cases sont activées
             }
 
             if (hit.collider.CompareTag(CaseDuTableauTag))
             {
+                //On check s'il y a une pièce selectionnée
                 if (_pieceSelectionne is null)
                 {
                     Debug.Log("Pas de pièce seléctionné");
                     return;
                 }
 
+                //Ici, il faut déplacer la pièce au centre de la case désiré.
                 //On déplace la pièce, on la déseléctionne et on change de tour
                 //On envoie la position du centre du collider de la case
                 Case caseDestination = hit.collider.gameObject.GetComponent<Case>();
                 
+                //On check que la pièce soit active
+                if (!caseDestination.EstActive())
+                {
+                    Debug.Log("Case pas active ");
+                    return;
+                }
+
                 //Checker si on peut manger la pièce
                 //POUR DEBUG, EFFACER APRÈS
+                
+                /*
                 if (caseDestination.HasPiece())
                 {
                     return;
                 }
 
-                if (!caseDestination.EstActive())
-                {
-                    return;
-                }
+                */
                 
                 
                 _pieceSelectionne.DeplacerPiece(caseDestination);
