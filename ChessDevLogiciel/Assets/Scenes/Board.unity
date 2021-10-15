@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 1147342914}
   - component: {fileID: 1147342913}
   - component: {fileID: 1147342912}
+  - component: {fileID: 1147342915}
   m_Layer: 0
   m_Name: CinemachineBrain
   m_TagString: MainCamera
@@ -362,13 +363,47 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147342911}
-  m_LocalRotation: {x: -0.40392923, y: 0.5796621, z: -0.40194306, w: -0.5824731}
-  m_LocalPosition: {x: 22.96093, y: 45.935184, z: 3.238423}
+  m_LocalRotation: {x: 0.42360744, y: -0.56584466, z: 0.421873, w: 0.5678026}
+  m_LocalPosition: {x: 19.49492, y: 51.42237, z: 3.4654157}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1147342915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147342911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowDebugText: 0
+  m_ShowCameraFrustum: 1
+  m_IgnoreTimeScale: 0
+  m_WorldUpOverride: {fileID: 0}
+  m_UpdateMethod: 2
+  m_BlendUpdateMethod: 1
+  m_DefaultBlend:
+    m_Style: 1
+    m_Time: 2
+    m_CustomCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  m_CustomBlends: {fileID: 0}
+  m_CameraCutEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_CameraActivatedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1299545285 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 896353243722374847, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
@@ -396,6 +431,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: vcam_player2
       objectReference: {fileID: 0}
+    - target: {fileID: 773130992, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21.534924
+      objectReference: {fileID: 0}
+    - target: {fileID: 773130992, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 51.53859
+      objectReference: {fileID: 0}
+    - target: {fileID: 773130992, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.0833845
+      objectReference: {fileID: 0}
+    - target: {fileID: 773130992, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5710399
+      objectReference: {fileID: 0}
+    - target: {fileID: 773130992, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.4151728
+      objectReference: {fileID: 0}
+    - target: {fileID: 773130992, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5726743
+      objectReference: {fileID: 0}
+    - target: {fileID: 773130992, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.4166405
+      objectReference: {fileID: 0}
     - target: {fileID: 1576046567, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -415,6 +478,34 @@ PrefabInstance:
     - target: {fileID: 2027470834, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_Name
       value: vcam_player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027470836, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19.49492
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027470836, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 51.42237
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027470836, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.4654157
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027470836, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5678026
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027470836, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.42360744
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027470836, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.56584466
+      objectReference: {fileID: 0}
+    - target: {fileID: 2027470836, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.421873
       objectReference: {fileID: 0}
     - target: {fileID: 3514762815259097089, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_TagString
@@ -475,6 +566,10 @@ PrefabInstance:
     - target: {fileID: 4716050949110630866, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_Name
       value: Players
+      objectReference: {fileID: 0}
+    - target: {fileID: 4716050949110630867, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: _joueurActive
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6069865515686378566, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_TagString

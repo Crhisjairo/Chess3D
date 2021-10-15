@@ -10,7 +10,7 @@ public class Joueur : MonoBehaviour
     /// </summary>
     public NumeroJoueur numeroJoueur;
 
-    public Transform camPosition;
+    private List<Piece> _piecesMangees;
 
     public string Nom { get; set; }
     public int Pointage { get; set; } = 0;
@@ -24,6 +24,8 @@ public class Joueur : MonoBehaviour
         {
             Nom = "Joueur " + (int) numeroJoueur;
         }
+        
+        _piecesMangees = new List<Piece>();
     }
 
     public void SetPiecesActives(bool sontPiecesActives)
@@ -33,6 +35,11 @@ public class Joueur : MonoBehaviour
         {
             piece.EstActive = sontPiecesActives;
         }
+    }
+
+    public void AjouterPieceMangee(Piece piece)
+    {
+        _piecesMangees.Add(piece);
     }
 
     /// <summary>
