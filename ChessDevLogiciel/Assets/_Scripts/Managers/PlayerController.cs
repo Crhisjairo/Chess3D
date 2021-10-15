@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public Piece _pieceSelectionne;
 
     public Joueur _joueurActive;
+    public float _gameTime = 60f;
     [SerializeField] private Joueur[] _joueurs;
 
     private void Awake()
@@ -35,38 +36,38 @@ public class PlayerController : MonoBehaviour
         _joueurActive = _joueurs[numeroJoueurQuiCommence]; 
         _joueurActive.SetPiecesActives(true);
         _joueurActive._estArrete = false;
+        //_joueurActive._timeSlider.value = _joueurActive._tempsRestant;
     }
 
     // Update is called once per frame
     void Update()
     {
-        /// Débuter le temps
-        _joueurActive._tempsRestant = 300f - Time.time; /// 300f => 5 minutes
-        int minutes = Mathf.FloorToInt(_joueurActive._tempsRestant / 60);
-        int secondes = Mathf.FloorToInt(_joueurActive._tempsRestant - minutes * 60f);
-        _joueurActive._textTime = string.Format("{0:00}:{1:00}", minutes, secondes);
-
-        if (_joueurActive._estArrete == false)
-        {
-            _joueurActive._tempsRestantText.text = _joueurActive._textTime;
-            _joueurActive._timeSlider.value = _joueurActive._tempsRestant;
-        }
-        else if (_joueurActive._estArrete == true)
-        {
-            _joueurActive._tempsArrete = _joueurActive._tempsRestant;
-        }
-
-        if (_joueurActive._tempsRestant <= 0)
-        {
-            _joueurActive._estArrete = true;
-        }
-
+        DebuterTemps();
+        
         //Vérification du click de la souris
         if (Input.GetMouseButtonDown(0))
         {
             DeplacerPionAuClickPosition();
         }
     }
+
+    private void DebuterTemps()
+    {
+        /// Débuter le temps
+        _joueurActive._tempsRestant = _gameTime - Time.time; /// 300f => 5 minutes
+        int minutes = Mathf.FloorToInt(_joueurActive._tempsRestant / 60);
+        int secondes = Mathf.FloorToInt(_joueurActive._tempsRestant - minutes * 60f);
+        _joueurActive._textTime = string.Format("{0:00}:{1:00}", minutes, secondes);
+
+        _joueurActive._tempsRestantText.text = _joueurActive._textTime;
+        //_joueurActive._timeSlider.value = _joueurActive._tempsRestant;
+
+        if (_joueurActive._tempsRestant <= 0)
+        {
+            _joueurActive._estArrete = true;
+        }
+    }
+
     private void DeplacerPionAuClickPosition()
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -171,6 +172,7 @@ public class PlayerController : MonoBehaviour
 
         // On arrête le temps
         _joueurActive._estArrete = true;
+        _joueurActive._tempsArret = _joueurActive._tempsRestant;
 
         //On change le joueur active.
         int nouveauNumeroJoueur = ((int) _joueurActive.numeroJoueur) + 1;
@@ -186,6 +188,6 @@ public class PlayerController : MonoBehaviour
         
         GameManager.Instance.ChangerCameraTo(_joueurActive.numeroJoueur);
         _joueurActive._estArrete = false;
-        _joueurActive._tempsArrete = _joueurActive._tempsRestant - Time.time;
+        _joueurActive._tempsRestant = _joueurActive._tempsArret - Time.time;
     }
 }

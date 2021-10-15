@@ -12,18 +12,16 @@ public class Joueur : MonoBehaviour
     public NumeroJoueur numeroJoueur;
     public string _nomJoueur = "";
     public float _tempsRestant;
-    public float _tempsArrete;
+    public float _tempsArret;
     public bool _estArrete;
     public Transform camPosition;
 
-    public Slider _timeSlider;
+    //public Slider _timeSlider;
     public Text _tempsRestantText;
     public string _textTime;
 
     public string Nom { get; set; }
     public int Pointage { get; set; } = 0;
-    public float TempsRestant { get; set; }
-    public bool TempsArrete { get; set; }
 
     [SerializeField] private Piece[] _piecesJoueur;
 

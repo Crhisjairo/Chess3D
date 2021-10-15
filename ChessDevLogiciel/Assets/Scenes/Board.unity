@@ -486,19 +486,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1486745857103265766, guid: 46dd11970ac0c2346b4251e64bd3258c, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3685334986603703562, guid: 46dd11970ac0c2346b4251e64bd3258c, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5044597865261884022, guid: 46dd11970ac0c2346b4251e64bd3258c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5205201221219783614, guid: 46dd11970ac0c2346b4251e64bd3258c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5703232950998310976, guid: 46dd11970ac0c2346b4251e64bd3258c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7053694654532606072, guid: 46dd11970ac0c2346b4251e64bd3258c, type: 3}
       propertyPath: _couleur
@@ -570,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7053694654532606078, guid: 46dd11970ac0c2346b4251e64bd3258c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7990502267735662977, guid: 46dd11970ac0c2346b4251e64bd3258c, type: 3}
       propertyPath: m_Text
@@ -599,6 +603,14 @@ PrefabInstance:
     - target: {fileID: 8180786639542209855, guid: 46dd11970ac0c2346b4251e64bd3258c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8219679535024667056, guid: 46dd11970ac0c2346b4251e64bd3258c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8823111481558518085, guid: 46dd11970ac0c2346b4251e64bd3258c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46dd11970ac0c2346b4251e64bd3258c, type: 3}
@@ -716,6 +728,10 @@ PrefabInstance:
     - target: {fileID: 4716050949110630866, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_Name
       value: Players
+      objectReference: {fileID: 0}
+    - target: {fileID: 4716050949110630867, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: _gameTime
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7690585502233731663, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_IsTrigger
