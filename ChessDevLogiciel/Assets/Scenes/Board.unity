@@ -448,6 +448,14 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.421873
       objectReference: {fileID: 0}
+    - target: {fileID: 1075912063913750392, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3022916553707667886, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess King Black
+      objectReference: {fileID: 0}
     - target: {fileID: 3514762815259097089, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_TagString
       value: Piece
@@ -455,6 +463,54 @@ PrefabInstance:
     - target: {fileID: 3514762815350716863, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_TagString
       value: Piece
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514762815999430776, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Rook Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 3514762816731235999, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Rook Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212718296308226, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212718428213038, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212718469528627, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212718758975586, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212719415396688, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212719478777904, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212719937871556, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 3569212720202242015, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Pawn Black
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592289122638433869, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514076438865182884, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Queen Black
       objectReference: {fileID: 0}
     - target: {fileID: 4716050949110630864, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_RootOrder
@@ -508,6 +564,10 @@ PrefabInstance:
       propertyPath: _joueurActive
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6069865514181443272, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
+      propertyPath: m_Name
+      value: Chess Bishop Black
+      objectReference: {fileID: 0}
     - target: {fileID: 6069865515686378566, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_TagString
       value: Piece
@@ -530,7 +590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8620100177877306189, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_Name
-      value: Chess Knight Black (1)
+      value: Chess Knight Black
       objectReference: {fileID: 0}
     - target: {fileID: 8620100178376095328, guid: 0a9ffbc697ef1e647bc5c4833447fe25, type: 3}
       propertyPath: m_Name

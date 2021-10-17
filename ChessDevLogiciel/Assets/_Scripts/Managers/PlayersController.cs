@@ -85,8 +85,7 @@ public class PlayersController : MonoBehaviour
                 //Checker s'il y a une piece dans la case qu'on veut se déplacer pour la manger.
                 if (caseDestination.HasPiece())
                 {
-                    MangerPiece(caseDestination);
-                    
+                    MangerPieceAtCase(caseDestination);
                 }
                 
                 //Finalement, on se déplace.
@@ -103,8 +102,21 @@ public class PlayersController : MonoBehaviour
     /// piècesMangees du joueur contraire.
     /// </summary>
     /// <param name="caseDestination"></param>
-    private void MangerPiece(Case caseDestination)
+    private void MangerPieceAtCase(Case caseDestination)
     {
+        Piece pieceMangee = caseDestination.GetPieceDansLaCase();
+        caseDestination.SetPieceDansLaCase(null);
+        
+        _joueurActive.AjouterPieceMangee(pieceMangee);
+        
+        //JUSTE POUR DEBUG
+        Debug.Log("Pièce mangées du " + _joueurActive.numeroJoueur + " sont:");
+        foreach (var piece in _joueurActive.GetPiecesMangees())
+        {
+            Debug.Log("Nom: " + piece.name + " estActive: " + piece.GetEstActive());
+        }
+        
+        pieceMangee.CacherPiece();
         
     }
 
@@ -126,7 +138,7 @@ public class PlayersController : MonoBehaviour
             _pieceSelectionne = nouvellePiece;
             
             //Si la pièce n'est pas active, on fait rien
-            if (!_pieceSelectionne.EstActive)
+            if (!_pieceSelectionne.GetEstActive())
             {
                 Debug.Log("Pièce pas active");
                 _pieceSelectionne = null;
@@ -140,7 +152,7 @@ public class PlayersController : MonoBehaviour
         
         //Si la pièce n'est pas la même pièce
         //On seléctionne la nouvelle pièce
-        if (!_pieceSelectionne.Equals(nouvellePiece) && nouvellePiece.EstActive)
+        if (!_pieceSelectionne.Equals(nouvellePiece) && nouvellePiece.GetEstActive())
         {
             
             Debug.Log("NOUVELLE pièce!");

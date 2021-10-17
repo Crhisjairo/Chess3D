@@ -3,31 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
 [System.Serializable]
 public abstract class Piece : MonoBehaviour
 {
+
+    protected Rigidbody _rb;
+    protected MeshRenderer _meshRenderer;
+    protected BoxCollider _boxCollider;
+    
     /// <summary>
-    /// Returne si la pièce est activée et peut être seléctionnée.
+    /// Si la pièce est activée et peut être seléctionnée.
     /// Si la pièce a été mangée, elle ne peut pas s'activer
     /// </summary>
     /// <returns></returns>
-    public bool EstActive
-    {
-        set
-        {
-            if (EstMangee)
-            {
-                EstActive = false;
-            }
-            else
-            {
-                EstActive = value;
-            }
-        }
-        get { return EstActive; }
-    }
+    private bool _estActive;
 
-    public bool EstMangee { set; get; } = false;
+    /// <summary>
+    /// Returne si la pièce est déjà seléctionnée.
+    /// </summary>
+    /// <returns>Si la pièce est seléctionnée</returns>
+    public bool EstSelectionne { protected set; get; }
 
     protected Joueur.NumeroJoueur _joueurProprietaire;
     
@@ -35,12 +31,6 @@ public abstract class Piece : MonoBehaviour
     /// Ensemble de mouvement rélatives à la pièce.
     /// </summary>
     [HideInInspector] public Vector2Int[] moveSet;
-    
-    /// <summary>
-    /// Returne si la pièce est déjà seléctionnée.
-    /// </summary>
-    /// <returns>Si la pièce est seléctionnée</returns>
-    public bool EstSelectionne { protected set; get; }
     
     public Case caseActuelle;
     
@@ -64,6 +54,7 @@ public abstract class Piece : MonoBehaviour
     /// Chaque pièce va afficher des possibilités de mouvement différentes.
     /// </summary>
     public abstract void DeselectionnerPiece();
+
 
     private void Update()
     {
@@ -91,5 +82,37 @@ public abstract class Piece : MonoBehaviour
     public void SetPieceProprietaire(Joueur.NumeroJoueur joueurProprietaire)
     {
         _joueurProprietaire = joueurProprietaire;
+    }
+
+    public void SetEstActive(bool estActive)
+    {
+        /*
+        if (EstMangee)
+        {
+            _estActive = false;
+        }
+        else
+        {
+            _estActive = estActive;
+        }*/
+
+        _estActive = estActive;
+    }
+
+    public bool GetEstActive()
+    {
+        return _estActive;
+    }
+
+    public void CacherPiece()
+    {
+        _meshRenderer.enabled = false;
+        _boxCollider.enabled = false;
+    }
+
+    public void MontrerPiece()
+    {
+        _meshRenderer.enabled = true;
+        _boxCollider.enabled = true;
     }
 }

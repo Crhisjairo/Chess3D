@@ -8,7 +8,6 @@ using UnityEngine;
 
 public class PionComportement : Piece
 {
-   private Rigidbody _rb;
 
    private Vector2Int[] _moveSet = new Vector2Int[]
    {
@@ -28,6 +27,8 @@ public class PionComportement : Piece
    private void Start()
    {
       _rb = GetComponent<Rigidbody>();
+      _meshRenderer = GetComponent<MeshRenderer>();
+      _boxCollider = GetComponent<BoxCollider>();
       
       //On définit l'ensemble de mouvement de la pièce
       moveSet = _moveSet;
