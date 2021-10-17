@@ -2,11 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(BoxCollider))]
-[RequireComponent(typeof(Rigidbody))]
+
 public class RoqueComportement : Piece
 {
-    private Rigidbody _rb;
 
     private bool isFirstmove;
     
@@ -27,6 +25,8 @@ public class RoqueComportement : Piece
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _outline = GetComponent<Outline>();
+        _outline.enabled = false; //On cache le outline au début.
         
         //On définit l'ensemble de mouvement de la pièce
         moveSet = _moveSet;

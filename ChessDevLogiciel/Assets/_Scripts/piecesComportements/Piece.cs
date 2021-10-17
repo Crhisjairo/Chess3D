@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent((typeof(Outline)))]
+
 [System.Serializable]
 public abstract class Piece : MonoBehaviour
 {
@@ -11,6 +14,7 @@ public abstract class Piece : MonoBehaviour
     protected Rigidbody _rb;
     protected MeshRenderer _meshRenderer;
     protected BoxCollider _boxCollider;
+    protected Outline _outline;
     
     /// <summary>
     /// Si la pièce est activée et peut être seléctionnée.
@@ -19,11 +23,33 @@ public abstract class Piece : MonoBehaviour
     /// <returns></returns>
     private bool _estActive;
 
+    private bool _estSelectionne;
+    
     /// <summary>
     /// Returne si la pièce est déjà seléctionnée.
     /// </summary>
     /// <returns>Si la pièce est seléctionnée</returns>
-    public bool EstSelectionne { protected set; get; }
+    public bool EstSelectionne {
+        protected set
+        {
+            _estSelectionne = value;
+
+            if (value)
+            { 
+                _outline.enabled = true;  
+            }
+            else
+            {
+                _outline.enabled = false;
+            }
+        }
+        get
+        {
+            return _estSelectionne;
+        } 
+    }
+    
+    
 
     protected Joueur.NumeroJoueur _joueurProprietaire;
     
@@ -54,7 +80,6 @@ public abstract class Piece : MonoBehaviour
     /// Chaque pièce va afficher des possibilités de mouvement différentes.
     /// </summary>
     public abstract void DeselectionnerPiece();
-
 
     private void Update()
     {

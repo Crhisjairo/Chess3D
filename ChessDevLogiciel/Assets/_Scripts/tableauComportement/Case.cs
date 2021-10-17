@@ -48,7 +48,16 @@ public class Case : MonoBehaviour
         {
             if (pieceDansLaCase != null)
             {
-                _material.color = Color.red;
+                if (!pieceDansLaCase.EstSelectionne)
+                {
+                    _material.color = Color.red;    
+                }
+                else
+                {
+                    //Si c'est la pièce qui est séléctionnée, la pièce qui va être à déplacer, on met green
+                    _material.color = Color.green;
+                }
+                
             }
             else
             {

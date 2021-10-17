@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
-[RequireComponent(typeof(Rigidbody))]
+
 
 public class ReineComportement : Piece
 {
-    private Rigidbody _rb;
 
     private bool isFirstmove;
 
@@ -22,13 +20,12 @@ public class ReineComportement : Piece
     };
     
     
-    
-    
-    
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _outline = GetComponent<Outline>();
+        _outline.enabled = false; //On cache le outline au début.
 
         moveSet = _moveSet;
         isFirstmove = true;
@@ -75,14 +72,31 @@ public class ReineComportement : Piece
 // Update is called once per frame
     public override void DeplacerPiece(Case caseDestination)
     {
-        
+        //Dans le cas qu'il ait une pièce dans la case qu'on veut se déplacer,
+        //on check si l'on peut la manger ou si c'est une de nos piece
+        //pour ensuite se déplacer 
+      
+        //On déplace
+        //On remplace la coordonnée  y  pour qu'elle reste intacte
+        Vector3 destination = caseDestination.transform.position;
+      
+        destination.y = transform.position.y;
+        _rb.MovePosition(destination);
+      
+        //Finalemment,
+        //On efface la réference de la pièce dans la case
+        //et on ajoute la reférence de cette pièce à la case où l'on se déplace
+        //caseDestination.SetPieceDansLaCase(this);
     }
 
     
 
     public override void DeselectionnerPiece()
     {
-        
+        EstSelectionne = false;
+      
+        //On dit au board de désactiver les cases actives
+        BoardManager.Instance.DesactiverCases(); //le this est temporel
     }
 
     

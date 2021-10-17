@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
-[RequireComponent(typeof(Rigidbody))]
-
 public class RoiComportement : Piece
 {
-    private Rigidbody _rb;
 
     private Vector2Int[] _moveSet = new Vector2Int[]
     {
@@ -27,6 +23,8 @@ public class RoiComportement : Piece
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _outline = GetComponent<Outline>();
+        _outline.enabled = false; //On cache le outline au début.
 
         //On définit l'ensemble de mouvement de la pièce
         moveSet = _moveSet;

@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
-[RequireComponent(typeof(Rigidbody))]
 
 public class PionComportement : Piece
 {
@@ -29,12 +27,13 @@ public class PionComportement : Piece
       _rb = GetComponent<Rigidbody>();
       _meshRenderer = GetComponent<MeshRenderer>();
       _boxCollider = GetComponent<BoxCollider>();
+      _outline = GetComponent<Outline>();
+      _outline.enabled = false; //On cache le outline au début.
+      
       
       //On définit l'ensemble de mouvement de la pièce
       moveSet = _moveSet;
       isFirstMove = true;
-
-      
    }
 
    public override void SelectionnerPiece()
@@ -97,49 +96,14 @@ public class PionComportement : Piece
       }
       //On active les cases d'un déplacement normal
       Vector2Int nextMove = moveSet[0] + coordonneesDeCetteCase;
-      BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
-      
-      /*
-       //AUTRE EXEMPLE DE MOUVEMENT POUR UNE AUTRE PIÈCE//
-       //C'EST CETTE PARTIE qui change SELON la pièce
-      //On repète pour tous les mouvements possibles dans _actualMoveSet
-      for (int i = 0; i < moveSet.Length; i++)
-      {
-         Vector2Int nextMove = moveSet[i];
-         nextMove += coordonneesDeCetteCase; //Pour connaître le mouvement rélatif à la position de cette case
-         
-         
-         //On active dans les coordonnées x positif
-         for (int xPosi = coordonneesDeCetteCase.x; xPosi <= nextMove.x; xPosi++)
-         {
-            //On active les cases par coordonnées dans le board
-            BoardManager.Instance.ActiverCaseByCoord(xPosi, coordonneesDeCetteCase.y, true, numeroJoueur);
-         }
-         
-         //On active dans les coordonnées x negatif
-         for (int xNega = coordonneesDeCetteCase.x; xNega >= nextMove.x; xNega--)
-         {
-            //On active les cases par coordonnées dans le board
-            BoardManager.Instance.ActiverCaseByCoord(xNega, coordonneesDeCetteCase.y, true, numeroJoueur);
-         }
 
-         //On active dans les coordonnées y positif
-         for (int yPosi = coordonneesDeCetteCase.y; yPosi <= nextMove.y; yPosi++)
-         {
-            //On active les cases par coordonnées dans le board
-            BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
-            Debug.Log(nextMove.x + ":" + yPosi);
-         }
-         //On active dans les coordonnées y negatif
-         for (int yPosi = coordonneesDeCetteCase.y; yPosi >= nextMove.y; yPosi--)
-         {
-            //On active les cases par coordonnées dans le board
-            BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
-            Debug.Log(nextMove.x + ":" + yPosi);
-         }
+      //On vérifie qu'il n'aie pas de pièce en avant
+      if (!BoardManager.Instance.HasPieceOnCoord(nextMove.x, nextMove.y))
+      {
+         BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
       }
       
-      */
+      
    }
 
    public override void DeplacerPiece(Case caseDestination)

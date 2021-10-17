@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
-[RequireComponent(typeof(Rigidbody))]
 public class FousComportement : Piece
 {
-    private Rigidbody _rb;
 
     private Vector2Int[] _moveSet = new Vector2Int[]
     {
@@ -19,6 +16,8 @@ public class FousComportement : Piece
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _outline = GetComponent<Outline>();
+        _outline.enabled = false; //On cache le outline au début.
 
         //On d�finit l'ensemble de mouvement de la pi�ce
         moveSet = _moveSet;
@@ -29,6 +28,7 @@ public class FousComportement : Piece
         //On peut changer la couleur de la pi�ce icitte si l'on veut
         caseActuelle.SetEstActive(true); //On active la case o� se trouve cette pi�ce pour l'allumer
         EstSelectionne = true; //On marque la pi�ce comme s�l�ctionn�e
+        
 
         /*
          * Il faut permettre seulement les d�placements possibles ici selon le type de pi�ce.
