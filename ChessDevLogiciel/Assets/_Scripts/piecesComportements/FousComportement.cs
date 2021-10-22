@@ -44,66 +44,55 @@ public class FousComportement : Piece
          */
 
         Vector2Int coordonneesDeCetteCase = new Vector2Int();
-        Joueur.NumeroJoueur numeroJoueur = PlayersController.Instance._joueurActive.numeroJoueur;
+        Joueur.NumeroJoueur joueurActuel = PlayersController.Instance._joueurActive.numeroJoueur;
         //On va utiliser les coodonn�es d'une case relative au joueur. Si on ajoute plus de joueurs, le code reste flexible
-        if (numeroJoueur is Joueur.NumeroJoueur.Joueur1)
+        if (joueurActuel is Joueur.NumeroJoueur.Joueur1)
         {
             coordonneesDeCetteCase = caseActuelle.coordonneesDeCasePourBlanc;
         }
-        else if (numeroJoueur is Joueur.NumeroJoueur.Joueur2)
+        else if (joueurActuel is Joueur.NumeroJoueur.Joueur2)
         {
             coordonneesDeCetteCase = caseActuelle.coordonneesDeCasePourNoir;
         }
 
         //C'EST TOUTE CETTE PARTIE qui change SELON la pi�ce
-        Vector2Int nextMove = moveSet[0];
-        nextMove += coordonneesDeCetteCase; //Pour conna�tre le mouvement r�latif � la position de cette case
 
-        //Pour la diagonal ver le haut droit
-        for (int yPosi = coordonneesDeCetteCase.y; yPosi <= BoardManager.MAX_BOARD_SIZE; yPosi++)
+        for (int moveSetIndex = 0; moveSetIndex < moveSet.Length; moveSetIndex++)
         {
-            //On active les cases par coordonn�es dans le board
-            BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
-            //Debug.Log(nextMove.x + ":" + nextMove.y);
+            Vector2Int nextMove = moveSet[moveSetIndex];
+            nextMove += coordonneesDeCetteCase; //Pour conna�tre le mouvement r�latif � la position de cette case
+        
+            Piece pieceInNextCase; //Pièce qui va être retrouvé si jamais HasPieceOnCoord retourn vrai.
 
-            nextMove += moveSet[0];
-        }
-
-        nextMove = moveSet[1];
-        nextMove += coordonneesDeCetteCase;
-        //Pour la diagonal ver le haut gauche
-        for (int yPosi = coordonneesDeCetteCase.y; yPosi <= BoardManager.MAX_BOARD_SIZE; yPosi++)
-        {
-            //On active les cases par coordonn�es dans le board
-            BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
-            //Debug.Log(nextMove.x + ":" + nextMove.y);
-
-            nextMove += moveSet[1];
+            //Pour la diagonal ver le haut droit
+            for (int yPosi = coordonneesDeCetteCase.y; yPosi <= BoardManager.MAX_BOARD_SIZE; yPosi++)
+            {
+                //Debug.Log(nextMove);
+                
+                if (BoardManager.Instance.HasPieceOnCoord(nextMove.x, nextMove.y, out pieceInNextCase))
+                {
+                    //S'il s'agit d'un ennemie
+                    if (pieceInNextCase.JoueurProprietaire != joueurActuel)
+                    {
+                        //On active les cases par coordonn�es dans le board
+                        BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, joueurActuel);
+                        break;
+                    }
+                    else //S'il s'agit de nous même, on s'arrête
+                    {
+                        break;
+                    }
+                }
+                else
+                {
+                    //On active les cases par coordonn�es dans le board
+                    BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, joueurActuel);
+                }
+            
+                nextMove += moveSet[moveSetIndex];
+            }
         }
         
-        nextMove = moveSet[2];
-        nextMove += coordonneesDeCetteCase;
-        //Pour la diagonal ver le bas droite
-        for (int yNegi = coordonneesDeCetteCase.y; yNegi >= -BoardManager.MAX_BOARD_SIZE; yNegi--)
-        {
-            //On active les cases par coordonn�es dans le board
-            BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
-            //Debug.Log(nextMove.x + ":" + nextMove.y);
-
-            nextMove += moveSet[2];
-        }
-
-        nextMove = moveSet[3];
-        nextMove += coordonneesDeCetteCase;
-        //Pour la diagonal ver le bas droite
-        for (int yNegi = coordonneesDeCetteCase.y; yNegi >= -BoardManager.MAX_BOARD_SIZE; yNegi--)
-        {
-            //On active les cases par coordonn�es dans le board
-            BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
-            //Debug.Log(nextMove.x + ":" + nextMove.y);
-
-            nextMove += moveSet[3];
-        }
     }
 
     public override void DeplacerPiece(Case caseDestination)

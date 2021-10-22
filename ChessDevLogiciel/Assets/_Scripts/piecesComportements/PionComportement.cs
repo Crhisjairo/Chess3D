@@ -54,13 +54,13 @@ public class PionComportement : Piece
        */ 
       
       Vector2Int coordonneesDeCetteCase = new Vector2Int();
-      Joueur.NumeroJoueur numeroJoueur = PlayersController.Instance._joueurActive.numeroJoueur;
+      Joueur.NumeroJoueur joueurActuel = PlayersController.Instance._joueurActive.numeroJoueur;
       //On va utiliser les coodonnées d'une case relative au joueur. Si on ajoute plus de joueurs, le code reste flexible
-      if (numeroJoueur is Joueur.NumeroJoueur.Joueur1)
+      if (joueurActuel is Joueur.NumeroJoueur.Joueur1)
       {
          coordonneesDeCetteCase = caseActuelle.coordonneesDeCasePourBlanc;
       }
-      else if (numeroJoueur is Joueur.NumeroJoueur.Joueur2)
+      else if (joueurActuel is Joueur.NumeroJoueur.Joueur2)
       {
          coordonneesDeCetteCase = caseActuelle.coordonneesDeCasePourNoir;
       }
@@ -74,7 +74,7 @@ public class PionComportement : Piece
 
          for (int y = coordonneesDeCetteCase.y; y <= firstMove.y; y++)
          {
-            BoardManager.Instance.ActiverCaseByCoord(firstMove.x, y, true, numeroJoueur);
+            BoardManager.Instance.ActiverCaseByCoord(firstMove.x, y, true, joueurActuel);
          }
          
       }
@@ -85,22 +85,32 @@ public class PionComportement : Piece
       nextDiagonalMoveRight += coordonneesDeCetteCase; //Pour connaître le mouvement rélatif à la position de cette case
       nextDiagonalMoveLeft += coordonneesDeCetteCase; //Pour connaître le mouvement rélatif à la position de cette case
 
-      if (BoardManager.Instance.HasPieceOnCoord(nextDiagonalMoveRight.x, nextDiagonalMoveRight.y))
+      Piece pieceInNextCase; //Pièce qui va être retrouvé si jamais HasPieceOnCoord retourn vrai.
+
+      if (BoardManager.Instance.HasPieceOnCoord(nextDiagonalMoveRight.x, nextDiagonalMoveRight.y, out pieceInNextCase))
       {
-         BoardManager.Instance.ActiverCaseByCoord(nextDiagonalMoveRight.x, nextDiagonalMoveRight.y, true, numeroJoueur);
+         //On check que la pièce dans la case qu'on va activer n'est pas une pièce qui appartient au joueur actuel.
+         if (pieceInNextCase.JoueurProprietaire != joueurActuel)
+         { 
+            BoardManager.Instance.ActiverCaseByCoord(nextDiagonalMoveRight.x, nextDiagonalMoveRight.y, true, joueurActuel); 
+         }
       }
       
-      if (BoardManager.Instance.HasPieceOnCoord(nextDiagonalMoveLeft.x, nextDiagonalMoveLeft.y))
+      if (BoardManager.Instance.HasPieceOnCoord(nextDiagonalMoveLeft.x, nextDiagonalMoveLeft.y, out pieceInNextCase))
       {
-         BoardManager.Instance.ActiverCaseByCoord(nextDiagonalMoveLeft.x, nextDiagonalMoveLeft.y, true, numeroJoueur);
+         //On check que la pièce dans la case qu'on va activer n'est pas une pièce qui appartient au joueur actuel.
+         if (pieceInNextCase.JoueurProprietaire != joueurActuel)
+         { 
+            BoardManager.Instance.ActiverCaseByCoord(nextDiagonalMoveLeft.x, nextDiagonalMoveLeft.y, true, joueurActuel);
+         }
       }
       //On active les cases d'un déplacement normal
       Vector2Int nextMove = moveSet[0] + coordonneesDeCetteCase;
 
-      //On vérifie qu'il n'aie pas de pièce en avant
-      if (!BoardManager.Instance.HasPieceOnCoord(nextMove.x, nextMove.y))
+      //On vérifie qu'il n'ait aucune pièce en avant
+      if (!BoardManager.Instance.HasPieceOnCoord(nextMove.x, nextMove.y, out pieceInNextCase))
       {
-         BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
+         BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, joueurActuel);
       }
       
       

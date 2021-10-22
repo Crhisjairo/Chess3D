@@ -66,7 +66,7 @@ public class BoardManager : MonoBehaviour
     /// <param name="x">Coordonnée X de la case</param>
     /// <param name="y">Coordonnée Y de la case</param>
     /// <returns>S'il existe une pièce dans la case</returns>
-    public bool HasPieceOnCoord(int x, int y)
+    public bool HasPieceOnCoord(int x, int y, out Piece pieceDansCase)
     {
         Joueur.NumeroJoueur numeroJoueur = PlayersController.Instance._joueurActive.numeroJoueur;
         
@@ -84,10 +84,13 @@ public class BoardManager : MonoBehaviour
             
             if (coordonneesDeCase == new Vector2Int(x, y) && uneCase.HasPiece())
             {
+                pieceDansCase = uneCase.GetPieceDansLaCase();
                 return true;
             }
         }
 
+        
+        pieceDansCase = null;
         return false;
     }
 

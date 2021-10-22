@@ -7,19 +7,16 @@ public class RoiComportement : Piece
 
     private Vector2Int[] _moveSet = new Vector2Int[]
     {
-      new Vector2Int(0, 1), //Move au départ
-      new Vector2Int(1, 1),  //move pour manger en diagonal droit
-      new Vector2Int(-1, -1),  //move pour manger en diagonal en bas droite
-      new Vector2Int(-1, 1),  //move pour manger en diagonal gauche
-      new Vector2Int(1, -1),//move pour manger en diagonal en bas gauche
-      new Vector2Int(0, -1) //move pour diagonale derriere
-                             //new Vector2Int(2, 1) //Exemple d'un mouvement en L (cheval)
-                             //new Vector2Int(BoardManager.MAX_BOARD_SIZE, 0) //Exemple de mouvement vers toute la droite
-                             //new Vector2Int(-BoardManager.MAX_BOARD_SIZE, 0) //Exemple de mouvement vers toute la gauche
+      new Vector2Int(0, 1), //Move vers le haut
+      new Vector2Int(1, 1),  //move vers diagonal droit haut
+      new Vector2Int(-1, -1),  //move vers diagonal gauche bas
+      new Vector2Int(-1, 1),  //move vers diagonal gauche haut
+      new Vector2Int(1, -1),//move vers diagonal droit bas
+      new Vector2Int(0, -1), //move vers bas
+      new Vector2Int(1, 0), //move vers la gauche
+      new Vector2Int(-1, 0) //move vers la droite
     };
-
     
-
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -62,100 +59,31 @@ public class RoiComportement : Piece
         }
 
         //C'EST TOUTE CETTE PARTIE qui change SELON la pièce
+        Vector2Int nextMove;
+        Piece pieceInNextCase; //Pièce qui va être retrouvé si jamais HasPieceOnCoord retourn vrai.
+        Joueur.NumeroJoueur joueurActuel = PlayersController.Instance._joueurActive.numeroJoueur;
         
-        //On check si on peut manger
-        Vector2Int nextDiagonalMoveRight = moveSet[2]; //On utilise le move pour manger
-        Vector2Int nextDiagonalMoveLeft = moveSet[3]; //On utilise le move pour manger
-        nextDiagonalMoveRight += coordonneesDeCetteCase; //Pour connaître le mouvement rélatif à la position de cette case
-        nextDiagonalMoveLeft += coordonneesDeCetteCase; //Pour connaître le mouvement rélatif à la position de cette case
-
-        if (BoardManager.Instance.HasPieceOnCoord(nextDiagonalMoveRight.x, nextDiagonalMoveRight.y) )
+        for (int moveSetIndex = 0; moveSetIndex < moveSet.Length; moveSetIndex++)
         {
-            BoardManager.Instance.ActiverCaseByCoord(nextDiagonalMoveRight.x, nextDiagonalMoveRight.y, true, numeroJoueur);
-        }
+            nextMove = moveSet[moveSetIndex] + coordonneesDeCetteCase; //Pour connaître le mouvement rélatif à la position de cette case
 
-        if (BoardManager.Instance.HasPieceOnCoord(nextDiagonalMoveLeft.x, nextDiagonalMoveLeft.y))
-        {
-            BoardManager.Instance.ActiverCaseByCoord(nextDiagonalMoveLeft.x, nextDiagonalMoveLeft.y, true, numeroJoueur);
-        }
-        //On active les cases d'un déplacement normal
-        Vector2Int nextMove = moveSet[0] + coordonneesDeCetteCase;
-        BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
-
-        for (int i = 0; i < moveSet.Length; i++)
-        {
-            Vector2Int nextMove1 = moveSet[i];
-            nextMove1 += coordonneesDeCetteCase; //Pour connaître le mouvement rélatif à la position de cette case
-            //On active dans les coordonnées x positif
-            for (int xPosi = coordonneesDeCetteCase.x; xPosi <= nextMove1.x; xPosi++)
+            if (BoardManager.Instance.HasPieceOnCoord(nextMove.x, nextMove.y, out pieceInNextCase))
             {
-                //On active les cases par coordonnées dans le board
-                BoardManager.Instance.ActiverCaseByCoord(xPosi, coordonneesDeCetteCase.y, true, numeroJoueur);
+                //S'il s'agit d'un ennemie
+                if (pieceInNextCase.JoueurProprietaire != joueurActuel)
+                {
+                    //On active les cases par coordonn�es dans le board
+                    BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, joueurActuel);
+                }
             }
-
-            //On active dans les coordonnées x negatif
-            for (int xNega = coordonneesDeCetteCase.x; xNega >= nextMove1.x; xNega--)
+            else
             {
-                //On active les cases par coordonnées dans le board
-                BoardManager.Instance.ActiverCaseByCoord(xNega, coordonneesDeCetteCase.y, true, numeroJoueur);
+                //On active les cases par coordonn�es dans le board
+                BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, joueurActuel);
             }
-
-            //On active dans les coordonnées y positif
-            for (int yPosi = coordonneesDeCetteCase.y; yPosi <= nextMove1.y; yPosi++)
-            {
-                //On active les cases par coordonnées dans le board
-                BoardManager.Instance.ActiverCaseByCoord(nextMove1.x, yPosi, true, numeroJoueur);
-                //Debug.Log(nextMove1.x + ":" + yPosi);
-            }
-
-            //On active dans les coordonnées y negatif
-            for (int yPosi = coordonneesDeCetteCase.y; yPosi >= nextMove1.y; yPosi--)
-            {
-                //On active les cases par coordonnées dans le board
-                BoardManager.Instance.ActiverCaseByCoord(nextMove1.x, yPosi, true, numeroJoueur);
-                //Debug.Log(nextMove1.x + ":" + yPosi);
-            }
-
+            
         }
-        /*
-         //AUTRE EXEMPLE DE MOUVEMENT POUR UNE AUTRE PIÈCE//
-         //C'EST CETTE PARTIE qui change SELON la pièce
-        //On repète pour tous les mouvements possibles dans _actualMoveSet
-        for (int i = 0; i < moveSet.Length; i++)
-        {
-           Vector2Int nextMove = moveSet[i];
-           nextMove += coordonneesDeCetteCase; //Pour connaître le mouvement rélatif à la position de cette case
-
-
-           //On active dans les coordonnées x positif
-           for (int xPosi = coordonneesDeCetteCase.x; xPosi <= nextMove.x; xPosi++)
-           {
-              //On active les cases par coordonnées dans le board
-              BoardManager.Instance.ActiverCaseByCoord(xPosi, coordonneesDeCetteCase.y, true, numeroJoueur);
-           }
-           //On active dans les coordonnées x negatif
-           for (int xNega = coordonneesDeCetteCase.x; xNega >= nextMove.x; xNega--)
-           {
-              //On active les cases par coordonnées dans le board
-              BoardManager.Instance.ActiverCaseByCoord(xNega, coordonneesDeCetteCase.y, true, numeroJoueur);
-           }
-
-           //On active dans les coordonnées y positif
-           for (int yPosi = coordonneesDeCetteCase.y; yPosi <= nextMove.y; yPosi++)
-           {
-              //On active les cases par coordonnées dans le board
-              BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
-              Debug.Log(nextMove.x + ":" + yPosi);
-           }
-           //On active dans les coordonnées y negatif
-           for (int yPosi = coordonneesDeCetteCase.y; yPosi >= nextMove.y; yPosi--)
-           {
-              //On active les cases par coordonnées dans le board
-              BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
-              Debug.Log(nextMove.x + ":" + yPosi);
-           }
-        }
-        */
+        
     }
 
     public override void DeplacerPiece(Case caseDestination)

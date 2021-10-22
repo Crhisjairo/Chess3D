@@ -460,6 +460,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numeroJoueur: 1
+  _tempsRestantText: {fileID: 0}
+  _textTime: 
   _piecesJoueur:
   - {fileID: 3260486362283293089}
   - {fileID: 3260486361759444654}
@@ -521,6 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 963a70dc801eec1408bc24e29da79530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pieceSelectionne: {fileID: 0}
   _joueurActive: {fileID: 0}
   _joueurs:
   - {fileID: 8716772145429343225}
@@ -633,6 +636,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numeroJoueur: 2
+  _tempsRestantText: {fileID: 0}
+  _textTime: 
   _piecesJoueur:
   - {fileID: 3260486361267652973}
   - {fileID: 3260486362108907467}

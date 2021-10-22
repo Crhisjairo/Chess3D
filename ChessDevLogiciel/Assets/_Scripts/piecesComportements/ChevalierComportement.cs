@@ -4,39 +4,39 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Classe qui exécute le comportment du cheval et ses déplacements dans le jeu
+/// Classe qui exÃ©cute le comportment du cheval et ses dÃ©placements dans le jeu
 /// </summary>
-[RequireComponent(typeof(BoxCollider))]
-[RequireComponent(typeof(Rigidbody))]
-
 public class ChevalierComportement : Piece
 {
-    private Rigidbody _rb;
-
-    // Liste de tous les déplacements possibles du chevalier
+    // Liste de tous les dÃ©placements possibles du chevalier
     private Vector2Int[] _moveSet = new Vector2Int[]
     {
-      new Vector2Int(1, 2), // 1 pas vers la droite, 2 pas vers le haut
-      new Vector2Int(-1, 2), // 1 pas vers la gauche, 2 pas vers le haut
-      new Vector2Int(2, -1), // 2 pas vers la droite, 1 pas vers le bas
-      new Vector2Int(-2, -1), // 2 pas vers la gauche, 1 pas vers le bas
-      new Vector2Int(1, -2), // 1 pas vers la droite, 2 pas vers le bas
-      new Vector2Int(-1, -2), // 1 pas vers la gauche, 2 pas vers le bas
-      new Vector2Int(2, 1), // 2 pas vers la droite, 1 pas vers le haut
-      new Vector2Int(-2, 1) // 2 pas vers la gauche, 1 pas vers le haut
+        new Vector2Int(1, 2), // 1 pas vers la droite, 2 pas vers le haut
+        new Vector2Int(-1, 2), // 1 pas vers la gauche, 2 pas vers le haut
+        new Vector2Int(2, -1), // 2 pas vers la droite, 1 pas vers le bas
+        new Vector2Int(-2, -1), // 2 pas vers la gauche, 1 pas vers le bas
+        new Vector2Int(1, -2), // 1 pas vers la droite, 2 pas vers le bas
+        new Vector2Int(-1, -2), // 1 pas vers la gauche, 2 pas vers le bas
+        new Vector2Int(2, 1), // 2 pas vers la droite, 1 pas vers le haut
+        new Vector2Int(-2, 1) // 2 pas vers la gauche, 1 pas vers le haut
     };
 
-    private Vector2Int _nextMove; // Prochain déplacement du chevalier
+    private Vector2Int _nextMove; // Prochain dÃ©placement du chevalier
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        moveSet = _moveSet; //On définit l'ensemble de mouvement de la pièce
+        _meshRenderer = GetComponent<MeshRenderer>();
+        _boxCollider = GetComponent<BoxCollider>();
+        _outline = GetComponent<Outline>();
+        _outline.enabled = false; //On cache le outline au dÃ©but.
+
+        moveSet = _moveSet; //On dÃ©finit l'ensemble de mouvement de la piÃ¨ce
     }
 
     /// <summary>
-    /// Méthode qui permet de seléctionner un cheval et active les cases où il
-    /// peut se déplacer
+    /// MÃ©thode qui permet de selÃ©ctionner un cheval et active les cases oÃ¹ il
+    /// peut se dÃ©placer
     /// </summary>
     public override void SelectionnerPiece()
     {
@@ -44,8 +44,8 @@ public class ChevalierComportement : Piece
         EstSelectionne = true;
 
         Vector2Int coordonneesDeCetteCase = new Vector2Int();
-        Joueur.NumeroJoueur numeroJoueur = PlayerController.Instance._joueurActive.numeroJoueur;
-        
+        Joueur.NumeroJoueur numeroJoueur = PlayersController.Instance._joueurActive.numeroJoueur;
+
         if (numeroJoueur is Joueur.NumeroJoueur.Joueur1)
         {
             coordonneesDeCetteCase = caseActuelle.coordonneesDeCasePourBlanc;
@@ -54,6 +54,8 @@ public class ChevalierComportement : Piece
         {
             coordonneesDeCetteCase = caseActuelle.coordonneesDeCasePourNoir;
         }
+        
+        Piece pieceInNextCase; //PiÃ¨ce qui va Ãªtre retrouvÃ© si jamais HasPieceOnCoord retourn vrai.
 
         for (int i = 0; i < moveSet.Length; i++)
         {
@@ -61,19 +63,20 @@ public class ChevalierComportement : Piece
             _nextMove += coordonneesDeCetteCase;
             BoardManager.Instance.ActiverCaseByCoord(_nextMove.x, _nextMove.y, true, numeroJoueur);
 
-            /// Condition qui vérifie s'il est possible de manger une pièce 
-            /// (à améliorer pour vérifier si c'est la pièce de l'adversaire et  
-            /// non une des pièces du même joueur)
-            if (BoardManager.Instance.HasPieceOnCoord(_nextMove.x, _nextMove.y))
+            /* Condition qui vÃ©rifie s'il est possible de manger une piÃ¨ce 
+            * (Ã  amÃ©liorer pour vÃ©rifier si c'est la piÃ¨ce de l'adversaire et  
+            * non une des piÃ¨ces du mÃªme joueur)
+            */
+            if (BoardManager.Instance.HasPieceOnCoord(_nextMove.x, _nextMove.y, out pieceInNextCase))
             {
                 BoardManager.Instance.ActiverCaseByCoord(_nextMove.x, _nextMove.y, true, numeroJoueur);
-               // Debug.Log("Test => Je peux manger cette pièce");
+                // Debug.Log("Test => Je peux manger cette piÃ¨ce");
             }
         }
     }
 
     /// <summary>
-    /// Méthode qui permet de déplacer un cheval
+    /// MÃ©thode qui permet de dÃ©placer un cheval
     /// </summary>
     /// <param name="caseDestination"></param>
     public override void DeplacerPiece(Case caseDestination)
@@ -82,8 +85,8 @@ public class ChevalierComportement : Piece
     }
 
     /// <summary>
-    /// Méthode qui permet de deseléctionner un cheval et désactive les cases
-    /// où il peut se déplacer
+    /// MÃ©thode qui permet de deselÃ©ctionner un cheval et dÃ©sactive les cases
+    /// oÃ¹ il peut se dÃ©placer
     /// </summary>
     public override void DeselectionnerPiece()
     {

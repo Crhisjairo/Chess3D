@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
 public class ReineComportement : Piece
 {
-
-    private bool isFirstmove;
 
     [SerializeField] private Vector2Int[] _moveSet = new Vector2Int[]
     {
@@ -30,7 +26,6 @@ public class ReineComportement : Piece
         _outline.enabled = false; //On cache le outline au début.
 
         moveSet = _moveSet;
-        isFirstmove = true;
     }
     public override void SelectionnerPiece()
     {
@@ -55,23 +50,16 @@ public class ReineComportement : Piece
         }
 
 
-        if (isFirstmove)
-        {
-            Vector2Int firstMove = moveSet[1];
-            firstMove = coordonneesDeCetteCase;
+        Vector2Int firstMove = moveSet[1];
+        firstMove = coordonneesDeCetteCase;
 
-            for (int y = coordonneesDeCetteCase.y; y <= firstMove.y; y++)
-            {
-                BoardManager.Instance.ActiverCaseByCoord(firstMove.x,y,true,numeroJoueur);
-            }
+        for (int y = coordonneesDeCetteCase.y; y <= firstMove.y; y++)
+        {
+            BoardManager.Instance.ActiverCaseByCoord(firstMove.x,y,true,numeroJoueur);
         }
 
     }
     
-
-
-
-// Update is called once per frame
     public override void DeplacerPiece(Case caseDestination)
     {
         //Dans le cas qu'il ait une pièce dans la case qu'on veut se déplacer,

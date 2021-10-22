@@ -5,20 +5,12 @@ using UnityEngine;
 
 public class RoqueComportement : Piece
 {
-
-    private bool isFirstmove;
-    
     [SerializeField] private Vector2Int[] _moveSet = new Vector2Int[]
     {
         new Vector2Int(BoardManager.MAX_BOARD_SIZE, 0), //Mouvement vers toute la droite
         new Vector2Int(-BoardManager.MAX_BOARD_SIZE, 0), //Mouvement vers toute la gauche
         new Vector2Int(0,BoardManager.MAX_BOARD_SIZE),//Mouvement vers tous en haut
         new Vector2Int(0,-BoardManager.MAX_BOARD_SIZE),//Mouvement vers tous en bas 
-        new Vector2Int(BoardManager.MAX_BOARD_SIZE,-BoardManager.MAX_BOARD_SIZE),//Mouvement pour manger une piece
-        new Vector2Int()
-
-
-
     };
 
     // Start is called before the first frame update
@@ -32,7 +24,6 @@ public class RoqueComportement : Piece
         
         //On définit l'ensemble de mouvement de la pièce
         moveSet = _moveSet;
-        isFirstmove = true;
     }
     
     public override void SelectionnerPiece()
@@ -45,90 +36,126 @@ public class RoqueComportement : Piece
         //C'est le BoardManager qui activera les cases pour se déplacer selon le moveSet envoyé.
 
         Vector2Int coordonneesDeCetteCase = new Vector2Int();
-        Joueur.NumeroJoueur numeroJoueur = PlayersController.Instance._joueurActive.numeroJoueur;
+        Joueur.NumeroJoueur joueurActuel = PlayersController.Instance._joueurActive.numeroJoueur;
 
 
-        if (numeroJoueur is Joueur.NumeroJoueur.Joueur1)
+        if (joueurActuel is Joueur.NumeroJoueur.Joueur1)
         {
             coordonneesDeCetteCase = caseActuelle.coordonneesDeCasePourBlanc;
         }
-        else if(numeroJoueur is Joueur.NumeroJoueur.Joueur2)
+        else if(joueurActuel is Joueur.NumeroJoueur.Joueur2)
         {
             coordonneesDeCetteCase = caseActuelle.coordonneesDeCasePourNoir;
         }
+        
 
-
-        if (isFirstmove)
-        {
-            Vector2Int firstMove = moveSet[1];
-            firstMove = coordonneesDeCetteCase;
-
-            for (int y = coordonneesDeCetteCase.y; y <= firstMove.y; y++)
-            {
-                BoardManager.Instance.ActiverCaseByCoord(firstMove.x,y,true,numeroJoueur);
-            }
-        }
-
-
+        Piece pieceInNextCase; //Pièce qui va être retrouvé si jamais HasPieceOnCoord retourn vrai.
 
         //On affiche les cases possibles de la tour pour se déplacer
         for (int i = 0; i < moveSet.Length; i++)
         {
             Vector2Int nextMove = moveSet[i];
             nextMove += coordonneesDeCetteCase; //Pour connaître le mouvement rélatif à la position de cette case
-         
-         
+            
             //On active dans les coordonnées x positif
-            for (int xPosi = coordonneesDeCetteCase.x; xPosi <= nextMove.x; xPosi++)
+            for (int xPosi = coordonneesDeCetteCase.x + 1; xPosi <= nextMove.x; xPosi++)
             {
-                if (BoardManager.Instance.HasPieceOnCoord(xPosi, nextMove.y) && xPosi!=coordonneesDeCetteCase.x)
+                if (BoardManager.Instance.HasPieceOnCoord(xPosi, nextMove.y, out pieceInNextCase))
                 {
-                    break;
+                    //S'il s'agit d'un ennemie
+                    if (pieceInNextCase.JoueurProprietaire != joueurActuel)
+                    {
+                        //On active les cases par coordonn�es dans le board
+                        BoardManager.Instance.ActiverCaseByCoord(xPosi, nextMove.y, true, joueurActuel);
+                        break;
+                    }
+                    else //S'il s'agit de nous même, on s'arrête
+                    {
+                        break;
+                    }
                 }
-                //On active les cases par coordonnées dans le board
-                BoardManager.Instance.ActiverCaseByCoord(xPosi, coordonneesDeCetteCase.y, true, numeroJoueur);
+                else
+                {
+                    //On active les cases par coordonn�es dans le board
+                    BoardManager.Instance.ActiverCaseByCoord(xPosi, nextMove.y, true, joueurActuel);
+                }
+                
             }
             
             //On active dans les coordonnées x negatif
-            for (int xNega = coordonneesDeCetteCase.x; xNega >= nextMove.x; xNega--)
+            for (int xNega = coordonneesDeCetteCase.x - 1; xNega >= nextMove.x; xNega--)
             {
-                if (BoardManager.Instance.HasPieceOnCoord(xNega, nextMove.y) && xNega!=coordonneesDeCetteCase.x)
+
+                if (BoardManager.Instance.HasPieceOnCoord(xNega, nextMove.y, out pieceInNextCase))
                 {
-                    break;
+                    //S'il s'agit d'un ennemie
+                    if (pieceInNextCase.JoueurProprietaire != joueurActuel)
+                    {
+                        //On active les cases par coordonn�es dans le board
+                        BoardManager.Instance.ActiverCaseByCoord(xNega, nextMove.y, true, joueurActuel);
+                        break;
+                    }
+                    else //S'il s'agit de nous même, on s'arrête
+                    {
+                        break;
+                    }
                 }
-                //On active les cases par coordonnées dans le board
-                BoardManager.Instance.ActiverCaseByCoord(xNega, coordonneesDeCetteCase.y, true, numeroJoueur);
+                else
+                {
+                    //On active les cases par coordonn�es dans le board
+                    BoardManager.Instance.ActiverCaseByCoord(xNega, nextMove.y, true, joueurActuel);
+                }
             }
 
             //On active dans les coordonnées y positif
-            for (int yPosi = coordonneesDeCetteCase.y; yPosi <= nextMove.y; yPosi++)
+            for (int yPosi = coordonneesDeCetteCase.y + 1; yPosi <= nextMove.y; yPosi++)
             {
-                if (BoardManager.Instance.HasPieceOnCoord(coordonneesDeCetteCase.x, yPosi)&& yPosi!=coordonneesDeCetteCase.y)
+                Debug.Log(yPosi);
+                
+                if (BoardManager.Instance.HasPieceOnCoord(coordonneesDeCetteCase.x, yPosi, out pieceInNextCase))
                 {
-                    break;
+                    //S'il s'agit d'un ennemie
+                    if (pieceInNextCase.JoueurProprietaire != joueurActuel)
+                    {
+                        //On active les cases par coordonn�es dans le board
+                        BoardManager.Instance.ActiverCaseByCoord(coordonneesDeCetteCase.x, yPosi, true, joueurActuel);
+                        break;
+                    }
+                    else //S'il s'agit de nous même, on s'arrête
+                    {
+                        break;
+                    }
                 }
-                //On active les cases par coordonnées dans le board
-                BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
-                //Debug.Log(nextMove.x + ":" + yPosi);
+                else
+                {
+                    //On active les cases par coordonn�es dans le board
+                    BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, joueurActuel);
+                }
             }
             //On active dans les coordonnées y negatif
-            for (int yPosi = coordonneesDeCetteCase.y; yPosi >= nextMove.y; yPosi--)
+            for (int yPosi = coordonneesDeCetteCase.y - 1; yPosi >= nextMove.y; yPosi--)
             {
-                if (BoardManager.Instance.HasPieceOnCoord(coordonneesDeCetteCase.x, yPosi) && yPosi!=coordonneesDeCetteCase.y)
+                if (BoardManager.Instance.HasPieceOnCoord(coordonneesDeCetteCase.x, yPosi, out pieceInNextCase))
                 {
-                    break;
+                    //S'il s'agit d'un ennemie
+                    if (pieceInNextCase.JoueurProprietaire != joueurActuel)
+                    {
+                        //On active les cases par coordonn�es dans le board
+                        BoardManager.Instance.ActiverCaseByCoord(coordonneesDeCetteCase.x, yPosi, true, joueurActuel);
+                        break;
+                    }
+                    else //S'il s'agit de nous même, on s'arrête
+                    {
+                        break;
+                    }
                 }
-                //On active les cases par coordonnées dans le board
-                BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
-                //Debug.Log(nextMove.x + ":" + yPosi);
+                else
+                {
+                    //On active les cases par coordonn�es dans le board
+                    BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, joueurActuel);
+                }
             }
         }
-        
-
-
-
-
-
 
     }
     
@@ -154,11 +181,6 @@ public class RoqueComportement : Piece
 
         destination.y = transform.position.y;
         _rb.MovePosition(destination);
-
-        if (isFirstmove)
-        {
-            isFirstmove = false;
-        }
         
     }
 
