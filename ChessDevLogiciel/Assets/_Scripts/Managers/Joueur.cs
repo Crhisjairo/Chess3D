@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Joueur : MonoBehaviour
 {
@@ -12,9 +13,15 @@ public class Joueur : MonoBehaviour
 
     private List<Piece> _piecesMangees;
 
+    //public Slider _timeSlider;
+    public Text _tempsRestantText;
+    public string _textTime;
+
     public string Nom { get; set; }
     public int Pointage { get; set; } = 0;
-    
+    public float TempsRestant { get; set; } = 300f;
+    public bool TempsEstArrete { get; set; } = false;
+
     [SerializeField] private Piece[] _piecesJoueur;
 
     private void Start()

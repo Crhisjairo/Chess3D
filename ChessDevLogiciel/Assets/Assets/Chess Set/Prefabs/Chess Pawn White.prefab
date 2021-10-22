@@ -125,3 +125,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b7124d4bd56874380d5621c11a973c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSet: []
+  caseActuelle: {fileID: 0}

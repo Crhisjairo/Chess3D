@@ -10,7 +10,7 @@ public class PlayersController : MonoBehaviour
     
     public static PlayersController Instance { private set; get;}
     
-    private Piece _pieceSelectionne;
+    public Piece _pieceSelectionne;
 
     public Joueur _joueurActive;
     [SerializeField] private Joueur[] _joueurs;
@@ -45,6 +45,28 @@ public class PlayersController : MonoBehaviour
             DeplacerPionAuClickPosition();
         }
     }
+
+    //private void DebuterTemps()
+    //{
+    //    _joueurActive._tempsRestant = _tempsJeu;
+    //    _joueurActive._stopTimer = _tempsJeu;
+
+    //    if (_joueurActive._tempsEstArrete == false)
+    //    {
+    //        _joueurActive._tempsRestant -= Time.time; /// 300f => 5 minutes
+            
+    //        int minutes = Mathf.FloorToInt(_joueurActive._tempsRestant / 60);
+    //        int secondes = Mathf.FloorToInt(_joueurActive._tempsRestant - minutes * 60f);
+    //        _joueurActive._textTime = string.Format("{0:00}:{1:00}", minutes, secondes);
+            
+    //        _joueurActive._tempsRestantText.text = _joueurActive._textTime;
+    //    }
+    //    else if (_joueurActive._tempsEstArrete == true)
+    //    {
+    //        _joueurActive._stopTimer = _joueurActive._tempsRestant;
+    //    }
+    //}
+
     private void DeplacerPionAuClickPosition()
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -179,7 +201,7 @@ public class PlayersController : MonoBehaviour
     {
         //On désactive les pièces du joueur active.
         _joueurActive.SetPiecesActives(false);
-        
+
         //On change le joueur active.
         int nouveauNumeroJoueur = ((int) _joueurActive.numeroJoueur) + 1;
         //On vérifie qu'on dépasse pas les nombre max des joueurs
@@ -189,7 +211,7 @@ public class PlayersController : MonoBehaviour
         _joueurActive = _joueurs[nouveauNumeroJoueur - 1];
         Debug.Log("Le tour à joueur " + nouveauNumeroJoueur);
 
-        //On active les pièce du nouveau joueur qui es maintenant joueurActive.
+        //On active les pièce du nouveau joueur qui est maintenant joueurActive.
         _joueurActive.SetPiecesActives(true);
         
         GameManager.Instance.ChangerCameraTo(_joueurActive.numeroJoueur);
