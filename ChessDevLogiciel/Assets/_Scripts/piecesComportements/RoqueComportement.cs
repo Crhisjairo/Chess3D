@@ -25,6 +25,8 @@ public class RoqueComportement : Piece
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _meshRenderer = GetComponent<MeshRenderer>();
+        _boxCollider = GetComponent<BoxCollider>();
         _outline = GetComponent<Outline>();
         _outline.enabled = false; //On cache le outline au début.
         
@@ -107,7 +109,7 @@ public class RoqueComportement : Piece
                 }
                 //On active les cases par coordonnées dans le board
                 BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
-                Debug.Log(nextMove.x + ":" + yPosi);
+                //Debug.Log(nextMove.x + ":" + yPosi);
             }
             //On active dans les coordonnées y negatif
             for (int yPosi = coordonneesDeCetteCase.y; yPosi >= nextMove.y; yPosi--)
@@ -118,7 +120,7 @@ public class RoqueComportement : Piece
                 }
                 //On active les cases par coordonnées dans le board
                 BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
-                Debug.Log(nextMove.x + ":" + yPosi);
+                //Debug.Log(nextMove.x + ":" + yPosi);
             }
         }
         

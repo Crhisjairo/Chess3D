@@ -109,6 +109,8 @@ public class PlayersController : MonoBehaviour
         
         _joueurActive.AjouterPieceMangee(pieceMangee);
         
+        Debug.Log("La pièce mangée est " + pieceMangee.name);
+        
         //JUSTE POUR DEBUG
         Debug.Log("Pièce mangées du " + _joueurActive.numeroJoueur + " sont:");
         foreach (var piece in _joueurActive.GetPiecesMangees())

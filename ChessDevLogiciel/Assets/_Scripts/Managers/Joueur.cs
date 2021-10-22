@@ -31,13 +31,13 @@ public class Joueur : MonoBehaviour
     }
 
     /**
-     * On donne le numéro de joueur auquel les pièces appartiennent.
+     * On donne le numéro de joueur aux pièces auquels elles appartiennent.
      */
     private void SetProprietairePieces()
     {
         foreach (Piece piece in _piecesJoueur)
         {
-            piece.SetPieceProprietaire(numeroJoueur);
+            piece.JoueurProprietaire = numeroJoueur;
         }
     }
 

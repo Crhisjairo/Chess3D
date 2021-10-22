@@ -566,6 +566,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b537a7df5a959c4aa0c82396d2f9673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _UISprite: {fileID: 0}
+  JoueurProprietaire: 0
   moveSet: []
   caseActuelle: {fileID: 0}
 --- !u!114 &1757177708
@@ -808,6 +810,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1818735490}
     m_Modifications:
     - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
+      propertyPath: _UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd18bb167572fed4cba2220c7269a6ba, type: 3}
+    - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
       propertyPath: _numeroJoueurQuiAppartient
       value: 1
       objectReference: {fileID: 0}
@@ -966,6 +972,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1818735490}
     m_Modifications:
     - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
+      propertyPath: _UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd18bb167572fed4cba2220c7269a6ba, type: 3}
+    - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
       propertyPath: _numeroJoueurQuiAppartient
       value: 1
       objectReference: {fileID: 0}
@@ -1046,6 +1056,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1818735490}
     m_Modifications:
+    - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
+      propertyPath: _UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd18bb167572fed4cba2220c7269a6ba, type: 3}
     - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
       propertyPath: _numeroJoueurQuiAppartient
       value: 1
@@ -1358,6 +1372,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1818735490}
     m_Modifications:
+    - target: {fileID: 896353244185443981, guid: 3d8e1142f8ab3ab4c8864793a18457f8, type: 3}
+      propertyPath: _UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: afca7ec0e8e90444d82960d433404170, type: 3}
     - target: {fileID: 3500644683918692467, guid: 3d8e1142f8ab3ab4c8864793a18457f8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1439,6 +1457,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1818735490}
     m_Modifications:
+    - target: {fileID: 2198022270870671846, guid: acc41475b09c1774d89dd8959b85562f, type: 3}
+      propertyPath: _UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1a207e36ad897a04aa38c91283b09e39, type: 3}
     - target: {fileID: 6066848951215937266, guid: acc41475b09c1774d89dd8959b85562f, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -1583,6 +1605,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1818735490}
     m_Modifications:
     - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
+      propertyPath: _UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd18bb167572fed4cba2220c7269a6ba, type: 3}
+    - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
       propertyPath: _numeroJoueurQuiAppartient
       value: 1
       objectReference: {fileID: 0}
@@ -1663,6 +1689,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1818735490}
     m_Modifications:
+    - target: {fileID: -5434353238352019183, guid: 3469fe368f877624f98344d9f5577d4d, type: 3}
+      propertyPath: _UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8cf964a6243e68b44a945a31a33adf16, type: 3}
     - target: {fileID: 2999878340389898711, guid: 3469fe368f877624f98344d9f5577d4d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1822,6 +1852,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1818735490}
     m_Modifications:
     - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
+      propertyPath: _UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd18bb167572fed4cba2220c7269a6ba, type: 3}
+    - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
       propertyPath: _numeroJoueurQuiAppartient
       value: 1
       objectReference: {fileID: 0}
@@ -1902,6 +1936,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1818735490}
     m_Modifications:
+    - target: {fileID: 896353244185443981, guid: 3d8e1142f8ab3ab4c8864793a18457f8, type: 3}
+      propertyPath: _UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: afca7ec0e8e90444d82960d433404170, type: 3}
     - target: {fileID: 3500644683918692467, guid: 3d8e1142f8ab3ab4c8864793a18457f8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2053,6 +2091,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1818735490}
     m_Modifications:
+    - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
+      propertyPath: _UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd18bb167572fed4cba2220c7269a6ba, type: 3}
     - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
       propertyPath: _numeroJoueurQuiAppartient
       value: 1
@@ -2211,6 +2253,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1818735490}
     m_Modifications:
+    - target: {fileID: 2198022270870671846, guid: acc41475b09c1774d89dd8959b85562f, type: 3}
+      propertyPath: _UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1a207e36ad897a04aa38c91283b09e39, type: 3}
     - target: {fileID: 6066848951215937266, guid: acc41475b09c1774d89dd8959b85562f, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -2344,6 +2390,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: cfd20b717fa004749ac6f96ba03ad97a, type: 2}
+    - target: {fileID: 6010858751199014592, guid: fdb3e45db101bd74aade367128f39bc3, type: 3}
+      propertyPath: _UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 418ee6562dc609d4ca30b082f69dc138, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdb3e45db101bd74aade367128f39bc3, type: 3}
 --- !u!4 &4515000354869024418 stripped
@@ -2523,6 +2573,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1818735490}
     m_Modifications:
+    - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
+      propertyPath: _UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd18bb167572fed4cba2220c7269a6ba, type: 3}
     - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
       propertyPath: _numeroJoueurQuiAppartient
       value: 1
@@ -2968,6 +3022,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1818735490}
     m_Modifications:
+    - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
+      propertyPath: _UISprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd18bb167572fed4cba2220c7269a6ba, type: 3}
     - target: {fileID: 3260486361331346345, guid: fa6dc1fb8e464dc4eadc5c992b4b47de, type: 3}
       propertyPath: _numeroJoueurQuiAppartient
       value: 1

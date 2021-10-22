@@ -23,6 +23,8 @@ public class RoiComportement : Piece
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _meshRenderer = GetComponent<MeshRenderer>();
+        _boxCollider = GetComponent<BoxCollider>();
         _outline = GetComponent<Outline>();
         _outline.enabled = false; //On cache le outline au début.
 
@@ -103,7 +105,7 @@ public class RoiComportement : Piece
             {
                 //On active les cases par coordonnées dans le board
                 BoardManager.Instance.ActiverCaseByCoord(nextMove1.x, yPosi, true, numeroJoueur);
-                Debug.Log(nextMove1.x + ":" + yPosi);
+                //Debug.Log(nextMove1.x + ":" + yPosi);
             }
 
             //On active dans les coordonnées y negatif
@@ -111,7 +113,7 @@ public class RoiComportement : Piece
             {
                 //On active les cases par coordonnées dans le board
                 BoardManager.Instance.ActiverCaseByCoord(nextMove1.x, yPosi, true, numeroJoueur);
-                Debug.Log(nextMove1.x + ":" + yPosi);
+                //Debug.Log(nextMove1.x + ":" + yPosi);
             }
 
         }

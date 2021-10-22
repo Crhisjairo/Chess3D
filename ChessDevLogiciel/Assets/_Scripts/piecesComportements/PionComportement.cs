@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 
@@ -29,8 +30,7 @@ public class PionComportement : Piece
       _boxCollider = GetComponent<BoxCollider>();
       _outline = GetComponent<Outline>();
       _outline.enabled = false; //On cache le outline au début.
-      
-      
+
       //On définit l'ensemble de mouvement de la pièce
       moveSet = _moveSet;
       isFirstMove = true;

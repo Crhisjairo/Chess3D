@@ -24,6 +24,8 @@ public class ReineComportement : Piece
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _meshRenderer = GetComponent<MeshRenderer>();
+        _boxCollider = GetComponent<BoxCollider>();
         _outline = GetComponent<Outline>();
         _outline.enabled = false; //On cache le outline au début.
 

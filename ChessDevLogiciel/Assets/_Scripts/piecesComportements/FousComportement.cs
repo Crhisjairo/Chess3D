@@ -16,6 +16,8 @@ public class FousComportement : Piece
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _meshRenderer = GetComponent<MeshRenderer>();
+        _boxCollider = GetComponent<BoxCollider>();
         _outline = GetComponent<Outline>();
         _outline.enabled = false; //On cache le outline au début.
 
@@ -62,7 +64,7 @@ public class FousComportement : Piece
         {
             //On active les cases par coordonn�es dans le board
             BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
-            Debug.Log(nextMove.x + ":" + nextMove.y);
+            //Debug.Log(nextMove.x + ":" + nextMove.y);
 
             nextMove += moveSet[0];
         }
@@ -74,7 +76,7 @@ public class FousComportement : Piece
         {
             //On active les cases par coordonn�es dans le board
             BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
-            Debug.Log(nextMove.x + ":" + nextMove.y);
+            //Debug.Log(nextMove.x + ":" + nextMove.y);
 
             nextMove += moveSet[1];
         }
@@ -86,7 +88,7 @@ public class FousComportement : Piece
         {
             //On active les cases par coordonn�es dans le board
             BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
-            Debug.Log(nextMove.x + ":" + nextMove.y);
+            //Debug.Log(nextMove.x + ":" + nextMove.y);
 
             nextMove += moveSet[2];
         }
@@ -98,7 +100,7 @@ public class FousComportement : Piece
         {
             //On active les cases par coordonn�es dans le board
             BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
-            Debug.Log(nextMove.x + ":" + nextMove.y);
+            //Debug.Log(nextMove.x + ":" + nextMove.y);
 
             nextMove += moveSet[3];
         }

@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945a1bc0fd75add4aae10452f6934dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _UISprite: {fileID: 21300000, guid: 000c9dc3b19f3924798bd68fc018946e, type: 3}
   moveSet: []
   caseActuelle: {fileID: 0}
   _moveSet:

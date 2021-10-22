@@ -25,10 +25,11 @@ public class GameManager : MonoBehaviour
 
     public void ChangerCameraTo(Joueur.NumeroJoueur numeroJoueur)
     {
+        Debug.Log("Changement de cam à " + numeroJoueur);
+        
         //Faut changer la camera par Cinemachine Virtual Camera
         if (numeroJoueur == Joueur.NumeroJoueur.Joueur1)
         {
-            Debug.Log("Icitte");
             _drivenCamAnimator.Play("vcamPlayer1");
         } 
         else if (numeroJoueur == Joueur.NumeroJoueur.Joueur2)

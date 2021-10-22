@@ -10,11 +10,12 @@ using UnityEngine;
 [System.Serializable]
 public abstract class Piece : MonoBehaviour
 {
-
     protected Rigidbody _rb;
     protected MeshRenderer _meshRenderer;
     protected BoxCollider _boxCollider;
     protected Outline _outline;
+
+    [SerializeField] protected Sprite _UISprite;
     
     /// <summary>
     /// Si la pièce est activée et peut être seléctionnée.
@@ -49,16 +50,18 @@ public abstract class Piece : MonoBehaviour
         } 
     }
     
-    
-
-    protected Joueur.NumeroJoueur _joueurProprietaire;
+    /**
+     * Joueur propriétaire de la pièce.
+     * Est utilisé pour éviter les activation des cases qui contient une pièce su même joueur.
+     */
+    public Joueur.NumeroJoueur JoueurProprietaire;
     
     /// <summary>
     /// Ensemble de mouvement rélatives à la pièce.
     /// </summary>
     [HideInInspector] public Vector2Int[] moveSet;
     
-    public Case caseActuelle;
+    [HideInInspector] public Case caseActuelle;
     
     //Méthodes qui doivent être redéfiniées, car c'est un comportement propre à la pièce.
     
@@ -102,11 +105,6 @@ public abstract class Piece : MonoBehaviour
             
             //Debug.Log("Collision: " + caseActuelle.numeroDeCase);
         }
-    }
-
-    public void SetPieceProprietaire(Joueur.NumeroJoueur joueurProprietaire)
-    {
-        _joueurProprietaire = joueurProprietaire;
     }
 
     public void SetEstActive(bool estActive)

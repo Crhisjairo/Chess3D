@@ -144,5 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b537a7df5a959c4aa0c82396d2f9673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _UISprite: {fileID: 21300000, guid: b68475102e2a21a49b1dfaf83378b5a5, type: 3}
   moveSet: []
   caseActuelle: {fileID: 0}
