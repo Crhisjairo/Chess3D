@@ -8,56 +8,42 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { private set; get; }
 
-    [SerializeField] private Slider _timeSlider;
-    [SerializeField] private Text _tempsRestantText;
-    [SerializeField] private Text _timesUpText;
-    private float _tempsJeu = 300f;
-    public float _tempsRestant;
-    public bool _estArrete;
-    private string _textTime;
-    private float stopTime;
-    private float startTime;
+    //[SerializeField] private Text _tempsRestantText;
+    //private float _tempsJeu = 300f;
+    //public float _tempsRestant;
+    //public bool _estArrete;
+    //private string _tempsText;
+
+    public Joueur _joueurActive;
+    [SerializeField] private Joueur[] _joueurs;
 
     // Start is called before the first frame update
     void Start()
     {
-        _timesUpText.gameObject.SetActive(false);
-        _estArrete = false;
-        _timeSlider.maxValue = _tempsJeu;
-        _timeSlider.value = _tempsJeu;
+        //On débute avec le premier joueur
+        int numeroJoueurQuiCommence = (int)Joueur.NumeroJoueur.Joueur1 - 1; //Enum qui se trouve dans Joueur
+        _joueurActive = _joueurs[numeroJoueurQuiCommence];
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        _tempsRestant = _tempsJeu - Time.time;
-        int minutes = Mathf.FloorToInt(_tempsRestant / 60);
-        int secondes = Mathf.FloorToInt(_tempsRestant - minutes * 60f);
-        _textTime = string.Format("{0:00}:{1:00}", minutes, secondes);
+        //_tempsRestant = _tempsJeu - Time.time;
+        //int minutes = Mathf.FloorToInt(_tempsRestant / 60);
+        //int secondes = Mathf.FloorToInt(_tempsRestant - minutes * 60f);
+        //_tempsText = string.Format("{0:00}:{1:00}", minutes, secondes);
 
-        if (_estArrete == false)
-        {
-            _tempsRestantText.text = _textTime;
-            _timeSlider.value = _tempsRestant;
-        }
+        //if (_estArrete == false)
+        //{
+        //    _tempsRestantText.text = _tempsText;
+        //}
 
-        if (_tempsRestant <= 0)
-        {
-            _estArrete = true;
-            _timesUpText.gameObject.SetActive(true);
-            Debug.Log("Le temps s'est terminé");
-        }
+        //if (_tempsRestant <= 0)
+        //{
+        //    _estArrete = true;
+        //    Debug.Log("Le temps s'est terminé");
+        //}
 
-    }
-    private float StartTimer()
-    {
-        return _tempsRestant;
-    }
-
-    private void StopTimer()
-    {
-        Debug.Log("Time stop");
-        _estArrete = false;
-        
     }
 }
