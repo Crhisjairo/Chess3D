@@ -4,20 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Rigidbody))]
+
+
+
+
 public class RoqueComportement : Piece
 {
     private Rigidbody _rb;
 
     private bool isFirstmove;
     
-    [SerializeField] private Vector2Int[] _moveSet = new Vector2Int[]
+    private Vector2Int[] _moveSet = new Vector2Int[]
     {
         new Vector2Int(BoardManager.MAX_BOARD_SIZE, 0), //Mouvement vers toute la droite
         new Vector2Int(-BoardManager.MAX_BOARD_SIZE, 0), //Mouvement vers toute la gauche
         new Vector2Int(0,BoardManager.MAX_BOARD_SIZE),//Mouvement vers tous en haut
         new Vector2Int(0,-BoardManager.MAX_BOARD_SIZE),//Mouvement vers tous en bas 
         new Vector2Int(BoardManager.MAX_BOARD_SIZE,-BoardManager.MAX_BOARD_SIZE),//Mouvement pour manger une piece
-        new Vector2Int()
+        
 
 
 
@@ -32,6 +36,8 @@ public class RoqueComportement : Piece
         moveSet = _moveSet;
         isFirstmove = true;
     }
+    
+    
     
     public override void SelectionnerPiece()
     {
