@@ -5,14 +5,31 @@ using UnityEngine;
 public class ReineComportement : Piece
 {
 
-    [SerializeField] private Vector2Int[] _moveSet = new Vector2Int[]
-    {
-        new Vector2Int(BoardManager.MAX_BOARD_SIZE, 0), //Mouvement vers toute la droite
-        new Vector2Int(-BoardManager.MAX_BOARD_SIZE, 0), //Mouvement vers toute la gauche
-        new Vector2Int(0,BoardManager.MAX_BOARD_SIZE),//Mouvement vers tous en haut
-        new Vector2Int(0,-BoardManager.MAX_BOARD_SIZE),//Mouvement vers tous en bas
-        new Vector2Int(0, 1), //Move vers en avant de 1 case
-        new Vector2Int(0, 2), //Move vers en avant de 2 case
+    private Vector2Int[] _moveSet = new Vector2Int[]
+    {    
+        
+        
+        
+        
+        new Vector2Int(BoardManager.MAX_BOARD_SIZE, 0), //Mouvement vers toute la droite [0]
+        new Vector2Int(-BoardManager.MAX_BOARD_SIZE, 0), //Mouvement vers toute la gauche [1]
+        new Vector2Int(0,BoardManager.MAX_BOARD_SIZE),//Mouvement vers tous en haut [2]
+        new Vector2Int(0,-BoardManager.MAX_BOARD_SIZE),//Mouvement vers tous en bas [3]
+        
+        
+        
+    
+        
+        
+        new Vector2Int(1, 1), //move pour manger en diagonal droit vers le haut [4]
+        new Vector2Int(-1, 1), //move pour manger en diagonal gauche vers le haut [5]
+        new Vector2Int(1, -1), //move pour manger en diagonal droite vers le bas [6]
+        new Vector2Int(-1, -1) //move pour manger en diagonal gauche vers le bas [7]
+        
+        
+        
+        
+        
     };
     
     
@@ -48,35 +65,151 @@ public class ReineComportement : Piece
         {
             coordonneesDeCetteCase = caseActuelle.coordonneesDeCasePourNoir;
         }
+         
+        // Mouvement de la tour
 
-
-        Vector2Int firstMove = moveSet[1];
-        firstMove = coordonneesDeCetteCase;
-
-        for (int y = coordonneesDeCetteCase.y; y <= firstMove.y; y++)
+        Vector2Int nextMove;
+        for (int i = 0; i < moveSet.Length; i++)
         {
-            BoardManager.Instance.ActiverCaseByCoord(firstMove.x,y,true,numeroJoueur);
+            nextMove = moveSet[i];
+            nextMove += coordonneesDeCetteCase; //Pour connaître le mouvement rélatif à la position de cette case
+
+
+            //On active dans les coordonnées x positif
+            for (int xPosi = coordonneesDeCetteCase.x; xPosi <= nextMove.x; xPosi++)
+            {
+                if (BoardManager.Instance.HasPieceOnCoord(xPosi, nextMove.y) && xPosi != coordonneesDeCetteCase.x)
+                {
+                    break;
+                }
+
+                //On active les cases par coordonnées dans le board
+                BoardManager.Instance.ActiverCaseByCoord(xPosi, coordonneesDeCetteCase.y, true, numeroJoueur);
+            }
+
+            //On active dans les coordonnées x negatif
+            for (int xNega = coordonneesDeCetteCase.x; xNega >= nextMove.x; xNega--)
+            {
+                if (BoardManager.Instance.HasPieceOnCoord(xNega, nextMove.y) && xNega != coordonneesDeCetteCase.x)
+                {
+                    break;
+                }
+
+                //On active les cases par coordonnées dans le board
+                BoardManager.Instance.ActiverCaseByCoord(xNega, coordonneesDeCetteCase.y, true, numeroJoueur);
+            }
+
+            //On active dans les coordonnées y positif
+            for (int yPosi = coordonneesDeCetteCase.y; yPosi <= nextMove.y; yPosi++)
+            {
+                if (BoardManager.Instance.HasPieceOnCoord(coordonneesDeCetteCase.x, yPosi) &&
+                    yPosi != coordonneesDeCetteCase.y)
+                {
+                    break;
+                }
+
+                //On active les cases par coordonnées dans le board
+                BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
+                Debug.Log(nextMove.x + ":" + yPosi);
+            }
+
+            //On active dans les coordonnées y negatif
+            for (int yPosi = coordonneesDeCetteCase.y; yPosi >= nextMove.y; yPosi--)
+            {
+                if (BoardManager.Instance.HasPieceOnCoord(coordonneesDeCetteCase.x, yPosi) &&
+                    yPosi != coordonneesDeCetteCase.y)
+                {
+                    break;
+                }
+
+                //On active les cases par coordonnées dans le board
+                BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
+                Debug.Log(nextMove.x + ":" + yPosi);
+            }
+
+        }
+        
+        
+        // Mouvement fou
+        nextMove = moveSet[4];
+        nextMove += coordonneesDeCetteCase; //Pour conna�tre le mouvement r�latif � la position de cette case
+
+        //Pour la diagonal ver le haut droit
+        for (int yPosi = coordonneesDeCetteCase.y; yPosi <= BoardManager.MAX_BOARD_SIZE; yPosi++)
+        {
+
+            if (BoardManager.Instance.HasPieceOnCoord(nextMove.x,nextMove.y))
+            {
+                break;
+            }
+            //On active les cases par coordonn�es dans le board
+            BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
+            Debug.Log(nextMove.x + ":" + nextMove.y);
+            
+
+            nextMove += moveSet[4];
+        }
+
+        nextMove = moveSet[5];
+        nextMove += coordonneesDeCetteCase;
+        //Pour la diagonal ver le haut gauche
+        for (int yPosi = coordonneesDeCetteCase.y; yPosi <= BoardManager.MAX_BOARD_SIZE; yPosi++)
+        {
+            
+            if (BoardManager.Instance.HasPieceOnCoord(nextMove.x,nextMove.y))
+            {
+                break;
+            }
+            
+            //On active les cases par coordonn�es dans le board
+            BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
+            Debug.Log(nextMove.x + ":" + nextMove.y);
+
+            nextMove += moveSet[5];
+        }
+        
+        nextMove = moveSet[6];
+        nextMove += coordonneesDeCetteCase;
+        //Pour la diagonal ver le bas droite
+        for (int yNegi = coordonneesDeCetteCase.y; yNegi >= -BoardManager.MAX_BOARD_SIZE; yNegi--)
+        {
+            if (BoardManager.Instance.HasPieceOnCoord(nextMove.x,nextMove.y))
+            {
+                break;
+            }
+            //On active les cases par coordonn�es dans le board
+            BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
+            Debug.Log(nextMove.x + ":" + nextMove.y);
+
+            nextMove += moveSet[6];
+        }
+
+        nextMove = moveSet[7];
+        nextMove += coordonneesDeCetteCase;
+        //Pour la diagonal ver le bas droite
+        for (int yNegi = coordonneesDeCetteCase.y; yNegi >= -BoardManager.MAX_BOARD_SIZE; yNegi--)
+        {
+
+            if (BoardManager.Instance.HasPieceOnCoord(nextMove.x, nextMove.y))
+            {
+                break;
+            }
+            //On active les cases par coordonn�es dans le board
+            BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
+            Debug.Log(nextMove.x + ":" + nextMove.y);
+
+            nextMove += moveSet[7];
         }
 
     }
     
     public override void DeplacerPiece(Case caseDestination)
     {
-        //Dans le cas qu'il ait une pièce dans la case qu'on veut se déplacer,
-        //on check si l'on peut la manger ou si c'est une de nos piece
-        //pour ensuite se déplacer 
-      
-        //On déplace
-        //On remplace la coordonnée  y  pour qu'elle reste intacte
         Vector3 destination = caseDestination.transform.position;
-      
+
         destination.y = transform.position.y;
         _rb.MovePosition(destination);
-      
-        //Finalemment,
-        //On efface la réference de la pièce dans la case
-        //et on ajoute la reférence de cette pièce à la case où l'on se déplace
-        //caseDestination.SetPieceDansLaCase(this);
+
     }
 
     
@@ -84,9 +217,9 @@ public class ReineComportement : Piece
     public override void DeselectionnerPiece()
     {
         EstSelectionne = false;
-      
-        //On dit au board de désactiver les cases actives
-        BoardManager.Instance.DesactiverCases(); //le this est temporel
+        
+        BoardManager.Instance.DesactiverCases();
+
     }
 
     
