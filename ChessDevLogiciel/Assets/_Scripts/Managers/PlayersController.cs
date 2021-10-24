@@ -104,27 +104,52 @@ public class PlayersController : MonoBehaviour
                     return;
                 }
 
-                //Checker si on peut manger la pièce
-                //POUR DEBUG, EFFACER APRÈS
-                
-                /*
+                //Checker s'il y a une piece dans la case qu'on veut se déplacer pour la manger.
                 if (caseDestination.HasPiece())
                 {
-                    return;
+                    MangerPieceAtCase(caseDestination);
                 }
-
-                */
                 
+                //Finalement, on se déplace.
+                DeplacerPieceToCase(caseDestination);
+                ChangerTour(); //on change de tour.
                 
-                _pieceSelectionne.DeplacerPiece(caseDestination);
-                _pieceSelectionne.DeselectionnerPiece();
-
-                _pieceSelectionne = null; //On efface la reférence à la pièce selecctionné
-
-                ChangerTour(); //Finalement, on change de tour.
             }
             
         }
+    }
+
+    /// <summary>
+    /// On prends la pièce qui se trouve dans la case où l'on veut se déplacer et on l'ajoute à la liste de
+    /// piècesMangees du joueur contraire.
+    /// </summary>
+    /// <param name="caseDestination"></param>
+    private void MangerPieceAtCase(Case caseDestination)
+    {
+        Piece pieceMangee = caseDestination.GetPieceDansLaCase();
+        caseDestination.SetPieceDansLaCase(null);
+        
+        _joueurActive.AjouterPieceMangee(pieceMangee);
+        
+        Debug.Log("La pièce mangée est " + pieceMangee.name);
+        
+        //JUSTE POUR DEBUG
+        Debug.Log("Pièce mangées du " + _joueurActive.numeroJoueur + " sont:");
+        foreach (var piece in _joueurActive.GetPiecesMangees())
+        {
+            Debug.Log("Nom: " + piece.name + " estActive: " + piece.GetEstActive());
+        }
+        
+        pieceMangee.CacherPiece();
+        
+    }
+
+    private void DeplacerPieceToCase(Case caseDestination)
+    {
+        _pieceSelectionne.DeplacerPiece(caseDestination);
+        _pieceSelectionne.DeselectionnerPiece();
+
+        _pieceSelectionne = null; //On efface la reférence à la pièce selecctionné
     }
 
     private void SelectionnerNouvellePiece(RaycastHit hit)
@@ -137,7 +162,7 @@ public class PlayersController : MonoBehaviour
             _pieceSelectionne = nouvellePiece;
             
             //Si la pièce n'est pas active, on fait rien
-            if (!_pieceSelectionne.EstActive)
+            if (!_pieceSelectionne.GetEstActive())
             {
                 Debug.Log("Pièce pas active");
                 _pieceSelectionne = null;
@@ -151,7 +176,7 @@ public class PlayersController : MonoBehaviour
         
         //Si la pièce n'est pas la même pièce
         //On seléctionne la nouvelle pièce
-        if (!_pieceSelectionne.Equals(nouvellePiece) && nouvellePiece.EstActive)
+        if (!_pieceSelectionne.Equals(nouvellePiece) && nouvellePiece.GetEstActive())
         {
             
             Debug.Log("NOUVELLE pièce!");

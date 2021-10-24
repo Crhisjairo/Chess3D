@@ -33,6 +33,19 @@ public class Joueur : MonoBehaviour
         }
         
         _piecesMangees = new List<Piece>();
+        
+        SetProprietairePieces(); //On se donne comme proprietaire de ces pièces
+    }
+
+    /**
+     * On donne le numéro de joueur aux pièces auquels elles appartiennent.
+     */
+    private void SetProprietairePieces()
+    {
+        foreach (Piece piece in _piecesJoueur)
+        {
+            piece.JoueurProprietaire = numeroJoueur;
+        }
     }
 
     public void SetPiecesActives(bool sontPiecesActives)
@@ -40,13 +53,30 @@ public class Joueur : MonoBehaviour
         //À remplacer par un event system
         foreach (Piece piece in _piecesJoueur)
         {
-            piece.EstActive = sontPiecesActives;
+            piece.SetEstActive(sontPiecesActives);
         }
     }
 
+    
     public void AjouterPieceMangee(Piece piece)
     {
+        //On désactive la pièce.
+        
         _piecesMangees.Add(piece);
+    }
+
+    public void EnleverPieceMangee(Piece piece)
+    {
+        
+    }
+
+    /// <summary>
+    /// Récupère les pièces qui ont été mangées par le joueur.
+    /// </summary>
+    /// <returns>Liste de pièces mangées par le joueur.</returns>
+    public List<Piece> GetPiecesMangees()
+    {
+        return _piecesMangees;
     }
 
     /// <summary>

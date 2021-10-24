@@ -31,7 +31,6 @@ public class BoardManager : MonoBehaviour
 
     /// <summary>
     /// Active ou désactive une case selon les coordonnées et le numéro de joueur envoyés.
-    /// 
     /// À OPTIMISER, méthode faite juste pour pas nous donner du retard xd.
     /// </summary>
     /// <param name="x">Coordonnée X de la case</param>
@@ -52,6 +51,7 @@ public class BoardManager : MonoBehaviour
                 coordonneesDeCase = uneCase.coordonneesDeCasePourNoir;
             }
             
+            //On check que les coordonnées matchent et qu'on active pas une case qui contient la pièce du même joueur.
             if (coordonneesDeCase == new Vector2Int(x, y))
             {
                 uneCase.SetEstActive(activer);
@@ -60,13 +60,13 @@ public class BoardManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Returne si la case contient un pièce selon les coordonnées.
+    /// Returne une pièce si la case contient un pièce selon les coordonnées.
     /// À OPTIMISER AUSSI, méthode faite juste pour pas nous donner du retard xd.
     /// </summary>
     /// <param name="x">Coordonnée X de la case</param>
     /// <param name="y">Coordonnée Y de la case</param>
     /// <returns>S'il existe une pièce dans la case</returns>
-    public bool HasPieceOnCoord(int x, int y)
+    public bool HasPieceOnCoord(int x, int y, out Piece pieceDansCase)
     {
         Joueur.NumeroJoueur numeroJoueur = PlayersController.Instance._joueurActive.numeroJoueur;
         
@@ -84,10 +84,13 @@ public class BoardManager : MonoBehaviour
             
             if (coordonneesDeCase == new Vector2Int(x, y) && uneCase.HasPiece())
             {
+                pieceDansCase = uneCase.GetPieceDansLaCase();
                 return true;
             }
         }
 
+        
+        pieceDansCase = null;
         return false;
     }
 
