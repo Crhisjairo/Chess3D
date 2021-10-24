@@ -54,7 +54,7 @@ public class ChevalierComportement : Piece
         {
             coordonneesDeCetteCase = caseActuelle.coordonneesDeCasePourNoir;
         }
-        
+
         Piece pieceInNextCase; //Pièce qui va être retrouvé si jamais HasPieceOnCoord retourn vrai.
 
         for (int i = 0; i < moveSet.Length; i++)
@@ -74,15 +74,12 @@ public class ChevalierComportement : Piece
                     Debug.Log("Icitte");
                     BoardManager.Instance.ActiverCaseByCoord(_nextMove.x, _nextMove.y, true, joueurActuel);
                 }
-                
             }
             else
             {
                 BoardManager.Instance.ActiverCaseByCoord(_nextMove.x, _nextMove.y, true, joueurActuel);
                 // Debug.Log("Test => Je peux manger cette pièce");
             }
-            
-            
         }
     }
 
