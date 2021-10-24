@@ -32,8 +32,8 @@ public class RoiComportement : Piece
     public override void SelectionnerPiece()
     {
         //On peut changer la couleur de la pièce icitte si l'on veut
-        caseActuelle.SetEstActive(true); //On active la case où se trouve cette pièce pour l'allumer
         EstSelectionne = true; //On marque la pièce comme séléctionnée
+        caseActuelle.SetEstActive(true); //On active la case où se trouve cette pièce pour l'allumer
 
         /*
          * Il faut permettre seulement les déplacements possibles ici selon le type de pièce.

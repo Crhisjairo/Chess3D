@@ -40,17 +40,17 @@ public class ChevalierComportement : Piece
     /// </summary>
     public override void SelectionnerPiece()
     {
-        caseActuelle.SetEstActive(true);
         EstSelectionne = true;
+        caseActuelle.SetEstActive(true);
 
         Vector2Int coordonneesDeCetteCase = new Vector2Int();
-        Joueur.NumeroJoueur numeroJoueur = PlayersController.Instance._joueurActive.numeroJoueur;
+        Joueur.NumeroJoueur joueurActuel = PlayersController.Instance._joueurActive.numeroJoueur;
 
-        if (numeroJoueur is Joueur.NumeroJoueur.Joueur1)
+        if (joueurActuel is Joueur.NumeroJoueur.Joueur1)
         {
             coordonneesDeCetteCase = caseActuelle.coordonneesDeCasePourBlanc;
         }
-        else if (numeroJoueur is Joueur.NumeroJoueur.Joueur2)
+        else if (joueurActuel is Joueur.NumeroJoueur.Joueur2)
         {
             coordonneesDeCetteCase = caseActuelle.coordonneesDeCasePourNoir;
         }
@@ -61,17 +61,28 @@ public class ChevalierComportement : Piece
         {
             _nextMove = moveSet[i];
             _nextMove += coordonneesDeCetteCase;
-            BoardManager.Instance.ActiverCaseByCoord(_nextMove.x, _nextMove.y, true, numeroJoueur);
+            //BoardManager.Instance.ActiverCaseByCoord(_nextMove.x, _nextMove.y, true, joueurActuel);
 
             /* Condition qui vérifie s'il est possible de manger une pièce 
-            * (à améliorer pour vérifier si c'est la pièce de l'adversaire et  
-            * non une des pièces du même joueur)
             */
             if (BoardManager.Instance.HasPieceOnCoord(_nextMove.x, _nextMove.y, out pieceInNextCase))
             {
-                BoardManager.Instance.ActiverCaseByCoord(_nextMove.x, _nextMove.y, true, numeroJoueur);
+                //S'il s'agit d'un ennemie
+                if (pieceInNextCase.JoueurProprietaire != joueurActuel)
+                {
+                    //On active les cases par coordonn�es dans le board
+                    Debug.Log("Icitte");
+                    BoardManager.Instance.ActiverCaseByCoord(_nextMove.x, _nextMove.y, true, joueurActuel);
+                }
+                
+            }
+            else
+            {
+                BoardManager.Instance.ActiverCaseByCoord(_nextMove.x, _nextMove.y, true, joueurActuel);
                 // Debug.Log("Test => Je peux manger cette pièce");
             }
+            
+            
         }
     }
 

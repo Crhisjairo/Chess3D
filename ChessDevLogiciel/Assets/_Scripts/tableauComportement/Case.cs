@@ -48,6 +48,8 @@ public class Case : MonoBehaviour
         {
             if (pieceDansLaCase != null)
             {
+                Debug.Log(pieceDansLaCase.EstSelectionne);
+                
                 if (!pieceDansLaCase.EstSelectionne)
                 {
                     _material.color = Color.red;    

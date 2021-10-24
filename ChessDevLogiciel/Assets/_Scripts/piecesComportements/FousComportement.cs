@@ -28,10 +28,9 @@ public class FousComportement : Piece
     public override void SelectionnerPiece()
     {
         //On peut changer la couleur de la pi�ce icitte si l'on veut
-        caseActuelle.SetEstActive(true); //On active la case o� se trouve cette pi�ce pour l'allumer
         EstSelectionne = true; //On marque la pi�ce comme s�l�ctionn�e
+        caseActuelle.SetEstActive(true); //On active la case o� se trouve cette pi�ce pour l'allumer
         
-
         /*
          * Il faut permettre seulement les d�placements possibles ici selon le type de pi�ce.
          * C'est le BoardManager qui activera les cases (pour que la pi�ce puisse se d�placer) selon le moveSet envoy�.

@@ -29,9 +29,9 @@ public class RoqueComportement : Piece
     public override void SelectionnerPiece()
     {
         //On peut changer la couleur de la pièce si l'on veut
-        caseActuelle.SetEstActive(true);
         EstSelectionne = true;
-        
+        caseActuelle.SetEstActive(true);
+
         //Il faut permettre seulement les déplacements possibles ici selon le type de pièce.
         //C'est le BoardManager qui activera les cases pour se déplacer selon le moveSet envoyé.
 
