@@ -1,9 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< Updated upstream
 
 public class FousComportement : Piece
 {
+=======
+/**
+ * Tous le code qui est présent dans la classe FousComportement sert à faire bouger le Fou et comment le bouger
+ */
+[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Rigidbody))]
+public class FousComportement : Piece
+{
+    
+    /**
+   * Dans cette partie du code, on initialise les variables qui vont être utilisés dans le script du comportement
+   * du fou
+   */
+    
+    
+    private Rigidbody _rb;
+>>>>>>> Stashed changes
 
     private Vector2Int[] _moveSet = new Vector2Int[]
     {
@@ -13,6 +31,12 @@ public class FousComportement : Piece
         new Vector2Int(-1, -1) //move pour manger en diagonal gauche vers le bas
     };
 
+    
+    /**
+     * Dans la méthode Start(), on set up tous les variables pour qu'elles prennent les composants dont elles vont avoir
+     * comme le rigidbody.
+     */
+    
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -24,11 +48,20 @@ public class FousComportement : Piece
         //On d�finit l'ensemble de mouvement de la pi�ce
         moveSet = _moveSet;
     }
-
+    
+    
+    /**
+     * Dans la méthode SelectionnerPiece(), c'est ou tous les comportements se passe. Dans cette méthode nous faisons
+     * que la reine puisse bouger selon les mouvements permis dans un jeu d'échecs réel. PLusieurs variables qui sont
+     * initialiser dans d'autres scripts sont utilisés ici, la pluspart viennent du script BoardManager.
+     */
+    
+    
     public override void SelectionnerPiece()
     {
         //On peut changer la couleur de la pi�ce icitte si l'on veut
         EstSelectionne = true; //On marque la pi�ce comme s�l�ctionn�e
+<<<<<<< Updated upstream
         caseActuelle.SetEstActive(true); //On active la case o� se trouve cette pi�ce pour l'allumer
         
         /*
@@ -41,6 +74,10 @@ public class FousComportement : Piece
          * Dans ce cas, c'est un Pion, alors la logique du pion sera unique. Pourtant, vous pouvez vous baser sur cette
          * logique pour l'impl�menter dans les autres pi�ces.
          */
+=======
+
+     
+>>>>>>> Stashed changes
 
         Vector2Int coordonneesDeCetteCase = new Vector2Int();
         Joueur.NumeroJoueur joueurActuel = PlayersController.Instance._joueurActive.numeroJoueur;
@@ -54,7 +91,13 @@ public class FousComportement : Piece
             coordonneesDeCetteCase = caseActuelle.coordonneesDeCasePourNoir;
         }
 
+<<<<<<< Updated upstream
         //C'EST TOUTE CETTE PARTIE qui change SELON la pi�ce
+=======
+       
+        Vector2Int nextMove = moveSet[0];
+        nextMove += coordonneesDeCetteCase; //Pour conna�tre le mouvement r�latif � la position de cette case
+>>>>>>> Stashed changes
 
         for (int moveSetIndex = 0; moveSetIndex < moveSet.Length; moveSetIndex++)
         {
@@ -93,31 +136,34 @@ public class FousComportement : Piece
         }
         
     }
-
+    /**
+     * Dans la méthode DeplacerPiece(), on fait le deplacer de la piece selon la case qui a été choisi et on bouge la
+     * piece avec la fonctionnalité de MovePosition qui vient avec le rigidbody
+     */
     public override void DeplacerPiece(Case caseDestination)
     {
-        //Dans le cas qu'il ait une pi�ce dans la case qu'on veut se d�placer,
-        //on check si l'on peut la manger ou si c'est une de nos piece
-        //pour ensuite se d�placer 
-
-        //On d�place
-        //On remplace la coordonn�e  y  pour qu'elle reste intacte
+        
+        //On déplace
+        //On remplace la coordonnée  y  pour qu'elle reste intacte
         Vector3 destination = caseDestination.transform.position;
 
         destination.y = transform.position.y;
         _rb.MovePosition(destination);
 
         //Finalemment,
-        //On efface la r�ference de la pi�ce dans la case
-        //et on ajoute la ref�rence de cette pi�ce � la case o� l'on se d�place
+        //On efface la réference de la pièce dans la case
+        //et on ajoute la reférence de cette piéce à la case ou l'on se déplace
         //caseDestination.SetPieceDansLaCase(this);
     }
-
+    /**
+     * La méthode DeselectionnerPiece() sert à déselectionner un pièce lorsqu'on a plus besoin.
+     * Les cases vont se desactiver donc elles ne seront plus rouge.
+     */
     public override void DeselectionnerPiece()
     {
         EstSelectionne = false;
 
-        //On dit au board de d�sactiver les cases actives
+        //On dit au board de désactiver les cases actives
         BoardManager.Instance.DesactiverCases(); //le this est temporel
     }
 }

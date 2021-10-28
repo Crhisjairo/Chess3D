@@ -3,10 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+<<<<<<< Updated upstream
 
 
 public class PionComportement : Piece
 {
+=======
+/**
+ * Tous le code qui est présent dans la classe PionComportement sert à faire bouger le pion et comment le bouger
+ */
+[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Rigidbody))]
+
+public class PionComportement : Piece
+{
+   /**
+  * Dans cette partie du code, on initialise les variables qui vont être utilisés dans le script du comportement
+  * du pion
+  */
+   private Rigidbody _rb;
+>>>>>>> Stashed changes
 
    private Vector2Int[] _moveSet = new Vector2Int[]
    {
@@ -15,14 +31,16 @@ public class PionComportement : Piece
       new Vector2Int(1, 1),  //move pour manger en diagonal droit
       new Vector2Int(-1, 1)  //move pour manger en diagonal gauche
       
-      //new Vector2Int(2, 1) //Exemple d'un mouvement en L (cheval)
-      //new Vector2Int(BoardManager.MAX_BOARD_SIZE, 0) //Exemple de mouvement vers toute la droite
-      //new Vector2Int(-BoardManager.MAX_BOARD_SIZE, 0) //Exemple de mouvement vers toute la gauche
 
    };
 
    private bool isFirstMove;
 
+   /**
+     * Dans la méthode Start(), on set up tous les variables pour qu'elles prennent les composants dont elles vont avoir
+     * comme le rigidbody.
+     */
+   
    private void Start()
    {
       _rb = GetComponent<Rigidbody>();
@@ -35,11 +53,16 @@ public class PionComportement : Piece
       moveSet = _moveSet;
       isFirstMove = true;
    }
-
+   /**
+     * Dans la méthode SelectionnerPiece(), c'est ou tous les comportements se passe. Dans cette méthode nous faisons
+     * que la reine puisse bouger selon les mouvements permis dans un jeu d'échecs réel. PLusieurs variables qui sont
+     * initialiser dans d'autres scripts sont utilisés ici, la pluspart viennent du script BoardManager.
+     */
    public override void SelectionnerPiece()
    {
       //On peut changer la couleur de la pièce icitte si l'on veut
       EstSelectionne = true; //On marque la pièce comme séléctionnée
+<<<<<<< Updated upstream
       caseActuelle.SetEstActive(true); //On active la case où se trouve cette pièce pour l'allumer
 
       /*
@@ -53,6 +76,11 @@ public class PionComportement : Piece
        * logique pour l'implémenter dans les autres pièces.
        */ 
       
+=======
+      
+     
+      //C'est le BoardManager qui activera les cases pour se déplacer selon le moveSet envoyé.
+>>>>>>> Stashed changes
       Vector2Int coordonneesDeCetteCase = new Vector2Int();
       Joueur.NumeroJoueur joueurActuel = PlayersController.Instance._joueurActive.numeroJoueur;
       //On va utiliser les coodonnées d'une case relative au joueur. Si on ajoute plus de joueurs, le code reste flexible
@@ -65,7 +93,7 @@ public class PionComportement : Piece
          coordonneesDeCetteCase = caseActuelle.coordonneesDeCasePourNoir;
       }
       
-      //C'EST TOUTE CETTE PARTIE qui change SELON la pièce
+     
       
       if (isFirstMove)
       {
@@ -106,6 +134,7 @@ public class PionComportement : Piece
       }
       //On active les cases d'un déplacement normal
       Vector2Int nextMove = moveSet[0] + coordonneesDeCetteCase;
+<<<<<<< Updated upstream
 
       //On vérifie qu'il n'ait aucune pièce en avant
       if (!BoardManager.Instance.HasPieceOnCoord(nextMove.x, nextMove.y, out pieceInNextCase))
@@ -114,8 +143,19 @@ public class PionComportement : Piece
       }
       
       
+=======
+      BoardManager.Instance.ActiverCaseByCoord(nextMove.x, nextMove.y, true, numeroJoueur);
+      
+      
+>>>>>>> Stashed changes
    }
 
+   
+   
+   /**
+     * Dans la méthode DeplacerPiece(), on fait le deplacer de la piece selon la case qui a été choisi et on bouge la
+     * piece avec la fonctionnalité de MovePosition qui vient avec le rigidbody
+     */
    public override void DeplacerPiece(Case caseDestination)
    {
       //Dans le cas qu'il ait une pièce dans la case qu'on veut se déplacer,
@@ -140,7 +180,10 @@ public class PionComportement : Piece
       }
    }
 
-   
+   /**
+     * La méthode DeselectionnerPiece() sert à déselectionner un pièce lorsqu'on a plus besoin.
+     * Les cases vont se desactiver donc elles ne seront plus rouge.
+     */
 
    public override void DeselectionnerPiece()
    {

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+<<<<<<< Updated upstream
 
 public class RoqueComportement : Piece
 {
@@ -11,9 +12,44 @@ public class RoqueComportement : Piece
         new Vector2Int(-BoardManager.MAX_BOARD_SIZE, 0), //Mouvement vers toute la gauche
         new Vector2Int(0, BoardManager.MAX_BOARD_SIZE), //Mouvement vers tous en haut
         new Vector2Int(0, -BoardManager.MAX_BOARD_SIZE), //Mouvement vers tous en bas 
+=======
+/**
+ * Tous le code qui est présent dans la classe RoqueComportement sert à faire bouger le Roque et comment le bouger
+ */
+
+[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Rigidbody))]
+
+
+
+
+public class RoqueComportement : Piece
+{
+
+    /**
+   * Dans cette partie du code, on initialise les variables qui vont être utilisés dans le script du comportement
+   * du roque
+   */
+
+    private Rigidbody _rb;
+
+    private bool isFirstmove;
+    
+    private Vector2Int[] _moveSet = new Vector2Int[]
+    {
+        new Vector2Int(BoardManager.MAX_BOARD_SIZE, 0), //Mouvement vers toute la droite
+        new Vector2Int(-BoardManager.MAX_BOARD_SIZE, 0), //Mouvement vers toute la gauche
+        new Vector2Int(0,BoardManager.MAX_BOARD_SIZE),//Mouvement vers tous en haut
+        new Vector2Int(0,-BoardManager.MAX_BOARD_SIZE),//Mouvement vers tous en bas 
+        new Vector2Int(BoardManager.MAX_BOARD_SIZE,-BoardManager.MAX_BOARD_SIZE),//Mouvement pour manger une piece
+>>>>>>> Stashed changes
     };
 
-    // Start is called before the first frame update
+    /**
+     * Dans la méthode Start(), on set up tous les variables pour qu'elles prennent les composants dont elles vont avoir
+     * comme le rigidbody.
+     */
+   
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -25,7 +61,17 @@ public class RoqueComportement : Piece
         //On définit l'ensemble de mouvement de la pièce
         moveSet = _moveSet;
     }
+<<<<<<< Updated upstream
 
+=======
+    
+    
+    /**
+     * Dans la méthode SelectionnerPiece(), c'est ou tous les comportements se passe. Dans cette méthode nous faisons
+     * que la reine puisse bouger selon les mouvements permis dans un jeu d'échecs réel. PLusieurs variables qui sont
+     * initialiser dans d'autres scripts sont utilisés ici, la pluspart viennent du script BoardManager.
+     */
+>>>>>>> Stashed changes
     public override void SelectionnerPiece()
     {
         //On peut changer la couleur de la pièce si l'on veut
@@ -156,6 +202,7 @@ public class RoqueComportement : Piece
             }
         }
     }
+<<<<<<< Updated upstream
 
     public override void DeplacerPiece(Case caseDestination)
     {
@@ -168,18 +215,38 @@ public class RoqueComportement : Piece
         //pour choisir une autre destination
 
 
+=======
+    
+    /**
+     * Dans la méthode DeplacerPiece(), on fait le deplacer de la piece selon la case qui a été choisi et on bouge la
+     * piece avec la fonctionnalité de MovePosition qui vient avec le rigidbody
+     */
+    public override void DeplacerPiece(Case caseDestination)
+    {
+   
+        
+>>>>>>> Stashed changes
         //On deplace la roque
         //On remplace la coordonne y pour qu'elle reste intacte
+        //On efface la réference de la pièce dans la case
+        //et on ajoute la reférence de cette pièce à la case où l'on se déplace
         Vector3 destination = caseDestination.transform.position;
 
         destination.y = transform.position.y;
         _rb.MovePosition(destination);
     }
-
+    /**
+     * La méthode DeselectionnerPiece() sert à déselectionner un pièce lorsqu'on a plus besoin.
+     * Les cases vont se desactiver donc elles ne seront plus rouge.
+     */
     public override void DeselectionnerPiece()
     {
         EstSelectionne = false;
+<<<<<<< Updated upstream
 
+=======
+        //On dit au board de désactiver les cases activess
+>>>>>>> Stashed changes
         BoardManager.Instance.DesactiverCases();
     }
 }

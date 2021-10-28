@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class BoardManager : MonoBehaviour
 {
+    /**
+   * Dans cette partie du code, on initialise les variables qui vont être utilisés dans le script du BoardManager
+   */
     public static BoardManager Instance { private set; get;}
     public const int MAX_BOARD_SIZE = 8;
-    
-    [SerializeField] private Case[] _cases;
+    private Case[] _cases;
     
 
     private void Awake()
@@ -93,7 +95,10 @@ public class BoardManager : MonoBehaviour
         pieceDansCase = null;
         return false;
     }
-
+    /**
+     *  Code qui désactive les cases, lorsqu'une pièce n'est pas sélectionner. Cette méthode est en liaison avec
+     *  chaque script de comportement des pièces
+     */
     public void DesactiverCases()
     {
         //Au début, on désactive toutes les cases
