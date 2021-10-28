@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class ReineComportement : Piece
 {
+    /**
+   * Dans cette partie du code, on initialise les variables qui vont être utilisés dans le script du comportement
+   * de la reine
+   */
     private Vector2Int[] _moveSetTour = new[]
     {
         //Mouvement de tour
@@ -23,7 +27,10 @@ public class ReineComportement : Piece
         new Vector2Int(-1, -1) //move pour manger en diagonal gauche vers le bas
     };
 
-
+    /**
+     * Dans la méthode Start(), on set up tous les variables pour qu'elles prennent les composants dont elles vont avoir
+     * comme le rigidbody.
+     */
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +42,12 @@ public class ReineComportement : Piece
 
         moveSet = _moveSetFou.Concat(_moveSetTour).ToArray();
     }
-
+ 
+    /**
+     * Dans la méthode SelectionnerPiece(), c'est ou tous les comportements se passe. Dans cette méthode nous faisons
+     * que la reine puisse bouger selon les mouvements permis dans un jeu d'échecs réel. PLusieurs variables qui sont
+     * initialiser dans d'autres scripts sont utilisés ici, la pluspart viennent du script BoardManager.
+     */
     public override void SelectionnerPiece()
     {
         //On peut changer la couleur de la pièce si l'on veut
@@ -204,6 +216,11 @@ public class ReineComportement : Piece
         }
     }
 
+
+    /**
+     * Dans la méthode DeplacerPiece(), on fait le deplacer de la piece selon la case qui a été choisi et on bouge la
+     * piece avec la fonctionnalité de MovePosition qui vient avec le rigidbody
+     */
     public override void DeplacerPiece(Case caseDestination)
     {
         Vector3 destination = caseDestination.transform.position;
@@ -213,6 +230,10 @@ public class ReineComportement : Piece
     }
 
 
+    /**
+     * La méthode DeselectionnerPiece() sert à déselectionner un pièce lorsqu'on a plus besoin.
+     * Les cases vont se desactiver donc elles ne seront plus rouge.
+     */
     public override void DeselectionnerPiece()
     {
         EstSelectionne = false;

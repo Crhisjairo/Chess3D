@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class RoiComportement : Piece
 {
-
+    /**
+   * Dans cette partie du code, on initialise les variables qui vont être utilisés dans le script du comportement
+   * du Roi
+   */
     private Vector2Int[] _moveSet = new Vector2Int[]
     {
       new Vector2Int(0, 1), //Move vers le haut
@@ -16,7 +19,10 @@ public class RoiComportement : Piece
       new Vector2Int(1, 0), //move vers la gauche
       new Vector2Int(-1, 0) //move vers la droite
     };
-    
+    /**
+     * Dans la méthode Start(), on set up tous les variables pour qu'elles prennent les composants dont elles vont avoir
+     * comme le rigidbody.
+     */
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -28,7 +34,11 @@ public class RoiComportement : Piece
         //On définit l'ensemble de mouvement de la pièce
         moveSet = _moveSet;
     }
-
+    /**
+     * Dans la méthode SelectionnerPiece(), c'est ou tous les comportements se passe. Dans cette méthode nous faisons
+     * que le roi puisse bouger selon les mouvements permis dans un jeu d'échecs réel. PLusieurs variables qui sont
+     * initialiser dans d'autres scripts sont utilisés ici, la pluspart viennent du script BoardManager.
+     */
     public override void SelectionnerPiece()
     {
         //On peut changer la couleur de la pièce icitte si l'on veut
@@ -85,7 +95,10 @@ public class RoiComportement : Piece
         }
         
     }
-
+    /**
+     * Dans la méthode DeplacerPiece(), on fait le deplacer de la piece selon la case qui a été choisi et on bouge la
+     * piece avec la fonctionnalité de MovePosition qui vient avec le rigidbody
+     */
     public override void DeplacerPiece(Case caseDestination)
     {
         //Dans le cas qu'il ait une pièce dans la case qu'on veut se déplacer,
@@ -106,7 +119,10 @@ public class RoiComportement : Piece
         //et on ajoute la reférence de cette pièce à la case où l'on se déplace
         //caseDestination.SetPieceDansLaCase(this);
     }
-
+    /**
+     * La méthode DeselectionnerPiece() sert à déselectionner un pièce lorsqu'on a plus besoin.
+     * Les cases vont se desactiver donc elles ne seront plus rouge.
+     */
     public override void DeselectionnerPiece()
     {
         EstSelectionne = false;
