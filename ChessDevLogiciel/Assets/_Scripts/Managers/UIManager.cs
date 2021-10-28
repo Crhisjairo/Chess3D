@@ -63,12 +63,21 @@ public class UIManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Met à jour les pièces mangées du joueur passé en paramètres.
+    /// </summary>
+    /// <param name="numeroJoueur">Numéro du joueur à actualiser les pièces</param>
+    /// <param name="piecesMangees">Liste des pièces mangées</param>
     public void UpdatePlayerPieces(Joueur.NumeroJoueur numeroJoueur, List<Piece> piecesMangees)
     {
         if (numeroJoueur == Joueur.NumeroJoueur.Joueur1)
         {
             //On habilite les slots et on donne le sprite de la pièce
-            
+            for (int i = 0; i < piecesMangees.Count; i++)
+            {
+                _slotPiecesPlayer1[i].enabled = true;
+                _slotPiecesPlayer1[i].sprite = piecesMangees[i].GetPieceSprite();
+            }
             
             //On déshabilite les slots qui n'ont pas de pièces
             for (int i = piecesMangees.Count; i < _slotPiecesPlayer1.Length; i++)
@@ -78,7 +87,18 @@ public class UIManager : MonoBehaviour
         }
         else if (numeroJoueur == Joueur.NumeroJoueur.Joueur2)
         {
+            //On habilite les slots et on donne le sprite de la pièce
+            for (int i = 0; i < piecesMangees.Count; i++)
+            {
+                _slotPiecesPlayer2[i].enabled = true;
+                _slotPiecesPlayer2[i].sprite = piecesMangees[i].GetPieceSprite();
+            }
             
+            //On déshabilite les slots qui n'ont pas de pièces
+            for (int i = piecesMangees.Count; i < _slotPiecesPlayer2.Length; i++)
+            {
+                _slotPiecesPlayer2[i].enabled = false;
+            }
         }
         
     }
