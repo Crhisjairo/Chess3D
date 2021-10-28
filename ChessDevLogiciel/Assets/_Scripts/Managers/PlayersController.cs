@@ -142,6 +142,7 @@ public class PlayersController : MonoBehaviour
         
         pieceMangee.CacherPiece();
         
+        UIManager.Instance.UpdatePlayerPieces(_joueurActive.numeroJoueur, _joueurActive.GetPiecesMangees());
     }
 
     private void DeplacerPieceToCase(Case caseDestination)

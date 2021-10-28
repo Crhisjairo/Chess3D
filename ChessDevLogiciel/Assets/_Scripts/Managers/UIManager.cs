@@ -16,14 +16,30 @@ public class UIManager : MonoBehaviour
 
     public Joueur _joueurActive;
     [SerializeField] private Joueur[] _joueurs;
-
+    
+    [SerializeField] private Image[] _slotPiecesPlayer1;
+    [SerializeField] private Image[] _slotPiecesPlayer2;
+    
+    private void Awake()
+    {
+        //On évite avoir deux instance de cette même classe lors du Awake
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject); //On destroy le gameObject qui contient ce script. Faire attention.
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
         //On débute avec le premier joueur
         int numeroJoueurQuiCommence = (int)Joueur.NumeroJoueur.Joueur1 - 1; //Enum qui se trouve dans Joueur
         _joueurActive = _joueurs[numeroJoueurQuiCommence];
-
+        
     }
 
     // Update is called once per frame
@@ -46,4 +62,25 @@ public class UIManager : MonoBehaviour
         //}
 
     }
+
+    public void UpdatePlayerPieces(Joueur.NumeroJoueur numeroJoueur, List<Piece> piecesMangees)
+    {
+        if (numeroJoueur == Joueur.NumeroJoueur.Joueur1)
+        {
+            //On habilite les slots et on donne le sprite de la pièce
+            
+            
+            //On déshabilite les slots qui n'ont pas de pièces
+            for (int i = piecesMangees.Count; i < _slotPiecesPlayer1.Length; i++)
+            {
+                _slotPiecesPlayer1[i].enabled = false;
+            }
+        }
+        else if (numeroJoueur == Joueur.NumeroJoueur.Joueur2)
+        {
+            
+        }
+        
+    }
+
 }

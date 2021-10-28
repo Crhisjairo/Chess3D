@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(BoxCollider))]
 [RequireComponent(typeof(Rigidbody))]
@@ -15,7 +16,7 @@ public abstract class Piece : MonoBehaviour
     protected BoxCollider _boxCollider;
     protected Outline _outline;
 
-    [SerializeField] protected Sprite _UISprite;
+    [SerializeField] protected Sprite _imagePiece;
     
     /// <summary>
     /// Si la pièce est activée et peut être seléctionnée.
@@ -137,5 +138,10 @@ public abstract class Piece : MonoBehaviour
     {
         _meshRenderer.enabled = true;
         _boxCollider.enabled = true;
+    }
+
+    public Sprite GetPieceSprite()
+    {
+        return _imagePiece;
     }
 }
