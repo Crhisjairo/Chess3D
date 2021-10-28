@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -2173593378282509658}
   - component: {fileID: -3124254744403459015}
   - component: {fileID: 896353244185443981}
+  - component: {fileID: 2244007567557694509}
   m_Layer: 0
   m_Name: Chess Rook White
   m_TagString: Untagged
@@ -109,7 +110,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -125,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 945a1bc0fd75add4aae10452f6934dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _UISprite: {fileID: 21300000, guid: 000c9dc3b19f3924798bd68fc018946e, type: 3}
   moveSet: []
   caseActuelle: {fileID: 0}
   _moveSet:
@@ -133,3 +135,21 @@ MonoBehaviour:
   - {x: 0, y: 8}
   - {x: 0, y: -8}
   - {x: 8, y: -8}
+--- !u!114 &2244007567557694509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3514762816930404403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 0, g: 0.81451416, b: 1, a: 1}
+  outlineWidth: 10
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

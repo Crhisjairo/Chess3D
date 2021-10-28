@@ -3,27 +3,65 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent((typeof(Outline)))]
+
 [System.Serializable]
 public abstract class Piece : MonoBehaviour
 {
+    protected Rigidbody _rb;
+    protected MeshRenderer _meshRenderer;
+    protected BoxCollider _boxCollider;
+    protected Outline _outline;
+
+    [SerializeField] protected Sprite _UISprite;
+    
     /// <summary>
-    /// Returne si la pièce est activée et peut être seléctionnée.
+    /// Si la pièce est activée et peut être seléctionnée.
+    /// Si la pièce a été mangée, elle ne peut pas s'activer
     /// </summary>
     /// <returns></returns>
-    public bool EstActive { set; get; }
+    private bool _estActive;
+
+    private bool _estSelectionne;
+    
+    /// <summary>
+    /// Returne si la pièce est déjà seléctionnée.
+    /// </summary>
+    /// <returns>Si la pièce est seléctionnée</returns>
+    public bool EstSelectionne {
+        protected set
+        {
+            _estSelectionne = value;
+
+            if (value)
+            { 
+                _outline.enabled = true;  
+            }
+            else
+            {
+                _outline.enabled = false;
+            }
+        }
+        get
+        {
+            return _estSelectionne;
+        } 
+    }
+    
+    /**
+     * Joueur propriétaire de la pièce.
+     * Est utilisé pour éviter les activation des cases qui contient une pièce su même joueur.
+     */
+    public Joueur.NumeroJoueur JoueurProprietaire;
     
     /// <summary>
     /// Ensemble de mouvement rélatives à la pièce.
     /// </summary>
     [HideInInspector] public Vector2Int[] moveSet;
     
-    /// <summary>
-    /// Returne si la pièce est déjà seléctionnée.
-    /// </summary>
-    /// <returns>Si la pièce est seléctionnée</returns>
-    public bool EstSelectionne { protected set; get; }
-    
-    public Case caseActuelle;
+    [HideInInspector] public Case caseActuelle;
     
     //Méthodes qui doivent être redéfiniées, car c'est un comportement propre à la pièce.
     
@@ -69,4 +107,35 @@ public abstract class Piece : MonoBehaviour
         }
     }
 
+    public void SetEstActive(bool estActive)
+    {
+        /*
+        if (EstMangee)
+        {
+            _estActive = false;
+        }
+        else
+        {
+            _estActive = estActive;
+        }*/
+
+        _estActive = estActive;
+    }
+
+    public bool GetEstActive()
+    {
+        return _estActive;
+    }
+
+    public void CacherPiece()
+    {
+        _meshRenderer.enabled = false;
+        _boxCollider.enabled = false;
+    }
+
+    public void MontrerPiece()
+    {
+        _meshRenderer.enabled = true;
+        _boxCollider.enabled = true;
+    }
 }

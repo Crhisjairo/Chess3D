@@ -13,22 +13,27 @@ public class Case : MonoBehaviour
     private Color _defaultColor;
 
     [SerializeField] private bool _estActive = false;
-
+    
+    /// <summary>
+    /// Reférence à la pièce qui est dans la case pour pouvoir
+    /// manipuler cette pièce après.
+    /// </summary>
+    [SerializeField] private Piece pieceDansLaCase;
+    
     private void Start()
     {
         _material = GetComponent<Renderer>().material;
         _defaultColor = _material.color;
     }
 
-    /// <summary>
-    /// Reférence à la pièce qui est dans la case pour pouvoir
-    /// manipuler cette pièce après.
-    /// </summary>
-    [SerializeField] private Piece pieceDansLaCase;
-
     public void SetPieceDansLaCase(Piece nouvellePiece)
     {
         pieceDansLaCase = nouvellePiece;
+    }
+
+    public Piece GetPieceDansLaCase()
+    {
+        return pieceDansLaCase;
     }
 
     public bool EstActive()
@@ -43,7 +48,18 @@ public class Case : MonoBehaviour
         {
             if (pieceDansLaCase != null)
             {
-                _material.color = Color.red;
+                Debug.Log(pieceDansLaCase.EstSelectionne);
+                
+                if (!pieceDansLaCase.EstSelectionne)
+                {
+                    _material.color = Color.red;    
+                }
+                else
+                {
+                    //Si c'est la pièce qui est séléctionnée, la pièce qui va être à déplacer, on met green
+                    _material.color = Color.green;
+                }
+                
             }
             else
             {
