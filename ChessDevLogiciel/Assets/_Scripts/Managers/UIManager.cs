@@ -40,6 +40,9 @@ public class UIManager : MonoBehaviour
         int numeroJoueurQuiCommence = (int)Joueur.NumeroJoueur.Joueur1 - 1; //Enum qui se trouve dans Joueur
         _joueurActive = _joueurs[numeroJoueurQuiCommence];
         
+        //On deshabilite toute les images au début
+        DisablePiecesSlots(0, _slotPiecesPlayer1);
+        DisablePiecesSlots(0, _slotPiecesPlayer2);
     }
 
     // Update is called once per frame
@@ -80,10 +83,7 @@ public class UIManager : MonoBehaviour
             }
             
             //On déshabilite les slots qui n'ont pas de pièces
-            for (int i = piecesMangees.Count; i < _slotPiecesPlayer1.Length; i++)
-            {
-                _slotPiecesPlayer1[i].enabled = false;
-            }
+            DisablePiecesSlots(piecesMangees.Count, _slotPiecesPlayer1);
         }
         else if (numeroJoueur == Joueur.NumeroJoueur.Joueur2)
         {
@@ -95,12 +95,18 @@ public class UIManager : MonoBehaviour
             }
             
             //On déshabilite les slots qui n'ont pas de pièces
-            for (int i = piecesMangees.Count; i < _slotPiecesPlayer2.Length; i++)
-            {
-                _slotPiecesPlayer2[i].enabled = false;
-            }
+            DisablePiecesSlots(piecesMangees.Count, _slotPiecesPlayer2);
         }
         
+    }
+
+    private void DisablePiecesSlots(int startIndex, Image[] playerSlots)
+    {
+        //On déshabilite les slots qui n'ont pas de pièces
+        for (int i = startIndex; i < playerSlots.Length; i++)
+        {
+            playerSlots[i].enabled = false;
+        }
     }
 
 }
