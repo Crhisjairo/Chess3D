@@ -16,6 +16,9 @@ public class UIManager : MonoBehaviour
 
     public Joueur _joueurActive;
     [SerializeField] private Joueur[] _joueurs;
+
+    [SerializeField] private Canvas _canvasJoueur1, _canvasJoueur2;
+    [SerializeField] private ClockAnimation _clockJoueur1, _clockJoueur2;
     
     [SerializeField] private Image[] _slotPiecesPlayer1;
     [SerializeField] private Image[] _slotPiecesPlayer2;
@@ -43,6 +46,8 @@ public class UIManager : MonoBehaviour
         //On deshabilite toute les images au début
         DisablePiecesSlots(0, _slotPiecesPlayer1);
         DisablePiecesSlots(0, _slotPiecesPlayer2);
+        
+        _canvasJoueur1.transform.localScale = new Vector3(_canvasJoueur1.transform.localScale.x - 0.3f, _canvasJoueur1.transform.localScale.y - 0.3f, _canvasJoueur1.transform.localScale.z);
     }
 
     // Update is called once per frame
@@ -64,6 +69,62 @@ public class UIManager : MonoBehaviour
         //    Debug.Log("Le temps s'est terminé");
         //}
 
+    }
+
+    public void UpdatePlayersTurn(Joueur joueur)
+    {
+        _joueurActive = joueur;
+
+        ResizePlayerCanvas();
+        
+        //On arrête le clock contraire
+        if (joueur.numeroJoueur == Joueur.NumeroJoueur.Joueur1)
+        {
+            _clockJoueur1.ResumeClockAnimation();
+            _clockJoueur2.StopClockAnimation();
+        } else if (joueur.numeroJoueur == Joueur.NumeroJoueur.Joueur2)
+        {
+            _clockJoueur2.ResumeClockAnimation();
+            _clockJoueur1.StopClockAnimation();
+        }
+    }
+
+    private void ResizePlayerCanvas()
+    {
+        //On met en emphasis le joueur à qui est le tour
+        float xScaleCurrentPlayer;
+        float yScaleCurrentPlayer;
+        float zScaleCurrentPlayer;
+        
+        float xScalePastPlayer = 0;
+        float yScalePastPlayer = 0;
+        float zScalePastPlayer = 0;
+
+        Canvas canvasToMagnify = null;
+        Canvas canvasToReduce = null;
+        
+        if (_joueurActive.numeroJoueur == Joueur.NumeroJoueur.Joueur1)
+        {
+            canvasToMagnify = _canvasJoueur1;
+            canvasToReduce = _canvasJoueur2;
+            
+        } else if (_joueurActive.numeroJoueur == Joueur.NumeroJoueur.Joueur2)
+        {
+            canvasToMagnify = _canvasJoueur2;
+            canvasToReduce = _canvasJoueur1;
+        }
+
+        xScaleCurrentPlayer = canvasToMagnify.transform.localScale.x;
+        yScaleCurrentPlayer = canvasToMagnify.transform.localScale.y;
+        zScaleCurrentPlayer = canvasToMagnify.transform.localScale.z;
+        
+        xScalePastPlayer = canvasToReduce.transform.localScale.x;
+        yScalePastPlayer = canvasToReduce.transform.localScale.y;
+        zScalePastPlayer = canvasToReduce.transform.localScale.z;
+
+
+        canvasToMagnify.transform.localScale = new Vector3(xScaleCurrentPlayer + 0.3f, yScaleCurrentPlayer + 0.3f, zScaleCurrentPlayer);
+        canvasToReduce.transform.localScale = new Vector3(xScalePastPlayer - 0.3f, yScalePastPlayer - 0.3f, zScalePastPlayer);
     }
 
     /// <summary>
