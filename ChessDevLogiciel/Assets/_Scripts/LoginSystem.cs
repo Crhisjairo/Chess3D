@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.PlayerLoop;
 
-public class Login : MonoBehaviour
+public class LoginSystem : MonoBehaviour
 {
     public enum CurrentWindow
     {
