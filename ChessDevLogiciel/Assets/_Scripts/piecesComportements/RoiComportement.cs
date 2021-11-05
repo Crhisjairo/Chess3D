@@ -17,9 +17,6 @@ public class RoiComportement : Piece
       new Vector2Int(-1, 1),  //move pour manger en diagonal gauche
       new Vector2Int(1, -1),//move pour manger en diagonal en bas gauche
       new Vector2Int(0, -1) //move pour diagonale derriere
-                             //new Vector2Int(2, 1) //Exemple d'un mouvement en L (cheval)
-                             //new Vector2Int(BoardManager.MAX_BOARD_SIZE, 0) //Exemple de mouvement vers toute la droite
-                             //new Vector2Int(-BoardManager.MAX_BOARD_SIZE, 0) //Exemple de mouvement vers toute la gauche
     };
 
     
@@ -30,6 +27,8 @@ public class RoiComportement : Piece
 
         //On définit l'ensemble de mouvement de la pièce
         moveSet = _moveSet;
+
+
     }
 
     public override void SelectionnerPiece()
@@ -117,45 +116,6 @@ public class RoiComportement : Piece
             }
 
         }
-        /*
-         //AUTRE EXEMPLE DE MOUVEMENT POUR UNE AUTRE PIÈCE//
-         //C'EST CETTE PARTIE qui change SELON la pièce
-        //On repète pour tous les mouvements possibles dans _actualMoveSet
-        for (int i = 0; i < moveSet.Length; i++)
-        {
-           Vector2Int nextMove = moveSet[i];
-           nextMove += coordonneesDeCetteCase; //Pour connaître le mouvement rélatif à la position de cette case
-
-
-           //On active dans les coordonnées x positif
-           for (int xPosi = coordonneesDeCetteCase.x; xPosi <= nextMove.x; xPosi++)
-           {
-              //On active les cases par coordonnées dans le board
-              BoardManager.Instance.ActiverCaseByCoord(xPosi, coordonneesDeCetteCase.y, true, numeroJoueur);
-           }
-           //On active dans les coordonnées x negatif
-           for (int xNega = coordonneesDeCetteCase.x; xNega >= nextMove.x; xNega--)
-           {
-              //On active les cases par coordonnées dans le board
-              BoardManager.Instance.ActiverCaseByCoord(xNega, coordonneesDeCetteCase.y, true, numeroJoueur);
-           }
-
-           //On active dans les coordonnées y positif
-           for (int yPosi = coordonneesDeCetteCase.y; yPosi <= nextMove.y; yPosi++)
-           {
-              //On active les cases par coordonnées dans le board
-              BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
-              Debug.Log(nextMove.x + ":" + yPosi);
-           }
-           //On active dans les coordonnées y negatif
-           for (int yPosi = coordonneesDeCetteCase.y; yPosi >= nextMove.y; yPosi--)
-           {
-              //On active les cases par coordonnées dans le board
-              BoardManager.Instance.ActiverCaseByCoord(nextMove.x, yPosi, true, numeroJoueur);
-              Debug.Log(nextMove.x + ":" + yPosi);
-           }
-        }
-        */
     }
 
     public override void DeplacerPiece(Case caseDestination)
