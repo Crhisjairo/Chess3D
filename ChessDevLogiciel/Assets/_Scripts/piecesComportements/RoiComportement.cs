@@ -10,14 +10,12 @@ public class RoiComportement : Piece
    */
     private Vector2Int[] _moveSet = new Vector2Int[]
     {
-      new Vector2Int(0, 1), //Move vers le haut
-      new Vector2Int(1, 1),  //move vers diagonal droit haut
-      new Vector2Int(-1, -1),  //move vers diagonal gauche bas
-      new Vector2Int(-1, 1),  //move vers diagonal gauche haut
-      new Vector2Int(1, -1),//move vers diagonal droit bas
-      new Vector2Int(0, -1), //move vers bas
-      new Vector2Int(1, 0), //move vers la gauche
-      new Vector2Int(-1, 0) //move vers la droite
+      new Vector2Int(0, 1), //Move au départ
+      new Vector2Int(1, 1),  //move pour manger en diagonal droit
+      new Vector2Int(-1, -1),  //move pour manger en diagonal en bas droite
+      new Vector2Int(-1, 1),  //move pour manger en diagonal gauche
+      new Vector2Int(1, -1),//move pour manger en diagonal en bas gauche
+      new Vector2Int(0, -1) //move pour diagonale derriere
     };
     /**
      * Dans la méthode Start(), on set up tous les variables pour qu'elles prennent les composants dont elles vont avoir
@@ -33,6 +31,8 @@ public class RoiComportement : Piece
 
         //On définit l'ensemble de mouvement de la pièce
         moveSet = _moveSet;
+
+
     }
     /**
      * Dans la méthode SelectionnerPiece(), c'est ou tous les comportements se passe. Dans cette méthode nous faisons
@@ -93,7 +93,6 @@ public class RoiComportement : Piece
             }
             
         }
-        
     }
     /**
      * Dans la méthode DeplacerPiece(), on fait le deplacer de la piece selon la case qui a été choisi et on bouge la
