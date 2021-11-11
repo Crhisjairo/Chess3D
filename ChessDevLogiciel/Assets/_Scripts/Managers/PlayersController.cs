@@ -34,6 +34,8 @@ public class PlayersController : MonoBehaviour
         int numeroJoueurQuiCommence = (int) Joueur.NumeroJoueur.Joueur1 - 1; //Enum qui se trouve dans Joueur
         _joueurActive = _joueurs[numeroJoueurQuiCommence]; 
         _joueurActive.SetPiecesActives(true);
+        
+        UIManager.Instance.UpdatePlayersTurn(_joueurActive);
     }
 
     // Update is called once per frame
@@ -142,6 +144,7 @@ public class PlayersController : MonoBehaviour
         
         pieceMangee.CacherPiece();
         
+        UIManager.Instance.UpdatePlayerPieces(_joueurActive.numeroJoueur, _joueurActive.GetPiecesMangees());
     }
 
     private void DeplacerPieceToCase(Case caseDestination)
@@ -215,5 +218,7 @@ public class PlayersController : MonoBehaviour
         _joueurActive.SetPiecesActives(true);
         
         GameManager.Instance.ChangerCameraTo(_joueurActive.numeroJoueur);
+        //On modifie le UI
+        UIManager.Instance.UpdatePlayersTurn(_joueurActive);
     }
 }

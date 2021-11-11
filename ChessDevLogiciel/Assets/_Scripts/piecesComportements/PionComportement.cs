@@ -77,15 +77,25 @@ public class PionComportement : Piece
       }
       
       //C'EST TOUTE CETTE PARTIE qui change SELON la pièce
+      Piece pieceInNextCase; //Pièce qui va être retrouvé si jamais HasPieceOnCoord retourn vrai.
       
       if (isFirstMove)
       {
          Vector2Int firstMove = moveSet[1]; //On utilise le move pour le premier départ
          firstMove += coordonneesDeCetteCase; //Pour connaître le mouvement rélatif à la position de cette case
 
-         for (int y = coordonneesDeCetteCase.y; y <= firstMove.y; y++)
+         for (int y = coordonneesDeCetteCase.y + 1; y <= firstMove.y; y++)
          {
-            BoardManager.Instance.ActiverCaseByCoord(firstMove.x, y, true, joueurActuel);
+            //On vérifie qu'il n'ait aucune pièce en avant
+            if (!BoardManager.Instance.HasPieceOnCoord(firstMove.x, y, out pieceInNextCase))
+            {
+               BoardManager.Instance.ActiverCaseByCoord(firstMove.x, y, true, joueurActuel);
+            }
+            else
+            {
+               //BoardManager.Instance.ActiverCaseByCoord(firstMove.x, y, true, joueurActuel);
+               return;
+            }
          }
          
       }
@@ -95,8 +105,6 @@ public class PionComportement : Piece
       Vector2Int nextDiagonalMoveLeft = moveSet[3]; //On utilise le move pour manger
       nextDiagonalMoveRight += coordonneesDeCetteCase; //Pour connaître le mouvement rélatif à la position de cette case
       nextDiagonalMoveLeft += coordonneesDeCetteCase; //Pour connaître le mouvement rélatif à la position de cette case
-
-      Piece pieceInNextCase; //Pièce qui va être retrouvé si jamais HasPieceOnCoord retourn vrai.
 
       if (BoardManager.Instance.HasPieceOnCoord(nextDiagonalMoveRight.x, nextDiagonalMoveRight.y, out pieceInNextCase))
       {
