@@ -76,7 +76,12 @@ public class UIManager : MonoBehaviour
         _joueurActive = joueur;
 
         ResizePlayerCanvas();
+        StopAndStartPlayerClock(joueur);
         
+    }
+
+    private void StopAndStartPlayerClock(Joueur joueur)
+    {
         //On arrête le clock contraire
         if (joueur.numeroJoueur == Joueur.NumeroJoueur.Joueur1)
         {
@@ -91,6 +96,11 @@ public class UIManager : MonoBehaviour
 
     private void ResizePlayerCanvas()
     {
+        Vector3 startCanvas1Pos = _canvasJoueur1.transform.localScale;
+        Vector3 startCanvas2Pos = _canvasJoueur2.transform.localScale;
+        
+
+        /*
         //On met en emphasis le joueur à qui est le tour
         float xScaleCurrentPlayer;
         float yScaleCurrentPlayer;
@@ -125,6 +135,9 @@ public class UIManager : MonoBehaviour
 
         canvasToMagnify.transform.localScale = new Vector3(xScaleCurrentPlayer + 0.3f, yScaleCurrentPlayer + 0.3f, zScaleCurrentPlayer);
         canvasToReduce.transform.localScale = new Vector3(xScalePastPlayer - 0.3f, yScalePastPlayer - 0.3f, zScalePastPlayer);
+        */
+
+
     }
 
     /// <summary>
