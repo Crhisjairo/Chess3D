@@ -24,7 +24,8 @@ public class RoiComportement : Piece
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-
+        var _roquedroite = 0;
+        var _roquegauche = 0;
         //On définit l'ensemble de mouvement de la pièce
         moveSet = _moveSet;
 
