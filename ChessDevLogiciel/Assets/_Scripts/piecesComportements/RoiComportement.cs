@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class RoiComportement : Piece
 {
+    [SerializeField] private Case[] _cases;
     private Rigidbody _rb;
 
     private Vector2Int[] _moveSet = new Vector2Int[]
@@ -19,18 +20,14 @@ public class RoiComportement : Piece
       new Vector2Int(0, -1) //move pour diagonale derriere
     };
 
-    
+
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        var _roquedroite = 0;
-        var _roquegauche = 0;
         //On définit l'ensemble de mouvement de la pièce
         moveSet = _moveSet;
-
-
-    }
+    } 
 
     public override void SelectionnerPiece()
     {
@@ -117,6 +114,37 @@ public class RoiComportement : Piece
             }
 
         }
+        
+        //Comportement roi-roque
+        foreach (Case uneCase in _cases)
+        {
+            Vector2Int coordonneesDeCase = new Vector2Int();
+
+            if (numeroJoueur is Joueur.NumeroJoueur.Joueur1)
+            {
+                coordonneesDeCase = uneCase.coordonneesDeCasePourBlanc;
+            }
+            else if (numeroJoueur is Joueur.NumeroJoueur.Joueur2)
+            {
+                coordonneesDeCase = uneCase.coordonneesDeCasePourNoir;
+            }
+        }
+
+        Case roqueDroite = _cases[2];
+        Case roqueGauche = _cases[6];
+        
+
+        if (_cases[0] && _cases[1] == false)
+        {
+            caseActuelle = _cases[1];
+            roqueDroite = _cases[0];
+        } 
+        else if (_cases[3] && _cases[4] && _cases[5] == false)
+        {
+            caseActuelle = _cases[5];
+            roqueGauche = _cases[4];
+        }
+      
     }
 
     public override void DeplacerPiece(Case caseDestination)
