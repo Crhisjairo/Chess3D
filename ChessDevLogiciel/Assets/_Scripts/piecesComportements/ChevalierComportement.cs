@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Classe qui exécute le comportment du cheval et ses déplacements dans le jeu
@@ -33,7 +34,7 @@ public class ChevalierComportement : Piece
 
         moveSet = _moveSet; //On définit l'ensemble de mouvement de la pièce
     }
-
+ 
     /// <summary>
     /// Méthode qui permet de seléctionner un cheval et active les cases où il
     /// peut se déplacer
