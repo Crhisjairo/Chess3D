@@ -10,21 +10,15 @@ using Button = UnityEngine.UI.Button;
 
 public class LoginSystem : MonoBehaviour
 {
-    public enum CurrentWindow
-    {
-        Login, Register
-    }
-
-    public CurrentWindow currentWindow = CurrentWindow.Login;
-
     public GameObject loginCanvas, registerCanvas;
     [SerializeField] private InputField loginEmailField, loginPasswordField;
     [SerializeField] private InputField registerEmailField, registerPasswordField1, registerPasswordField2, registerUsernameField;
-    [SerializeField] private Button logInBtn, registerBtn;
+    [SerializeField] private Button logInBtn, registerBtn, goToRegister, goToLogin, goToMainMenu;
     [SerializeField] private Text statusText;
     
     string loginEmail = "";
     string loginPassword = "";
+    
     string registerEmail = "";
     string registerPassword1 = "";
     string registerPassword2 = "";
@@ -39,21 +33,6 @@ public class LoginSystem : MonoBehaviour
     private string userEmail = "";
 
     private const string RootURL = "http://10.241.58.176/";
-
-    private void Start()
-    {
-        //On enable la page du log in
-        if (currentWindow == CurrentWindow.Login)
-        {
-            ShowLoginCanvas();   
-        }
-        else
-        {
-            ShowRegisterCanvas();
-        }
-        
-        
-    }
 
     public void ShowRegisterCanvas()
     {
@@ -71,6 +50,7 @@ public class LoginSystem : MonoBehaviour
     {
         //On disable l'intéraction avec le boutton.
         logInBtn.interactable = false;
+        goToRegister.interactable = false;
         
         loginEmail = loginEmailField.text;
         loginPassword = loginPasswordField.text;
@@ -82,6 +62,7 @@ public class LoginSystem : MonoBehaviour
     {
         //On disable l'intéraction avec le boutton.
         registerBtn.interactable = false;
+        goToLogin.interactable = false;
         
         registerEmail = registerEmailField.text;
         registerUsername = registerUsernameField.text;
@@ -130,9 +111,12 @@ public class LoginSystem : MonoBehaviour
                     statusText.color = Color.red;
                 }
                 
-                //On habilite l'intéraction avec le boutton
-                registerBtn.interactable = true;
+                
             }
+            
+            //On habilite l'intéraction avec le boutton
+            registerBtn.interactable = true;
+            goToLogin.interactable = true;
         }
 
         isWorking = true;
@@ -182,8 +166,6 @@ public class LoginSystem : MonoBehaviour
                     statusText.text = "Connection réussi!";
                     statusText.color = Color.green;
 
-                    logInBtn.interactable = true;
-                    
                     //TODO ICI ON CHANGE D'ÉCRAN
                 }
                 else
@@ -192,9 +174,12 @@ public class LoginSystem : MonoBehaviour
                     statusText.color = Color.red;
                 }
                 
-                //On habilite l'intéraction avec le boutton
-                logInBtn.interactable = true;
+                
             }
+            
+            //On habilite l'intéraction avec le boutton
+            logInBtn.interactable = true;
+            goToRegister.interactable = true;
         }
 
         isWorking = false;

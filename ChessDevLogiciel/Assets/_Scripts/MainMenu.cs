@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     /*
      * La méthode PlayGame(), je charge la scène ou le jeux va se dérouler.
      */
-    public void PlayGame()
+    public void StartGame()
     {
         SceneManager.LoadScene("SceneTest");
     }
