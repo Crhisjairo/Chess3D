@@ -17,7 +17,8 @@ public class RoiComportement : Piece
       new Vector2Int(-1, -1),  //move pour manger en diagonal en bas droite
       new Vector2Int(-1, 1),  //move pour manger en diagonal gauche
       new Vector2Int(1, -1),//move pour manger en diagonal en bas gauche
-      new Vector2Int(0, -1) //move pour diagonale derriere
+      new Vector2Int(0, -1), //move pour diagonale derriere
+      new Vector2Int(1, 0)
     };
 
 
@@ -132,14 +133,15 @@ public class RoiComportement : Piece
 
         Case roqueDroite = _cases[2];
         Case roqueGauche = _cases[6];
-        
 
-        if (_cases[0] && _cases[1] == false)
+        Vector2Int movedroite = moveSet[6];
+        //Vector2Int nextMovee = moveSet[6] + coordonneesDeCetteCase;
+        if ((_cases[0].SetEstActive(false)) || (_cases[1].SetEstActive(false)))
         {
-            caseActuelle = _cases[1];
+            caseActuelle = _cases[1];       
             roqueDroite = _cases[0];
         } 
-        else if (_cases[3] && _cases[4] && _cases[5] == false)
+        else if ((_cases[3].SetEstActive(false)) || (_cases[4].SetEstActive(false)) || (_cases[5].SetEstActive(false)))
         {
             caseActuelle = _cases[5];
             roqueGauche = _cases[4];
