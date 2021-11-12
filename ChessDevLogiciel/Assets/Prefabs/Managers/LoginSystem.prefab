@@ -1566,7 +1566,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4738419922247163352}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LoginSystem, Assembly-CSharp
         m_MethodName: OnClickLogIn
         m_Mode: 1
@@ -1778,7 +1778,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4738419922247163352}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LoginSystem, Assembly-CSharp
         m_MethodName: OnClickRegister
         m_Mode: 1
@@ -2866,7 +2866,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3333475627234442179}
-  - component: {fileID: 4738419922247163352}
   m_Layer: 5
   m_Name: LoginSystem
   m_TagString: Untagged
@@ -2891,32 +2890,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4738419922247163352
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4738419922247163354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b6a869b8b994ff4b871bce04857b6cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loginCanvas: {fileID: 4203589144744082659}
-  registerCanvas: {fileID: 6348516735026756793}
-  loginEmailField: {fileID: 1774372972}
-  loginPasswordField: {fileID: 1390204623}
-  registerEmailField: {fileID: 694518750}
-  registerPasswordField1: {fileID: 5582837207896171750}
-  registerPasswordField2: {fileID: 8575196014775467049}
-  registerUsernameField: {fileID: 892995460}
-  logInBtn: {fileID: 1185604266}
-  registerBtn: {fileID: 1238290984}
-  goToRegister: {fileID: 1184041537}
-  goToLogin: {fileID: 1606039860}
-  goToMainMenu: {fileID: 449869233}
-  statusText: {fileID: 9017520313237701691}
 --- !u!1 &4916435078669887315
 GameObject:
   m_ObjectHideFlags: 0

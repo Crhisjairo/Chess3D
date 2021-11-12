@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
+using Image = UnityEngine.UI.Image;
+using Toggle = UnityEngine.UI.Toggle;
 
 public class LoginSystem : MonoBehaviour
 {
@@ -15,6 +19,9 @@ public class LoginSystem : MonoBehaviour
     [SerializeField] private InputField registerEmailField, registerPasswordField1, registerPasswordField2, registerUsernameField;
     [SerializeField] private Button logInBtn, registerBtn, goToRegister, goToLogin, goToMainMenu;
     [SerializeField] private Text statusText;
+    private string _avatarName;
+
+    [SerializeField] private ToggleGroup _avatarsToggleGroup;
     
     string loginEmail = "";
     string loginPassword = "";
@@ -51,6 +58,7 @@ public class LoginSystem : MonoBehaviour
         //On disable l'intéraction avec le boutton.
         logInBtn.interactable = false;
         goToRegister.interactable = false;
+        goToMainMenu.interactable = false;
         
         loginEmail = loginEmailField.text;
         loginPassword = loginPasswordField.text;
@@ -69,68 +77,31 @@ public class LoginSystem : MonoBehaviour
         registerPassword1 = registerPasswordField1.text;
         registerPassword2 = registerPasswordField2.text;
 
+        //On recupère le checkbox
+        Toggle toggle = _avatarsToggleGroup.ActiveToggles().FirstOrDefault();
+        _avatarName = toggle.GetComponentInChildren<Image>().sprite.name;
+
         StartCoroutine(RegisterEnumerator());
     }
-
-    IEnumerator RegisterEnumerator()
+    
+    /*
+    * La méthode PlayGame(), je charge la scène ou le jeux va se dérouler.
+    */
+    public void StartGame()
     {
-        isWorking = true;
-        registrationCompleted = false;
-
-        WWWForm form = new WWWForm();
-        form.AddField("email",registerEmail);
-        form.AddField("username",registerUsername);
-        form.AddField("password1", registerPassword1);
-        form.AddField("password2", registerPassword2);
-
-        using (UnityWebRequest www = UnityWebRequest.Post(RootURL + "register.php",form))
-        {
-            yield return www.SendWebRequest();
-
-            if (www.result != UnityWebRequest.Result.Success)
-            {
-                statusText.text = www.error;
-                statusText.color = Color.red;
-            }
-            else
-            {
-                string reponseTexte = www.downloadHandler.text;
-
-                if (reponseTexte.StartsWith("Success"))
-                {
-                    ResetValues();
-                    registrationCompleted = true;
-                    statusText.text = "Compte crée correctement";
-                    statusText.color = Color.green;
-                    
-                    ShowLoginCanvas();
-                }
-                else
-                {
-                    statusText.text = reponseTexte;
-                    statusText.color = Color.red;
-                }
-                
-                
-            }
-            
-            //On habilite l'intéraction avec le boutton
-            registerBtn.interactable = true;
-            goToLogin.interactable = true;
-        }
-
-        isWorking = true;
+        SceneManager.LoadScene("SceneTest");
     }
-
-    private void ResetValues()
+    /*
+     * La méthode QuitGame() fait que lorsque le joueur clique sur le bouton quitter,
+     * le jeu arrête et l'exécutable se ferme.
+     */
+    public void QuitGame()
     {
-        statusText.text = "";
-        loginEmail = "";
-        loginPassword = "";
-        registerEmail = "";
-        registerPassword1 = "";
-        registerPassword2 = "";
-        registerUsername = "";
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+         Application.Quit();
+#endif
     }
 
     IEnumerator LoginEnumerator()
@@ -180,9 +151,73 @@ public class LoginSystem : MonoBehaviour
             //On habilite l'intéraction avec le boutton
             logInBtn.interactable = true;
             goToRegister.interactable = true;
+            goToMainMenu.interactable = true;
         }
 
         isWorking = false;
     }
-   
+
+    IEnumerator RegisterEnumerator()
+    {
+        isWorking = true;
+        registrationCompleted = false;
+
+        WWWForm form = new WWWForm();
+        form.AddField("email",registerEmail);
+        form.AddField("username",registerUsername);
+        form.AddField("password1", registerPassword1);
+        form.AddField("password2", registerPassword2);
+        form.AddField("avatar", _avatarName); //Pour ajouter l'avatar
+
+        using (UnityWebRequest www = UnityWebRequest.Post(RootURL + "register.php",form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                statusText.text = www.error;
+                statusText.color = Color.red;
+            }
+            else
+            {
+                string reponseTexte = www.downloadHandler.text;
+
+                if (reponseTexte.StartsWith("Success"))
+                {
+                    ResetValues();
+                    registrationCompleted = true;
+                    statusText.text = "Compte crée correctement";
+                    statusText.color = Color.green;
+                    
+                    ShowLoginCanvas();
+                }
+                else
+                {
+                    statusText.text = reponseTexte;
+                    statusText.color = Color.red;
+                }
+                
+                
+            }
+            
+            //On habilite l'intéraction avec le boutton
+            registerBtn.interactable = true;
+            goToLogin.interactable = true;
+        }
+
+        isWorking = true;
+    }
+
+    
+    
+    private void ResetValues()
+    {
+        statusText.text = "";
+        loginEmail = "";
+        loginPassword = "";
+        registerEmail = "";
+        registerPassword1 = "";
+        registerPassword2 = "";
+        registerUsername = "";
+    }
 }
