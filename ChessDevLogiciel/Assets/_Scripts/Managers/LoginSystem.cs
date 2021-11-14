@@ -10,6 +10,7 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
+using Slider = UnityEngine.UI.Slider;
 using Toggle = UnityEngine.UI.Toggle;
 
 public class LoginSystem : MonoBehaviour
@@ -22,6 +23,11 @@ public class LoginSystem : MonoBehaviour
     private string _avatarName;
 
     [SerializeField] private ToggleGroup _avatarsToggleGroup;
+
+    [SerializeField] private GameObject loadingCanvas;
+    [SerializeField] private Slider loadingSlider;
+    [SerializeField] private Text loadingTextPercentage;
+    [SerializeField] private string sceneNameOnStartGame;
     
     string loginEmail = "";
     string loginPassword = "";
@@ -84,25 +90,7 @@ public class LoginSystem : MonoBehaviour
         StartCoroutine(RegisterEnumerator());
     }
     
-    /*
-    * La méthode PlayGame(), je charge la scène ou le jeux va se dérouler.
-    */
-    public void StartGame()
-    {
-        SceneManager.LoadScene("SceneTest");
-    }
-    /*
-     * La méthode QuitGame() fait que lorsque le joueur clique sur le bouton quitter,
-     * le jeu arrête et l'exécutable se ferme.
-     */
-    public void QuitGame()
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-         Application.Quit();
-#endif
-    }
+    
 
     IEnumerator LoginEnumerator()
     {
@@ -138,6 +126,7 @@ public class LoginSystem : MonoBehaviour
                     statusText.color = Color.green;
 
                     //TODO ICI ON CHANGE D'ÉCRAN
+                    StartGame();
                 }
                 else
                 {
@@ -207,8 +196,44 @@ public class LoginSystem : MonoBehaviour
 
         isWorking = true;
     }
-
     
+    /*
+    * La méthode PlayGame(), je charge la scène ou le jeux va se dérouler.
+    */
+    public void StartGame()
+    {
+        StartCoroutine(LoadSceneAsync(sceneNameOnStartGame));
+    }
+
+    IEnumerator LoadSceneAsync(string sceneName)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+
+        loadingCanvas.SetActive(true);
+        
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / 0.9f);
+
+            loadingSlider.value = progress;
+            loadingTextPercentage.text = progress * 100f + "%";
+            
+            yield return null;
+        }
+    }
+    
+    /*
+     * La méthode QuitGame() fait que lorsque le joueur clique sur le bouton quitter,
+     * le jeu arrête et l'exécutable se ferme.
+     */
+    public void QuitGame()
+    {
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
+    }
     
     private void ResetValues()
     {
