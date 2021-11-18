@@ -116,7 +116,7 @@ public class RoiComportement : Piece
 
         Case roqueDroite = _cases[2];
         Case roqueGauche = _cases[6];
-
+        /**
         Vector2Int movedroite = moveSet[6];
         //Vector2Int nextMovee = moveSet[6] + coordonneesDeCetteCase;
         if ((_cases[0].SetEstActive(false)) || (_cases[1].SetEstActive(false)))
@@ -129,7 +129,7 @@ public class RoiComportement : Piece
             caseActuelle = _cases[5];
             roqueGauche = _cases[4];
         }
-      
+      */
     }
     /**
      * Dans la méthode DeplacerPiece(), on fait le deplacer de la piece selon la case qui a été choisi et on bouge la
