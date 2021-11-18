@@ -15,12 +15,10 @@ public class Joueur : MonoBehaviour
 
     //public Slider _timeSlider;
     public Text _tempsRestantText;
-    public string _textTime;
 
     public string Nom { get; set; }
     public int Pointage { get; set; } = 0;
     public float TempsRestant { get; set; } = 300f;
-    public bool TempsEstArrete { get; set; } = false;
 
     [SerializeField] private Piece[] _piecesJoueur;
 
@@ -33,8 +31,26 @@ public class Joueur : MonoBehaviour
         }
         
         _piecesMangees = new List<Piece>();
-        
+
+       
         SetProprietairePieces(); //On se donne comme proprietaire de ces pièces
+    }
+
+    private void Update()
+    {
+       //StartCoroutine(StartPlayerClock());
+    }
+
+    public IEnumerator StartPlayerClock()
+    {
+        TempsRestant = 300f - Time.time;
+        _tempsRestantText.text = TempsRestant.ToString();
+
+        int minutes = Mathf.FloorToInt(TempsRestant / 60);
+        int secondes = Mathf.FloorToInt(TempsRestant - minutes * 60f);
+        _tempsRestantText.text = string.Format("{0:00}:{1:00}", minutes, secondes);
+
+        yield return new WaitForSeconds(1.0f);
     }
 
     /**

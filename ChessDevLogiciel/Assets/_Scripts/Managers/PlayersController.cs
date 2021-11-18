@@ -34,13 +34,16 @@ public class PlayersController : MonoBehaviour
         int numeroJoueurQuiCommence = (int) Joueur.NumeroJoueur.Joueur1 - 1; //Enum qui se trouve dans Joueur
         _joueurActive = _joueurs[numeroJoueurQuiCommence]; 
         _joueurActive.SetPiecesActives(true);
-        
+        StartCoroutine(_joueurActive.StartPlayerClock());
+
+
         UIManager.Instance.UpdatePlayersTurn(_joueurActive);
     }
 
     // Update is called once per frame
     void Update()
     {
+        StartCoroutine(_joueurActive.StartPlayerClock());
         //Vérification du click de la souris
         if (Input.GetMouseButtonDown(0))
         {
@@ -48,26 +51,6 @@ public class PlayersController : MonoBehaviour
         }
     }
 
-    //private void DebuterTemps()
-    //{
-    //    _joueurActive._tempsRestant = _tempsJeu;
-    //    _joueurActive._stopTimer = _tempsJeu;
-
-    //    if (_joueurActive._tempsEstArrete == false)
-    //    {
-    //        _joueurActive._tempsRestant -= Time.time; /// 300f => 5 minutes
-            
-    //        int minutes = Mathf.FloorToInt(_joueurActive._tempsRestant / 60);
-    //        int secondes = Mathf.FloorToInt(_joueurActive._tempsRestant - minutes * 60f);
-    //        _joueurActive._textTime = string.Format("{0:00}:{1:00}", minutes, secondes);
-            
-    //        _joueurActive._tempsRestantText.text = _joueurActive._textTime;
-    //    }
-    //    else if (_joueurActive._tempsEstArrete == true)
-    //    {
-    //        _joueurActive._stopTimer = _joueurActive._tempsRestant;
-    //    }
-    //}
 
     private void DeplacerPionAuClickPosition()
     {
@@ -204,6 +187,7 @@ public class PlayersController : MonoBehaviour
     {
         //On désactive les pièces du joueur active.
         _joueurActive.SetPiecesActives(false);
+        StopCoroutine(_joueurActive.StartPlayerClock());
 
         //On change le joueur active.
         int nouveauNumeroJoueur = ((int) _joueurActive.numeroJoueur) + 1;
@@ -216,7 +200,8 @@ public class PlayersController : MonoBehaviour
 
         //On active les pièce du nouveau joueur qui est maintenant joueurActive.
         _joueurActive.SetPiecesActives(true);
-        
+        StartCoroutine(_joueurActive.StartPlayerClock());
+
         GameManager.Instance.ChangerCameraTo(_joueurActive.numeroJoueur);
         //On modifie le UI
         UIManager.Instance.UpdatePlayersTurn(_joueurActive);
