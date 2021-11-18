@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Script qui s'occupe de l'animation de l'horloge que les joueur ont dans leurs UI
 public class ClockAnimation : MonoBehaviour
 {
+    //Initialisation de tous les variables que le script aura besoin.
     private int _spriteIndex;
 
     private Coroutine _animationCoroutine;
@@ -15,6 +16,7 @@ public class ClockAnimation : MonoBehaviour
 
     public float secondsToWait;
     // Start is called before the first frame update
+   
     void Start()
     {
         _spriteIndex = 0;
@@ -23,7 +25,7 @@ public class ClockAnimation : MonoBehaviour
         
         //_animationCoroutine = StartCoroutine(StartClockAnimation());
     }
-
+//Enumerator qui fait commencer l'animation de l'horloge
     private IEnumerator StartClockAnimation()
     {
         while (true)
@@ -40,12 +42,12 @@ public class ClockAnimation : MonoBehaviour
         }
        
     }
-
+//La méthode OnDestroy arrete tous les coroutines qui ont été faite dans le script
     private void OnDestroy()
     {
         StopAllCoroutines();
     }
-
+//Cette méthode arrete l'animation de l'horloge
     public void StopClockAnimation()
     {
         if (_animationCoroutine is null)
@@ -55,7 +57,7 @@ public class ClockAnimation : MonoBehaviour
         
         StopCoroutine(_animationCoroutine);
     }
-
+//Cette méthode recommence la coroutine pour l'animation de l'horloge
     public void ResumeClockAnimation()
     {
         _animationCoroutine = StartCoroutine(StartClockAnimation());

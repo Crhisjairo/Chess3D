@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Script qui se charge de tous les composantes utilisés par le joueur
 public class Joueur : MonoBehaviour
 {
+    //Initialisation de tous les variables dont nous allons avoir besoin dans le script
     /// <summary>
     /// Numero du joueur
     /// </summary>
@@ -47,7 +48,7 @@ public class Joueur : MonoBehaviour
             piece.JoueurProprietaire = numeroJoueur;
         }
     }
-
+//On mets les pièces actives pour les joueurs
     public void SetPiecesActives(bool sontPiecesActives)
     {
         //À remplacer par un event system
@@ -57,7 +58,7 @@ public class Joueur : MonoBehaviour
         }
     }
 
-    
+    //On ajoute les pièces qui ont été mangés dans une liste
     public void AjouterPieceMangee(Piece piece)
     {
         //On désactive la pièce.

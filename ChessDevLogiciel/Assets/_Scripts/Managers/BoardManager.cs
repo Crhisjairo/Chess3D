@@ -3,14 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Script qui va relier le mouvement des pièces au Chess Board sur Unity
+
+
 public class BoardManager : MonoBehaviour
 {
+    //Les variables utilisaient dans le script de BoardManager
     public static BoardManager Instance { private set; get;}
     public const int MAX_BOARD_SIZE = 8;
     
     [SerializeField] private Case[] _cases;
     
-
+//La méthode Awake va être appelé lorsque le jeu va commencer
     private void Awake()
     {
         //On évite avoir deux instance de cette même classe lors du Awake
@@ -93,7 +97,7 @@ public class BoardManager : MonoBehaviour
         pieceDansCase = null;
         return false;
     }
-
+//La méthode Desactiver case, enleve la couleur de la case activer lorsque le joueur touche une pièce.
     public void DesactiverCases()
     {
         //Au début, on désactive toutes les cases
