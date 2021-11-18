@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
      */
     public void PlayGame()
     {
-        SceneManager.LoadScene("SceneTest");
+        SceneManager.LoadScene("Board");
     }
     /*
      * La méthode QuitGame() fait que lorsque le joueur clique sur le bouton quitter,
