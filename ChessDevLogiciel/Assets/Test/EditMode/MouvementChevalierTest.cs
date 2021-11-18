@@ -1,7 +1,7 @@
 
 using NUnit.Framework;
 
-namespace Tests
+namespace Test.EditMode
 {
     public class MouvementChevalierTest
     {
