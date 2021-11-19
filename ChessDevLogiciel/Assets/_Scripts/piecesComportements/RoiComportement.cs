@@ -131,6 +131,7 @@ public class RoiComportement : Piece
             }
         }
 
+        /**
         Case roqueDroite = _cases[2];
         Case roqueGauche = _cases[6];
 
@@ -146,7 +147,7 @@ public class RoiComportement : Piece
             caseActuelle = _cases[5];
             roqueGauche = _cases[4];
         }
-      
+      */
     }
 
     public override void DeplacerPiece(Case caseDestination)
