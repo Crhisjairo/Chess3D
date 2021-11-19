@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayersController : MonoBehaviour
 {
+    //Initialisation des variables utiliser dans le script
     private const string PieceTag = "Piece";
     private const string CaseDuTableauTag = "CaseDuTableau";
     

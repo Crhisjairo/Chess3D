@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//Script qui s'occupe de tous le UI
 public class UIManager : MonoBehaviour
 {
+    //Initialisation de tous les variables qui vont être utilisés dans le script
     public static UIManager Instance { private set; get; }
 
     //[SerializeField] private Text _tempsRestantText;

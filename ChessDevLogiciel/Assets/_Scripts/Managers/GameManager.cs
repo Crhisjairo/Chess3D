@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//Script qui va se charger du fonctionnement du jeu
 public class GameManager : MonoBehaviour
 {
+    //Initialisation de tous les variables que nous aurons besoin dans ce script
     public static GameManager Instance { private set; get;}
 
     [SerializeField] private Animator _drivenCamAnimator;
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
-
+//Dans cette méthode, on fait le changement de tour pour chaque joueur
     public void ChangerCameraTo(Joueur.NumeroJoueur numeroJoueur)
     {
         Debug.Log("Changement de cam à " + numeroJoueur);

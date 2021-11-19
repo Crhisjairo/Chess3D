@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoiComportement : Piece
 {
@@ -8,6 +9,9 @@ public class RoiComportement : Piece
    * Dans cette partie du code, on initialise les variables qui vont être utilisés dans le script du comportement
    * du Roi
    */
+    [SerializeField] private Case[] _cases;
+    private Rigidbody _rb;
+
     private Vector2Int[] _moveSet = new Vector2Int[]
     {
       new Vector2Int(0, 1), //Move au départ
@@ -15,7 +19,8 @@ public class RoiComportement : Piece
       new Vector2Int(-1, -1),  //move pour manger en diagonal en bas droite
       new Vector2Int(-1, 1),  //move pour manger en diagonal gauche
       new Vector2Int(1, -1),//move pour manger en diagonal en bas gauche
-      new Vector2Int(0, -1) //move pour diagonale derriere
+      new Vector2Int(0, -1), //move pour diagonale derriere
+      new Vector2Int(1, 0)
     };
     /**
      * Dans la méthode Start(), on set up tous les variables pour qu'elles prennent les composants dont elles vont avoir
@@ -93,6 +98,38 @@ public class RoiComportement : Piece
             }
             
         }
+        
+        //Comportement roi-roque
+        foreach (Case uneCase in _cases)
+        {
+            Vector2Int coordonneesDeCase = new Vector2Int();
+
+            if (numeroJoueur is Joueur.NumeroJoueur.Joueur1)
+            {
+                coordonneesDeCase = uneCase.coordonneesDeCasePourBlanc;
+            }
+            else if (numeroJoueur is Joueur.NumeroJoueur.Joueur2)
+            {
+                coordonneesDeCase = uneCase.coordonneesDeCasePourNoir;
+            }
+        }
+
+        Case roqueDroite = _cases[2];
+        Case roqueGauche = _cases[6];
+        /**
+        Vector2Int movedroite = moveSet[6];
+        //Vector2Int nextMovee = moveSet[6] + coordonneesDeCetteCase;
+        if ((_cases[0].SetEstActive(false)) || (_cases[1].SetEstActive(false)))
+        {
+            caseActuelle = _cases[1];       
+            roqueDroite = _cases[0];
+        } 
+        else if ((_cases[3].SetEstActive(false)) || (_cases[4].SetEstActive(false)) || (_cases[5].SetEstActive(false)))
+        {
+            caseActuelle = _cases[5];
+            roqueGauche = _cases[4];
+        }
+      */
     }
     /**
      * Dans la méthode DeplacerPiece(), on fait le deplacer de la piece selon la case qui a été choisi et on bouge la

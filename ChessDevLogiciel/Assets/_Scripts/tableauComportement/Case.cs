@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Script qui gère le comportement des pièces dans le Chess Board
 public class Case : MonoBehaviour
 {
     public string nomDeCase;
@@ -19,7 +19,7 @@ public class Case : MonoBehaviour
     /// manipuler cette pièce après.
     /// </summary>
     [SerializeField] private Piece pieceDansLaCase;
-    
+    //Méthode Start() set up tous les componenent qui vont être utilisés
     private void Start()
     {
         _material = GetComponent<Renderer>().material;
@@ -40,7 +40,7 @@ public class Case : MonoBehaviour
     {
         return _estActive;
     }
-
+//Méthode qui set la pièce active avec la couleur qui lui est fournis
     public void SetEstActive(bool estActive)
     {
         //On change la couleur de la case en fontion si elle va être activée ou pas.
