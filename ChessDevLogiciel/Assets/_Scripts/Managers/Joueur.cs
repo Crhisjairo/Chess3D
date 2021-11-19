@@ -35,8 +35,21 @@ public class Joueur : MonoBehaviour
         _piecesMangees = new List<Piece>();
         
         SetProprietairePieces(); //On se donne comme proprietaire de ces pièces
+        StartCoroutine(StartPlayerClock());
     }
 
+    public IEnumerator StartPlayerClock()
+    {
+        TempsRestant = 300f - Time.time;
+        _tempsRestantText.text = TempsRestant.ToString();
+
+        int minutes = Mathf.FloorToInt(TempsRestant / 60);
+        int secondes = Mathf.FloorToInt(TempsRestant - minutes * 60f);
+        _tempsRestantText.text = string.Format("{0:00}:{1:00}", minutes, secondes);
+
+        yield return new WaitForSeconds(1.0f);
+    }
+    
     /**
      * On donne le numéro de joueur aux pièces auquels elles appartiennent.
      */
