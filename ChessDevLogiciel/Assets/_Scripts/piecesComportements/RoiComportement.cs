@@ -10,7 +10,6 @@ public class RoiComportement : Piece
    * du Roi
    */
     [SerializeField] private Case[] _cases;
-    private Rigidbody _rb;
 
     private Vector2Int[] _moveSet = new Vector2Int[]
     {
