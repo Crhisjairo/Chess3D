@@ -47,6 +47,11 @@ public class LoginSystem : MonoBehaviour
 
     private const string RootURL = "http://10.241.58.176/";
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     public void ShowRegisterCanvas()
     {
         loginCanvas.SetActive(false);
@@ -90,8 +95,6 @@ public class LoginSystem : MonoBehaviour
         StartCoroutine(RegisterEnumerator());
     }
     
-    
-
     IEnumerator LoginEnumerator()
     {
         isWorking = true;
@@ -124,7 +127,9 @@ public class LoginSystem : MonoBehaviour
                     ResetValues();
                     statusText.text = "Connection réussi!";
                     statusText.color = Color.green;
-
+                    
+                    Debug.Log(userName + userEmail);
+                    
                     //TODO ICI ON CHANGE D'ÉCRAN
                     StartGame();
                 }
@@ -220,6 +225,8 @@ public class LoginSystem : MonoBehaviour
             
             yield return null;
         }
+        
+        //
     }
     
     /*

@@ -1281,6 +1281,10 @@ MonoBehaviour:
   goToMainMenu: {fileID: 4725727575982345564}
   statusText: {fileID: 4373420489667083478}
   _avatarsToggleGroup: {fileID: 666065605}
+  loadingCanvas: {fileID: 0}
+  loadingSlider: {fileID: 0}
+  loadingTextPercentage: {fileID: 0}
+  sceneNameOnStartGame: Board
 --- !u!1 &24514578394396297
 GameObject:
   m_ObjectHideFlags: 0
@@ -3556,7 +3560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4203589144744082659, guid: 64188ac14d84c4e4e9c5b75fe6a40294, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4330306100344159993, guid: 64188ac14d84c4e4e9c5b75fe6a40294, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3580,7 +3584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6348516735026756793, guid: 64188ac14d84c4e4e9c5b75fe6a40294, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8575196014775467049, guid: 64188ac14d84c4e4e9c5b75fe6a40294, type: 3}
       propertyPath: m_Navigation.m_Mode
