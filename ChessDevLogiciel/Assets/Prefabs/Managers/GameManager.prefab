@@ -43,3 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c777b9d591cdb4d4ea77af92e0cf0711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _drivenCamAnimator: {fileID: 0}

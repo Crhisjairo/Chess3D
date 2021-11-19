@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class Joueur : MonoBehaviour
 {
     //Initialisation de tous les variables dont nous allons avoir besoin dans le script
+    private PlayerData PlayerData { get; set; }
+
     /// <summary>
     /// Numero du joueur
     /// </summary>
@@ -16,26 +18,58 @@ public class Joueur : MonoBehaviour
 
     //public Slider _timeSlider;
     public Text _tempsRestantText;
-    public string _textTime;
 
-    public string Nom { get; set; }
-    public int Pointage { get; set; } = 0;
     public float TempsRestant { get; set; } = 300f;
-    public bool TempsEstArrete { get; set; } = false;
+    public bool EstTempsArrete { get; set; } = false;
+
+    public bool EstTempsFinit { get; private set; } = false;
+
 
     [SerializeField] private Piece[] _piecesJoueur;
 
     private void Start()
     {
-        //Si jamais le nom est vide
-        if (Nom == string.Empty)
+        //On donne des données par défaut pour les invités
+        if (PlayerData is null)
         {
-            Nom = "Joueur " + (int) numeroJoueur;
+            PlayerData = new PlayerData("NoID", "Invité", "NoUsername", "", 0, 0);
+        }
+        //Si jamais c'est un invité
+        if (PlayerData.Nom.Equals("Invité"))
+        {
+           // PlayerData.Nom + (int) numeroJoueur;
         }
         
         _piecesMangees = new List<Piece>();
         
         SetProprietairePieces(); //On se donne comme proprietaire de ces pièces
+    }
+
+    private void Update()
+    {
+        //On check si le temps est arreté pour ne pas continuer avec le timer.
+        if (!EstTempsArrete)
+        {
+          TimerCountdown();  
+        }
+        
+    }
+
+    private void TimerCountdown()
+    {
+        float temps = TempsRestant - Time.time;
+
+        if (temps <= 0)
+        {
+            EstTempsFinit = true;
+            _tempsRestantText.text = "Time out!";
+            return;
+        }
+
+        string minutes = ((int) temps / 60).ToString();
+        string secondes = Math.Truncate(temps % 60).ToString();
+
+        _tempsRestantText.text = minutes + ":" + secondes;
     }
 
     /**

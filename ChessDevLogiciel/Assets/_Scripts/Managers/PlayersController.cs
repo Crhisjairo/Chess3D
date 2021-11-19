@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
 public class PlayersController : MonoBehaviour
@@ -9,12 +10,18 @@ public class PlayersController : MonoBehaviour
     private const string PieceTag = "Piece";
     private const string CaseDuTableauTag = "CaseDuTableau";
     
+    [SerializeField] private Animator _drivenCamAnimator;
+    
     public static PlayersController Instance { private set; get;}
     
     public Piece _pieceSelectionne;
 
     public Joueur _joueurActive;
     [SerializeField] private Joueur[] _joueurs;
+    
+    //TODO C'est une fenêtre qui va set ces données
+    [Range(1f, 10f)] public float minutesPourJoueur;
+    [Range(0f, 60f)] public float secondesPourJoueur;
 
     private void Awake()
     {
@@ -37,6 +44,13 @@ public class PlayersController : MonoBehaviour
         _joueurActive.SetPiecesActives(true);
         
         UIManager.Instance.UpdatePlayersTurn(_joueurActive);
+        
+        
+        
+        LoadAndSetPlayerData();
+        
+        //TODO cette méthode doit s'appeller lorsqu'on appui sur un button.
+        SetGameSettings();
     }
 
     // Update is called once per frame
@@ -48,27 +62,23 @@ public class PlayersController : MonoBehaviour
             DeplacerPionAuClickPosition();
         }
     }
+    
+    private void LoadAndSetPlayerData()
+    {
+        //TODO modifier ça pour le faire en fonction des données de la BD à distance
+    }
 
-    //private void DebuterTemps()
-    //{
-    //    _joueurActive._tempsRestant = _tempsJeu;
-    //    _joueurActive._stopTimer = _tempsJeu;
-
-    //    if (_joueurActive._tempsEstArrete == false)
-    //    {
-    //        _joueurActive._tempsRestant -= Time.time; /// 300f => 5 minutes
-            
-    //        int minutes = Mathf.FloorToInt(_joueurActive._tempsRestant / 60);
-    //        int secondes = Mathf.FloorToInt(_joueurActive._tempsRestant - minutes * 60f);
-    //        _joueurActive._textTime = string.Format("{0:00}:{1:00}", minutes, secondes);
-            
-    //        _joueurActive._tempsRestantText.text = _joueurActive._textTime;
-    //    }
-    //    else if (_joueurActive._tempsEstArrete == true)
-    //    {
-    //        _joueurActive._stopTimer = _joueurActive._tempsRestant;
-    //    }
-    //}
+    private void SetGameSettings()
+    {
+        //TODO faire ça en fonction d'une fenêtre de configuration qui doit s'afficher. Pour le moment, je harcode la configuration de la partie
+        
+        //On set le temps aloué à chaque joueur
+        foreach (var joueur in _joueurs)
+        {
+            joueur.TempsRestant = minutesPourJoueur * 60 + secondesPourJoueur;
+        }
+        
+    }
 
     private void DeplacerPionAuClickPosition()
     {
@@ -218,8 +228,24 @@ public class PlayersController : MonoBehaviour
         //On active les pièce du nouveau joueur qui est maintenant joueurActive.
         _joueurActive.SetPiecesActives(true);
         
-        GameManager.Instance.ChangerCameraTo(_joueurActive.numeroJoueur);
+        ChangerCameraTo(_joueurActive.numeroJoueur);
         //On modifie le UI
         UIManager.Instance.UpdatePlayersTurn(_joueurActive);
     }
+    
+    public void ChangerCameraTo(Joueur.NumeroJoueur numeroJoueur)
+    {
+        Debug.Log("Changement de cam à " + numeroJoueur);
+        
+        //Faut changer la camera par Cinemachine Virtual Camera
+        if (numeroJoueur == Joueur.NumeroJoueur.Joueur1)
+        {
+            _drivenCamAnimator.Play("vcamPlayer1");
+        } 
+        else if (numeroJoueur == Joueur.NumeroJoueur.Joueur2)
+        {
+            _drivenCamAnimator.Play("vcamPlayer2");
+        } //On peut ajouter d'autres caméras pour d'autres joueurs. Il faudra adapter l'animator et le stateDrivenCam
+    }
+
 }

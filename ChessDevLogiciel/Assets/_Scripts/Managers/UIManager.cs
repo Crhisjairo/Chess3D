@@ -100,8 +100,7 @@ public class UIManager : MonoBehaviour
         Vector3 startCanvas1Pos = _canvasJoueur1.transform.localScale;
         Vector3 startCanvas2Pos = _canvasJoueur2.transform.localScale;
         
-
-        /*
+        //TODO Changer ça pour LeanTween.
         //On met en emphasis le joueur à qui est le tour
         float xScaleCurrentPlayer;
         float yScaleCurrentPlayer;
@@ -136,9 +135,7 @@ public class UIManager : MonoBehaviour
 
         canvasToMagnify.transform.localScale = new Vector3(xScaleCurrentPlayer + 0.3f, yScaleCurrentPlayer + 0.3f, zScaleCurrentPlayer);
         canvasToReduce.transform.localScale = new Vector3(xScalePastPlayer - 0.3f, yScalePastPlayer - 0.3f, zScalePastPlayer);
-        */
-
-
+        
     }
 
     /// <summary>
