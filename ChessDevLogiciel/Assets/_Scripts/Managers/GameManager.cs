@@ -62,6 +62,14 @@ public class GameManager : MonoBehaviour
 
     public void OnClickStartGame()
     {
+        float seconds = sliderMinutes.value * 60 + sliderSecondes.value;
+
+        if (gameMode is GameMode.VsPlayerLocal)
+        {
+            PlayersController.Instance.SetPlayersSettingsAndStartGame(playerData, seconds);
+            
+            //TODO il faut maintenant set la data dans le UI des players: Nom, temps, etc
+        }
         
     }
 

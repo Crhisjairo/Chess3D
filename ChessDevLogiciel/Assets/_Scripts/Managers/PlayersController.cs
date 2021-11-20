@@ -50,9 +50,6 @@ public class PlayersController : MonoBehaviour
 
     public void SetPlayersSettingsAndStartGame(PlayerData playerData, float secondesPourJoueur)
     {
-        //On set la data du joueur local
-        _joueurs[0].SetPlayerData(playerData);
-            
         //On débute avec le premier joueur, joueur local
         int numeroJoueurQuiCommence = (int) Joueur.NumeroJoueur.Joueur1 - 1; //Enum qui se trouve dans Joueur
         _joueurActive = _joueurs[numeroJoueurQuiCommence]; 
@@ -65,10 +62,11 @@ public class PlayersController : MonoBehaviour
         foreach (var joueur in _joueurs)
         {
             joueur.TempsRestant = secondesPourJoueur;
-            joueur.OnStartGame();
         }
         
         
+        _joueurs[0].SetProperties(playerData, secondesPourJoueur);
+        _joueurs[1].SetProperties(null, secondesPourJoueur);
     }
 
     private void DeplacerPionAuClickPosition()

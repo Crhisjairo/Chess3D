@@ -54,23 +54,30 @@ public class Joueur : MonoBehaviour
         _tempsRestantText.text = minutes + ":" + secondes;
     }
 
-    public void OnStartGame()
+    public void SetProperties(PlayerData playerData, float secondesPourJoueur)
     {
+        if (playerData is null)
+        {
+            playerData = new PlayerData("999", "Invité", "", "", 0, 0, "");
+        }
+        
+        _playerData = playerData;
+                    
         //Si jamais c'est un invité
         if (_playerData.Username.Equals("Invité"))
         {
             // PlayerData.Nom + (int) numeroJoueur;
         }
+
+        TempsRestant = secondesPourJoueur;
+        _tempsRestantText.text = secondesPourJoueur.ToString();
+        
         
         _piecesMangees = new List<Piece>();
         
         SetProprietairePieces(); //On se donne comme proprietaire de ces pièces
     }
 
-    public void SetPlayerData(PlayerData playerData)
-    {
-        this._playerData = playerData;
-    }
 
     /**
      * On donne le numéro de joueur aux pièces auquels elles appartiennent.
