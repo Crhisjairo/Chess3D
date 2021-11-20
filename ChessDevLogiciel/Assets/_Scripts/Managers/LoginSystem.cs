@@ -47,6 +47,8 @@ public class LoginSystem : MonoBehaviour
 
     private const string RootURL = "http://10.241.58.176/";
 
+    [SerializeField] private GameManager _gameManager;
+
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -120,18 +122,35 @@ public class LoginSystem : MonoBehaviour
                 if (responseText.StartsWith("Success"))
                 {
                     string[] dataChunks = responseText.Split('|');
-                    userName = dataChunks[1];
-                    userEmail = dataChunks[2];
+                    //On créé les données de l'utilisateur local.
+
+                    int i = 0;
+                    foreach (var data in dataChunks)
+                    {
+                        Debug.Log(i + ": " + data);
+                        i++;
+                    }
+                    
+                    
+                    PlayerData localPlayerData = new PlayerData(dataChunks[1], dataChunks[2], dataChunks[3],
+                        dataChunks[4], int.Parse(dataChunks[5]), int.Parse(dataChunks[6]),
+                        dataChunks[7]);
+                    
+                    _gameManager.SetLocalPlayerData(localPlayerData);
+                    
                     isLoggedIn = true;
 
                     ResetValues();
                     statusText.text = "Connection réussi!";
                     statusText.color = Color.green;
                     
-                    Debug.Log(userName + userEmail);
+                    //TODO à changer
+                    loginCanvas.SetActive(false);
+                    GetComponent<Canvas>().enabled = false;
                     
-                    //TODO ICI ON CHANGE D'ÉCRAN
-                    StartGame();
+                    //TODO A REMPLACER PAR UN AUTRE MENU
+                    StartCoroutine(LoadSceneAsync(sceneNameOnStartGame));
+                    
                 }
                 else
                 {
@@ -202,13 +221,6 @@ public class LoginSystem : MonoBehaviour
         isWorking = true;
     }
     
-    /*
-    * La méthode PlayGame(), je charge la scène ou le jeux va se dérouler.
-    */
-    public void StartGame()
-    {
-        StartCoroutine(LoadSceneAsync(sceneNameOnStartGame));
-    }
 
     IEnumerator LoadSceneAsync(string sceneName)
     {
@@ -225,8 +237,18 @@ public class LoginSystem : MonoBehaviour
             
             yield return null;
         }
+
+        _gameManager.OnInitGame();
         
-        //
+        StartCoroutine(DestroyScene());
+    }
+
+    //Si jamais on veut le détruire après
+    IEnumerator DestroyScene()
+    {
+        yield return new WaitForEndOfFrame();
+        
+        //Destroy(this.gameObject);
     }
     
     /*

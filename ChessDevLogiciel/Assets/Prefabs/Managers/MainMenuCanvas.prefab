@@ -1285,6 +1285,7 @@ MonoBehaviour:
   loadingSlider: {fileID: 0}
   loadingTextPercentage: {fileID: 0}
   sceneNameOnStartGame: Board
+  _gameManager: {fileID: 0}
 --- !u!1 &24514578394396297
 GameObject:
   m_ObjectHideFlags: 0

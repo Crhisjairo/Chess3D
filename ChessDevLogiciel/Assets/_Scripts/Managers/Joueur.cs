@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Joueur : MonoBehaviour
 {
     //Initialisation de tous les variables dont nous allons avoir besoin dans le script
-    private PlayerData PlayerData { get; set; }
+    private PlayerData _playerData;
 
     /// <summary>
     /// Numero du joueur
@@ -26,24 +26,6 @@ public class Joueur : MonoBehaviour
 
 
     [SerializeField] private Piece[] _piecesJoueur;
-
-    private void Start()
-    {
-        //On donne des données par défaut pour les invités
-        if (PlayerData is null)
-        {
-            PlayerData = new PlayerData("NoID", "Invité", "NoUsername", "", 0, 0);
-        }
-        //Si jamais c'est un invité
-        if (PlayerData.Nom.Equals("Invité"))
-        {
-           // PlayerData.Nom + (int) numeroJoueur;
-        }
-        
-        _piecesMangees = new List<Piece>();
-        
-        SetProprietairePieces(); //On se donne comme proprietaire de ces pièces
-    }
 
     private void Update()
     {
@@ -70,6 +52,24 @@ public class Joueur : MonoBehaviour
         string secondes = Math.Truncate(temps % 60).ToString();
 
         _tempsRestantText.text = minutes + ":" + secondes;
+    }
+
+    public void OnStartGame()
+    {
+        //Si jamais c'est un invité
+        if (_playerData.Username.Equals("Invité"))
+        {
+            // PlayerData.Nom + (int) numeroJoueur;
+        }
+        
+        _piecesMangees = new List<Piece>();
+        
+        SetProprietairePieces(); //On se donne comme proprietaire de ces pièces
+    }
+
+    public void SetPlayerData(PlayerData playerData)
+    {
+        this._playerData = playerData;
     }
 
     /**
