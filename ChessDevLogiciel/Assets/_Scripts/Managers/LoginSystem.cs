@@ -259,6 +259,6 @@ public class LoginSystem : MonoBehaviour
     public void LoadBoard()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Board");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
