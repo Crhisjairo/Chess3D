@@ -25,7 +25,7 @@ public class ClockAnimation : MonoBehaviour
         
         //_animationCoroutine = StartCoroutine(StartClockAnimation());
     }
-//Enumerator qui fait commencer l'animation de l'horloge
+    
     private IEnumerator StartClockAnimation()
     {
         while (true)
@@ -57,7 +57,8 @@ public class ClockAnimation : MonoBehaviour
         
         StopCoroutine(_animationCoroutine);
     }
-//Cette méthode recommence la coroutine pour l'animation de l'horloge
+
+    //Cette méthode recommence la coroutine pour l'animation de l'horloge
     public void ResumeClockAnimation()
     {
         _animationCoroutine = StartCoroutine(StartClockAnimation());

@@ -17,41 +17,67 @@ public class Joueur : MonoBehaviour
     private List<Piece> _piecesMangees;
 
     //public Slider _timeSlider;
-    public Text _tempsRestantText;
+    public Text tempsRestantText;
 
-    public float TempsRestant { get; set; } = 300f;
-    public bool EstTempsArrete { get; set; } = false;
+    private float TempsRestant { get; set; } = 300f;
 
-    public bool EstTempsFinit { get; private set; } = false;
+    private bool IsTimerOn { get; set; } = false;
+
+    private bool EstTempsFinit { get; set; } = false;
+
+    private float _startTime;
+    private float _stopTime;
 
 
     [SerializeField] private Piece[] _piecesJoueur;
+    private Coroutine _timerCoroutine;
+   
 
-    private void Update()
+    public void SetTimerOn(bool isOn)
     {
-        //On check si le temps est arreté pour ne pas continuer avec le timer.
-        if (!EstTempsArrete)
-        {
-          TimerCountdown();  
-        }
+        IsTimerOn = isOn;
         
+        if (IsTimerOn)
+        {
+           if (_timerCoroutine is null)
+           {
+               _timerCoroutine = StartCoroutine(TimerCountdown());
+               _startTime = Time.time;
+           } 
+        }
+        else
+        {
+            if (!(_timerCoroutine is null))
+            {
+                StopCoroutine(_timerCoroutine);
+                _timerCoroutine = null;
+                TempsRestant = TempsRestant - (Time.time - _startTime);
+            } 
+        }
     }
 
-    private void TimerCountdown()
+    private IEnumerator TimerCountdown()
     {
-        float temps = TempsRestant - Time.time;
-
-        if (temps <= 0)
+        while (true)
         {
-            EstTempsFinit = true;
-            _tempsRestantText.text = "Time out!";
-            return;
+            float timerTime = TempsRestant - (Time.time - _startTime);
+
+            if (timerTime <= 0)
+            {
+                EstTempsFinit = true;
+                tempsRestantText.text = "Time out!";
+                
+                //TODO icitte on finit la game à cause du temps
+                yield break;
+            }
+
+            string minutes = ((int) timerTime / 60).ToString();
+            string secondes = Math.Truncate(timerTime % 60).ToString();
+
+            tempsRestantText.text = minutes + ":" + secondes;
+
+            yield return null;
         }
-
-        string minutes = ((int) temps / 60).ToString();
-        string secondes = Math.Truncate(temps % 60).ToString();
-
-        _tempsRestantText.text = minutes + ":" + secondes;
     }
 
     public void SetProperties(PlayerData playerData, float secondesPourJoueur)
@@ -69,9 +95,7 @@ public class Joueur : MonoBehaviour
             // PlayerData.Nom + (int) numeroJoueur;
         }
 
-        TempsRestant = secondesPourJoueur;
-        _tempsRestantText.text = secondesPourJoueur.ToString();
-        
+        SetTempsRestant(secondesPourJoueur);
         
         _piecesMangees = new List<Piece>();
         
@@ -119,6 +143,16 @@ public class Joueur : MonoBehaviour
     public List<Piece> GetPiecesMangees()
     {
         return _piecesMangees;
+    }
+
+    public void SetTempsRestant(float temps)
+    {
+        TempsRestant = temps;
+        
+        string minutes = ((int) temps / 60).ToString();
+        string secondes = Math.Truncate(temps % 60).ToString();
+
+        tempsRestantText.text = minutes + ":" + secondes;
     }
 
     /// <summary>

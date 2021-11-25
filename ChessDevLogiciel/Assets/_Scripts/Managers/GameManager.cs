@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -38,9 +39,15 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Board")
+        {
+            gameSettings.gameObject.SetActive(true);
+        }
+        else
+        {
+            gameSettings.gameObject.SetActive(false);
+        }
         
-
-        gameSettings.enabled = false;
     }
 
     public void SetGameMode(GameMode gameMode)
@@ -56,7 +63,7 @@ public class GameManager : MonoBehaviour
     public void OnInitGame()
     {
         //On affiche la fenetre de configuration
-        gameSettings.enabled = true;
+        gameSettings.gameObject.SetActive(true);
         
     }
 
@@ -70,7 +77,9 @@ public class GameManager : MonoBehaviour
             
             //TODO il faut maintenant set la data dans le UI des players: Nom, temps, etc
         }
+     
         
+        gameSettings.gameObject.SetActive(false);
     }
 
     public enum GameMode

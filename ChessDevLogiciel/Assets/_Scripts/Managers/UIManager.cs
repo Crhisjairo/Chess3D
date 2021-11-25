@@ -76,7 +76,7 @@ public class UIManager : MonoBehaviour
     {
         _joueurActive = joueur;
 
-        ResizePlayerCanvas();
+        //ResizePlayerCanvas();
         StopAndStartPlayerClock(joueur);
         
     }
@@ -87,11 +87,18 @@ public class UIManager : MonoBehaviour
         if (joueur.numeroJoueur == Joueur.NumeroJoueur.Joueur1)
         {
             _clockJoueur1.ResumeClockAnimation();
+            _joueurs[0].SetTimerOn(true);
+            
             _clockJoueur2.StopClockAnimation();
+            _joueurs[1].SetTimerOn(false);
+
         } else if (joueur.numeroJoueur == Joueur.NumeroJoueur.Joueur2)
         {
             _clockJoueur2.ResumeClockAnimation();
+            _joueurs[1].SetTimerOn(true);
+            
             _clockJoueur1.StopClockAnimation();
+            _joueurs[0].SetTimerOn(false);
         }
     }
 

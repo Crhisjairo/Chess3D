@@ -58,13 +58,6 @@ public class PlayersController : MonoBehaviour
         UIManager.Instance.UpdatePlayersTurn(_joueurActive);
         
         
-        //On set le temps aloué à chaque joueur
-        foreach (var joueur in _joueurs)
-        {
-            joueur.TempsRestant = secondesPourJoueur;
-        }
-        
-        
         _joueurs[0].SetProperties(playerData, secondesPourJoueur);
         _joueurs[1].SetProperties(null, secondesPourJoueur);
     }

@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numeroJoueur: 1
-  _tempsRestantText: {fileID: 0}
+  tempsRestantText: {fileID: 0}
   _piecesJoueur:
   - {fileID: 3260486362283293089}
   - {fileID: 3260486361759444654}
@@ -530,8 +530,6 @@ MonoBehaviour:
   _joueurs:
   - {fileID: 8716772145429343225}
   - {fileID: 2805627207819952684}
-  minutesPourJoueur: 1
-  secondesPourJoueur: 0
 --- !u!54 &1757177706
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -640,7 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numeroJoueur: 2
-  _tempsRestantText: {fileID: 0}
+  tempsRestantText: {fileID: 0}
   _piecesJoueur:
   - {fileID: 3260486361267652973}
   - {fileID: 3260486362108907467}
