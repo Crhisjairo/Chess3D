@@ -15,6 +15,7 @@ using Toggle = UnityEngine.UI.Toggle;
 
 public class LoginSystem : MonoBehaviour
 {
+    #region NotToTouch
     public GameObject loginCanvas, registerCanvas;
     [SerializeField] private InputField loginEmailField, loginPasswordField;
     [SerializeField] private InputField registerEmailField, registerPasswordField1, registerPasswordField2, registerUsernameField;
@@ -273,5 +274,13 @@ public class LoginSystem : MonoBehaviour
         registerPassword1 = "";
         registerPassword2 = "";
         registerUsername = "";
+    }
+    #endregion
+
+    [SerializeField] GameObject Authentification;
+    public void LoadBoard()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
