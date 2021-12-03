@@ -37,6 +37,7 @@ public class LoginSystem : MonoBehaviour
     [SerializeField] private string loginSuccesText;
     [SerializeField] private Text loginStatus;
     
+    
     string loginEmail = "";
     string loginPassword = "";
     
