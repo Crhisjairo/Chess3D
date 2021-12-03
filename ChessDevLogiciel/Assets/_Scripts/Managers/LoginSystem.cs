@@ -310,9 +310,18 @@ public class LoginSystem : MonoBehaviour
     #endregion
 
     [SerializeField] GameObject Authentification;
+    [SerializeField] private Animator _drivenCamAnimator;
+
     public void LoadBoard()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void ChangerCameraTo(String state)
+    {
+        _drivenCamAnimator.Play(state);
+    }
+
+
 }
