@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayersController : MonoBehaviour
 {
@@ -136,7 +137,13 @@ public class PlayersController : MonoBehaviour
         }
         
         pieceMangee.CacherPiece();
-        
+
+        /**
+        if (ToString(pieceMangee.name = "Chess King White"))
+        {
+            SceneManager.LoadScene("Victoire");
+        }
+        */
         UIManager.Instance.UpdatePlayerPieces(_joueurActive.numeroJoueur, _joueurActive.GetPiecesMangees());
     }
 
