@@ -43,6 +43,12 @@ public class Case : MonoBehaviour
 //Méthode qui set la pièce active avec la couleur qui lui est fournis
     public void SetEstActive(bool estActive)
     {
+        if (_material is null)
+        {
+            _material = GetComponent<Renderer>().material;
+            _defaultColor = _material.color;
+        }
+        
         //On change la couleur de la case en fontion si elle va être activée ou pas.
         if (estActive)
         {

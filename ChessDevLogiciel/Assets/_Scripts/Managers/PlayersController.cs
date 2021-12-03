@@ -229,4 +229,9 @@ public class PlayersController : MonoBehaviour
             _drivenCamAnimator.Play("vcamPlayer2");
         } //On peut ajouter d'autres caméras pour d'autres joueurs. Il faudra adapter l'animator et le stateDrivenCam
     }
+
+    public void SetJoueurs(Joueur[] joueurs)
+    {
+        _joueurs = joueurs;
+    }
 }
