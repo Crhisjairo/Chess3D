@@ -12,6 +12,32 @@ using UnityEngine.TestTools;
 [TestFixture]
 public class MouvementPionTest
 {
+    /**
+     * Explication:
+     *
+     * Pour tester des trucs punctuels, comme des variables qui changent dans nos scripts, ou des scripts qui n'ont pas
+     * de dépendance (comme le ClockAnimation, par exemple), on peut juste créer une instance du prefab. Il faut donc
+     * avoir une référence au préfab qu'on veut intantiate. La méthode OneTimeSetup() sauvegarde les références au Préfabs.
+     * Chacun de ces tests doivent contenir la signature:
+     * [Test]
+     * public void CaseContientPieceApresAvoirSetLaPiece() {
+     *
+     * }
+     *
+     * 
+     * Pour tester le jeu, je load la scène du Board. Tous les éléments sont là. Alors, la méthode Setup va toujours
+     * recharge la même scène avant chaque test. Il faut recharger la scène avant chaque tests pour pas que les modifications
+     * des tests influent aux autres test (dans le fond, t'as une scène board clean à chaque test, alors tu peux tout
+     * modifier dans ta scène). On utilise ces genres de tests pour tester l'ensemble des comportements.
+     * Chacun de ces tests doivent contenir la signature:
+     *
+     * [UnityTest]
+     * public IEnumerator EstJoueurActivePremierJoueur(){
+     *
+     * }
+     *
+     */
+    
     //Utiliser les prefabs si vous avez besoin de tester des choses simples
     private GameObject boardPrefab;
     private GameObject caseTableauPrefab;
@@ -88,7 +114,8 @@ public class MouvementPionTest
     [UnityTest]
     public IEnumerator CaseActiveQuandPionLeDemande()
     {
-        //Il faut encore le continuer
+        //TODO Il faut encore le continuer. Pas finit
+        /*
         BoardManager boardManager = boardGo.GetComponent<BoardManager>();
         PlayersController playersController = playerControllerGo.GetComponent<PlayersController>();
         PionComportement pion = MonoBehaviour.Instantiate(pionPrefab).GetComponent<PionComportement>();
@@ -103,26 +130,9 @@ public class MouvementPionTest
 
         
         Assert.AreEqual(caseTab00.EstActive(), true);
-
+*/
         yield break;
         
-    }
-    
-    /// <summary>
-    /// Utilisation de reflection pour acceder à une valeur d'un objet.
-    /// </summary>
-    ///
-    /// <param name="type">Type d'instance</param>
-    /// <param name="instance">Objet d'instance</param>
-    /// <param name="fieldName">Le nom de l'attribut qu'on veut acceder</param>
-    ///
-    /// <returns>The field value from the object.</returns>
-    internal static object GetInstanceField(Type type, object instance, string fieldName)
-    {
-        BindingFlags bindFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic
-                                 | BindingFlags.Static;
-        FieldInfo field = type.GetField(fieldName, bindFlags);
-        return field.GetValue(instance);
     }
     
 }
