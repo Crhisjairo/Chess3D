@@ -48,7 +48,7 @@ public class UIManager : MonoBehaviour
         DisablePiecesSlots(0, _slotPiecesPlayer1);
         DisablePiecesSlots(0, _slotPiecesPlayer2);
         
-        _canvasJoueur1.transform.localScale = new Vector3(_canvasJoueur1.transform.localScale.x - 0.3f, _canvasJoueur1.transform.localScale.y - 0.3f, _canvasJoueur1.transform.localScale.z);
+        //_canvasJoueur1.transform.localScale = new Vector3(_canvasJoueur1.transform.localScale.x - 0.3f, _canvasJoueur1.transform.localScale.y - 0.3f, _canvasJoueur1.transform.localScale.z);
     }
 
     // Update is called once per frame

@@ -19,7 +19,7 @@ public class LoginSystem : MonoBehaviour
 
     private Coroutine waitForClearDatabaseStatusCoroutine;
     
-    public GameObject loginCanvas, registerCanvas;
+    public GameObject loginCanvas, registerCanvas, mainMenuCanvas;
     [SerializeField] private InputField loginEmailField, loginPasswordField;
     [SerializeField] private InputField registerEmailField, registerPasswordField1, registerPasswordField2, registerUsernameField;
     [SerializeField] private Button logInBtn, registerBtn, goToRegister, goToLogin, loginGuestBtn;
@@ -163,10 +163,11 @@ public class LoginSystem : MonoBehaviour
                     
                     //TODO à changer
                     loginCanvas.SetActive(false);
-                    GetComponent<Canvas>().enabled = false;
+                    mainMenuCanvas.SetActive(true);
+                    //GetComponent<Canvas>().enabled = false;
                     
-                    //TODO A REMPLACER PAR UN AUTRE MENU
-                    StartCoroutine(LoadSceneAsync(sceneNameOnStartGame));
+                    ChangerCameraTo("MenuMenuPosition");
+                    
                     
                 }
                 else
@@ -189,7 +190,7 @@ public class LoginSystem : MonoBehaviour
 
         isWorking = false;
     }
-
+    
     IEnumerator RegisterEnumerator()
     {
         if (!(waitForClearDatabaseStatusCoroutine is null))
@@ -249,7 +250,7 @@ public class LoginSystem : MonoBehaviour
     }
     
 
-    IEnumerator LoadSceneAsync(string sceneName)
+    IEnumerator LoadBoardAsync(string sceneName)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 
@@ -315,9 +316,9 @@ public class LoginSystem : MonoBehaviour
     public void LoadBoard()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(LoadBoardAsync(sceneNameOnStartGame));
     }
-
+    
     public void ChangerCameraTo(String state)
     {
         _drivenCamAnimator.Play(state);
