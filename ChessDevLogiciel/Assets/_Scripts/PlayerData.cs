@@ -5,18 +5,18 @@ using UnityEngine;
 public class PlayerData
 {
     public string Id { get; private set; }
-    public string Nom { get; private set; }
     public string Username { get; set; }
+    public string Email { get; set; }
     public string Password { get; set; }
     
     public int PartiesGagnes { get; set; }
     public int PartiesPerdues { get; set; }
 
 
-    public PlayerData(string id, string nom, string username, string password, int partiesGagnes, int partiesPerdues)
+    public PlayerData(string id, string username, string email, string password, int partiesGagnes, int partiesPerdues, string avatarRessource)
     {
         Id = id;
-        Nom = nom;
+        Email = email;
         Username = username;
         Password = password;
         PartiesGagnes = partiesGagnes;

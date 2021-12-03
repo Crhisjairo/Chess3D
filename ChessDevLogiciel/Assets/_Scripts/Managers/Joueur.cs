@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Joueur : MonoBehaviour
 {
     //Initialisation de tous les variables dont nous allons avoir besoin dans le script
-    private PlayerData PlayerData { get; set; }
+    private PlayerData _playerData;
 
     /// <summary>
     /// Numero du joueur
@@ -17,60 +17,91 @@ public class Joueur : MonoBehaviour
     private List<Piece> _piecesMangees;
 
     //public Slider _timeSlider;
-    public Text _tempsRestantText;
+    public Text tempsRestantText;
 
-    public float TempsRestant { get; set; } = 300f;
-    public bool EstTempsArrete { get; set; } = false;
+    private float TempsRestant { get; set; } = 300f;
 
-    public bool EstTempsFinit { get; private set; } = false;
+    private bool IsTimerOn { get; set; } = false;
+
+    private bool EstTempsFinit { get; set; } = false;
+
+    private float _startTime;
+    private float _stopTime;
 
 
     [SerializeField] private Piece[] _piecesJoueur;
+    private Coroutine _timerCoroutine;
+   
 
-    private void Start()
+    public void SetTimerOn(bool isOn)
     {
-        //On donne des données par défaut pour les invités
-        if (PlayerData is null)
+        IsTimerOn = isOn;
+        
+        if (IsTimerOn)
         {
-            PlayerData = new PlayerData("NoID", "Invité", "NoUsername", "", 0, 0);
+           if (_timerCoroutine is null)
+           {
+               _timerCoroutine = StartCoroutine(TimerCountdown());
+               _startTime = Time.time;
+           } 
         }
+        else
+        {
+            if (!(_timerCoroutine is null))
+            {
+                StopCoroutine(_timerCoroutine);
+                _timerCoroutine = null;
+                TempsRestant = TempsRestant - (Time.time - _startTime);
+            } 
+        }
+    }
+
+    private IEnumerator TimerCountdown()
+    {
+        while (true)
+        {
+            float timerTime = TempsRestant - (Time.time - _startTime);
+
+            if (timerTime <= 0)
+            {
+                EstTempsFinit = true;
+                tempsRestantText.text = "Time out!";
+                
+                //TODO icitte on finit la game à cause du temps
+                yield break;
+            }
+
+            string minutes = ((int) timerTime / 60).ToString();
+            string secondes = Math.Truncate(timerTime % 60).ToString();
+
+            tempsRestantText.text = minutes + ":" + secondes;
+
+            yield return null;
+        }
+    }
+
+    public void SetProperties(PlayerData playerData, float secondesPourJoueur)
+    {
+        if (playerData is null)
+        {
+            playerData = new PlayerData("999", "Invité", "", "", 0, 0, "");
+        }
+        
+        _playerData = playerData;
+                    
         //Si jamais c'est un invité
-        if (PlayerData.Nom.Equals("Invité"))
+        if (_playerData.Username.Equals("Invité"))
         {
-           // PlayerData.Nom + (int) numeroJoueur;
+            // PlayerData.Nom + (int) numeroJoueur;
         }
+
+        SetTempsRestant(secondesPourJoueur);
         
         _piecesMangees = new List<Piece>();
         
         SetProprietairePieces(); //On se donne comme proprietaire de ces pièces
     }
 
-    private void Update()
-    {
-        //On check si le temps est arreté pour ne pas continuer avec le timer.
-        if (!EstTempsArrete)
-        {
-          TimerCountdown();  
-        }
-        
-    }
-
-    private void TimerCountdown()
-    {
-        float temps = TempsRestant - Time.time;
-
-        if (temps <= 0)
-        {
-            EstTempsFinit = true;
-            _tempsRestantText.text = "Time out!";
-            return;
-        }
-
-        string minutes = ((int) temps / 60).ToString();
-        string secondes = Math.Truncate(temps % 60).ToString();
-
-        _tempsRestantText.text = minutes + ":" + secondes;
-    }
 
     /**
      * On donne le numéro de joueur aux pièces auquels elles appartiennent.
@@ -112,6 +143,16 @@ public class Joueur : MonoBehaviour
     public List<Piece> GetPiecesMangees()
     {
         return _piecesMangees;
+    }
+
+    public void SetTempsRestant(float temps)
+    {
+        TempsRestant = temps;
+        
+        string minutes = ((int) temps / 60).ToString();
+        string secondes = Math.Truncate(temps % 60).ToString();
+
+        tempsRestantText.text = minutes + ":" + secondes;
     }
 
     /// <summary>

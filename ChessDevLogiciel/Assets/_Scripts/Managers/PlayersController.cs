@@ -19,9 +19,6 @@ public class PlayersController : MonoBehaviour
     public Joueur _joueurActive;
     [SerializeField] private Joueur[] _joueurs;
     
-    //TODO C'est une fenêtre qui va set ces données
-    [Range(1f, 10f)] public float minutesPourJoueur;
-    [Range(0f, 60f)] public float secondesPourJoueur;
 
     private void Awake()
     {
@@ -34,23 +31,6 @@ public class PlayersController : MonoBehaviour
         {
             Instance = this;
         }
-    }
-    
-    private void Start()
-    {
-        //On débute avec le premier joueur
-        int numeroJoueurQuiCommence = (int) Joueur.NumeroJoueur.Joueur1 - 1; //Enum qui se trouve dans Joueur
-        _joueurActive = _joueurs[numeroJoueurQuiCommence]; 
-        _joueurActive.SetPiecesActives(true);
-        
-        UIManager.Instance.UpdatePlayersTurn(_joueurActive);
-        
-        
-        
-        LoadAndSetPlayerData();
-        
-        //TODO cette méthode doit s'appeller lorsqu'on appui sur un button.
-        SetGameSettings();
     }
 
     // Update is called once per frame
@@ -68,16 +48,18 @@ public class PlayersController : MonoBehaviour
         //TODO modifier ça pour le faire en fonction des données de la BD à distance
     }
 
-    private void SetGameSettings()
+    public void SetPlayersSettingsAndStartGame(PlayerData playerData, float secondesPourJoueur)
     {
-        //TODO faire ça en fonction d'une fenêtre de configuration qui doit s'afficher. Pour le moment, je harcode la configuration de la partie
+        //On débute avec le premier joueur, joueur local
+        int numeroJoueurQuiCommence = (int) Joueur.NumeroJoueur.Joueur1 - 1; //Enum qui se trouve dans Joueur
+        _joueurActive = _joueurs[numeroJoueurQuiCommence]; 
+        _joueurActive.SetPiecesActives(true);
         
-        //On set le temps aloué à chaque joueur
-        foreach (var joueur in _joueurs)
-        {
-            joueur.TempsRestant = minutesPourJoueur * 60 + secondesPourJoueur;
-        }
+        UIManager.Instance.UpdatePlayersTurn(_joueurActive);
         
+        
+        _joueurs[0].SetProperties(playerData, secondesPourJoueur);
+        _joueurs[1].SetProperties(null, secondesPourJoueur);
     }
 
     private void DeplacerPionAuClickPosition()
@@ -247,5 +229,4 @@ public class PlayersController : MonoBehaviour
             _drivenCamAnimator.Play("vcamPlayer2");
         } //On peut ajouter d'autres caméras pour d'autres joueurs. Il faudra adapter l'animator et le stateDrivenCam
     }
-
 }

@@ -14,12 +14,18 @@ public class MouvementPionTest
         var caseTableau = new GameObject();
         caseTableau.AddComponent<Case>();
         //On crée un pion
+        var pion = new GameObject();
+        pion.AddComponent<PionComportement>();
         
         //On fait que le pion active la case
+        
+        
         
         //On check si la case de cette case est activé si le pion se déplace là dedans
         Assert.AreEqual(caseTableau.GetComponent<Case>().EstActive(), true);
     }
+    
+    
 
 
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use

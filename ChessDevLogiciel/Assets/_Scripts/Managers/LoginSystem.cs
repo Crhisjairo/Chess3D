@@ -16,11 +16,14 @@ using Toggle = UnityEngine.UI.Toggle;
 public class LoginSystem : MonoBehaviour
 {
     #region NotToTouch
-    public GameObject loginCanvas, registerCanvas;
+
+    private Coroutine waitForClearDatabaseStatusCoroutine;
+    
+    public GameObject loginCanvas, registerCanvas, mainMenuCanvas;
     [SerializeField] private InputField loginEmailField, loginPasswordField;
     [SerializeField] private InputField registerEmailField, registerPasswordField1, registerPasswordField2, registerUsernameField;
-    [SerializeField] private Button logInBtn, registerBtn, goToRegister, goToLogin, goToMainMenu;
-    [SerializeField] private Text statusText;
+    [SerializeField] private Button logInBtn, registerBtn, goToRegister, goToLogin, loginGuestBtn;
+    [SerializeField] private Text DBStatusText;
     private string _avatarName;
 
     [SerializeField] private ToggleGroup _avatarsToggleGroup;
@@ -29,6 +32,11 @@ public class LoginSystem : MonoBehaviour
     [SerializeField] private Slider loadingSlider;
     [SerializeField] private Text loadingTextPercentage;
     [SerializeField] private string sceneNameOnStartGame;
+
+    [SerializeField] private string loginAsGuestText;
+    [SerializeField] private string loginSuccesText;
+    [SerializeField] private Text loginStatus;
+    
     
     string loginEmail = "";
     string loginPassword = "";
@@ -40,7 +48,7 @@ public class LoginSystem : MonoBehaviour
 
     private bool isWorking = false;
     private bool registrationCompleted = false;
-    private bool isLoggedIn = false;
+    //private bool isLoggedIn = false;
     
     //Logged-In user data
     private string userName = "";
@@ -48,21 +56,18 @@ public class LoginSystem : MonoBehaviour
 
     private const string RootURL = "http://10.241.58.176/";
 
+    [SerializeField] private GameManager _gameManager;
+
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public void ShowRegisterCanvas()
+    private void Start()
     {
-        loginCanvas.SetActive(false);
-        registerCanvas.SetActive(true);
-    }
-
-    public void ShowLoginCanvas()
-    {
-        loginCanvas.SetActive(true);
-        registerCanvas.SetActive(false);
+        DBStatusText.text = "";
+        loginStatus.text = "";
+        
     }
 
     public void OnClickLogIn()
@@ -70,7 +75,7 @@ public class LoginSystem : MonoBehaviour
         //On disable l'intéraction avec le boutton.
         logInBtn.interactable = false;
         goToRegister.interactable = false;
-        goToMainMenu.interactable = false;
+        loginGuestBtn.interactable = false;
         
         loginEmail = loginEmailField.text;
         loginPassword = loginPasswordField.text;
@@ -95,9 +100,20 @@ public class LoginSystem : MonoBehaviour
 
         StartCoroutine(RegisterEnumerator());
     }
-    
+
+    public void OnClickGuest()
+    {
+        //PlayerData guestPlayerData = new PlayerData();
+        
+        //_gameManager.SetLocalPlayerData(guestPlayerData);
+
+        loginStatus.text = loginAsGuestText;
+    }
     IEnumerator LoginEnumerator()
     {
+        if (!(waitForClearDatabaseStatusCoroutine is null))
+            StopCoroutine(waitForClearDatabaseStatusCoroutine);
+        
         isWorking = true;
         registrationCompleted = false;
 
@@ -111,8 +127,8 @@ public class LoginSystem : MonoBehaviour
 
             if (www.result != UnityWebRequest.Result.Success)
             {
-                statusText.text = www.error;
-                statusText.color = Color.red;
+                DBStatusText.text = www.error;
+                DBStatusText.color = Color.red;
             }
             else
             {
@@ -121,39 +137,65 @@ public class LoginSystem : MonoBehaviour
                 if (responseText.StartsWith("Success"))
                 {
                     string[] dataChunks = responseText.Split('|');
-                    userName = dataChunks[1];
-                    userEmail = dataChunks[2];
-                    isLoggedIn = true;
+                    //On créé les données de l'utilisateur local.
+
+                    int i = 0;
+                    foreach (var data in dataChunks)
+                    {
+                        Debug.Log(i + ": " + data);
+                        i++;
+                    }
+                    
+                    
+                    PlayerData localPlayerData = new PlayerData(dataChunks[1], dataChunks[2], dataChunks[3],
+                        dataChunks[4], int.Parse(dataChunks[5]), int.Parse(dataChunks[6]),
+                        dataChunks[7]);
+                    
+                    _gameManager.SetLocalPlayerData(localPlayerData);
+                    
+                    //isLoggedIn = true;
 
                     ResetValues();
-                    statusText.text = "Connection réussi!";
-                    statusText.color = Color.green;
+                    DBStatusText.text = "Connection réussi!";
+                    DBStatusText.color = Color.green;
+
+                    loginStatus.text = loginSuccesText;
                     
-                    Debug.Log(userName + userEmail);
+                    //TODO à changer
+                    loginCanvas.SetActive(false);
+                    mainMenuCanvas.SetActive(true);
+                    //GetComponent<Canvas>().enabled = false;
                     
-                    //TODO ICI ON CHANGE D'ÉCRAN
-                    StartGame();
+                    ChangerCameraTo("MenuMenuPosition");
+                    
+                    
                 }
                 else
                 {
-                    statusText.text = responseText;
-                    statusText.color = Color.red;
+                    DBStatusText.text = responseText;
+                    DBStatusText.color = Color.red;
                 }
                 
                 
             }
             
+            //On initialise la coroutine pour changer le text du status de la DB.
+            waitForClearDatabaseStatusCoroutine = StartCoroutine(WaitForClearDatabaseStatus());
+            
             //On habilite l'intéraction avec le boutton
             logInBtn.interactable = true;
             goToRegister.interactable = true;
-            goToMainMenu.interactable = true;
+            loginGuestBtn.interactable = true;
         }
 
         isWorking = false;
     }
-
+    
     IEnumerator RegisterEnumerator()
     {
+        if (!(waitForClearDatabaseStatusCoroutine is null))
+            StopCoroutine(waitForClearDatabaseStatusCoroutine);
+        
         isWorking = true;
         registrationCompleted = false;
 
@@ -170,8 +212,8 @@ public class LoginSystem : MonoBehaviour
 
             if (www.result != UnityWebRequest.Result.Success)
             {
-                statusText.text = www.error;
-                statusText.color = Color.red;
+                DBStatusText.text = www.error;
+                DBStatusText.color = Color.red;
             }
             else
             {
@@ -181,19 +223,23 @@ public class LoginSystem : MonoBehaviour
                 {
                     ResetValues();
                     registrationCompleted = true;
-                    statusText.text = "Compte crée correctement";
-                    statusText.color = Color.green;
+                    DBStatusText.text = "Compte crée correctement";
+                    DBStatusText.color = Color.green;
                     
-                    ShowLoginCanvas();
+                    //On affiche le canvas du login
+                    loginCanvas.SetActive(true);
+                    registerCanvas.SetActive(false);
                 }
                 else
                 {
-                    statusText.text = reponseTexte;
-                    statusText.color = Color.red;
+                    DBStatusText.text = reponseTexte;
+                    DBStatusText.color = Color.red;
                 }
                 
-                
             }
+            
+            //On initialise la coroutine pour changer le text du status de la DB.
+            waitForClearDatabaseStatusCoroutine = StartCoroutine(WaitForClearDatabaseStatus());
             
             //On habilite l'intéraction avec le boutton
             registerBtn.interactable = true;
@@ -203,15 +249,8 @@ public class LoginSystem : MonoBehaviour
         isWorking = true;
     }
     
-    /*
-    * La méthode PlayGame(), je charge la scène ou le jeux va se dérouler.
-    */
-    public void StartGame()
-    {
-        StartCoroutine(LoadSceneAsync(sceneNameOnStartGame));
-    }
 
-    IEnumerator LoadSceneAsync(string sceneName)
+    IEnumerator LoadBoardAsync(string sceneName)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 
@@ -226,10 +265,26 @@ public class LoginSystem : MonoBehaviour
             
             yield return null;
         }
+
+        _gameManager.OnInitGame();
         
-        //
+        StartCoroutine(DestroyScene());
+    }
+
+    IEnumerator WaitForClearDatabaseStatus()
+    {
+        yield return new WaitForSeconds(4);
+        DBStatusText.text = "";
     }
     
+    //Si jamais on veut le détruire après
+    IEnumerator DestroyScene()
+    {
+        yield return new WaitForEndOfFrame();
+        
+        //Destroy(this.gameObject);
+    }
+
     /*
      * La méthode QuitGame() fait que lorsque le joueur clique sur le bouton quitter,
      * le jeu arrête et l'exécutable se ferme.
@@ -245,7 +300,7 @@ public class LoginSystem : MonoBehaviour
     
     private void ResetValues()
     {
-        statusText.text = "";
+        DBStatusText.text = "";
         loginEmail = "";
         loginPassword = "";
         registerEmail = "";
@@ -261,9 +316,9 @@ public class LoginSystem : MonoBehaviour
     public void LoadBoard()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(LoadBoardAsync(sceneNameOnStartGame));
     }
-
+    
     public void ChangerCameraTo(String state)
     {
         _drivenCamAnimator.Play(state);
