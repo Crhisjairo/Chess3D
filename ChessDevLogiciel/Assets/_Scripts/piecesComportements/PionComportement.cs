@@ -26,11 +26,11 @@ public class PionComportement : Piece
    };
 
    private bool isFirstMove;
+
    /**
      * Dans la méthode Start(), on set up tous les variables pour qu'elles prennent les composants dont elles vont avoir
      * comme le rigidbody.
      */
-
    private void Start()
    {
       _rb = GetComponent<Rigidbody>();
@@ -43,6 +43,7 @@ public class PionComportement : Piece
       moveSet = _moveSet;
       isFirstMove = true;
    }
+   
    /**
      * Dans la méthode SelectionnerPiece(), c'est ou tous les comportements se passe. Dans cette méthode nous faisons
      * que la reine puisse bouger selon les mouvements permis dans un jeu d'échecs réel. PLusieurs variables qui sont

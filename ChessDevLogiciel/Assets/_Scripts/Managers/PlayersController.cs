@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayersController : MonoBehaviour
 {
@@ -136,7 +137,13 @@ public class PlayersController : MonoBehaviour
         }
         
         pieceMangee.CacherPiece();
-        
+
+        /**
+        if (ToString(pieceMangee.name = "Chess King White"))
+        {
+            SceneManager.LoadScene("Victoire");
+        }
+        */
         UIManager.Instance.UpdatePlayerPieces(_joueurActive.numeroJoueur, _joueurActive.GetPiecesMangees());
     }
 
@@ -228,5 +235,10 @@ public class PlayersController : MonoBehaviour
         {
             _drivenCamAnimator.Play("vcamPlayer2");
         } //On peut ajouter d'autres caméras pour d'autres joueurs. Il faudra adapter l'animator et le stateDrivenCam
+    }
+
+    public void SetJoueurs(Joueur[] joueurs)
+    {
+        _joueurs = joueurs;
     }
 }
