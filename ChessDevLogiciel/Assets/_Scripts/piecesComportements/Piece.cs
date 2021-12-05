@@ -24,7 +24,7 @@ public abstract class Piece : MonoBehaviour
     /// <returns></returns>
     private bool _estActive;
 
-    private bool _estSelectionne;
+    private bool _estSelectionne = false;
     
     /// <summary>
     /// Returne si la pièce est déjà seléctionnée.
@@ -36,12 +36,19 @@ public abstract class Piece : MonoBehaviour
             _estSelectionne = value;
 
             if (value)
-            { 
-                _outline.enabled = true;  
+            {
+                if (!(_outline is null))
+                {
+                    _outline.enabled = true;
+                }
+                  
             }
             else
             {
-                _outline.enabled = false;
+                if (!(_outline is null))
+                {
+                    _outline.enabled = false;
+                }
             }
         }
         get

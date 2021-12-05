@@ -155,6 +155,11 @@ public class Joueur : MonoBehaviour
         tempsRestantText.text = minutes + ":" + secondes;
     }
 
+    public void SetPieces(Piece[] pieces)
+    {
+        _piecesJoueur = pieces;
+    }
+    
     /// <summary>
     /// Sa représente les numero des joueurs.
     /// Le premier joueur ayant la valeur 0.

@@ -100,12 +100,47 @@ public class BoardManager : MonoBehaviour
 //La méthode Desactiver case, enleve la couleur de la case activer lorsque le joueur touche une pièce.
     public void DesactiverCases()
     {
+        if (_cases is null)
+        {
+            return;
+        }
+        
         //Au début, on désactive toutes les cases
         foreach (Case uneCase in _cases)
         {
             uneCase.SetEstActive(false);
         }
         
+    }
+
+    public Case GetCaseAtCoord(int x, int y)
+    {
+        Joueur.NumeroJoueur numeroJoueur = PlayersController.Instance._joueurActive.numeroJoueur;
+        
+        foreach (Case uneCase in _cases)
+        {
+            Vector2Int coordonneesDeCase = new Vector2Int();
+            
+            if (numeroJoueur is Joueur.NumeroJoueur.Joueur1)
+            {
+                coordonneesDeCase = uneCase.coordonneesDeCasePourBlanc;
+            } else if (numeroJoueur is Joueur.NumeroJoueur.Joueur2)
+            {
+                coordonneesDeCase = uneCase.coordonneesDeCasePourNoir;
+            }
+            
+            if (coordonneesDeCase == new Vector2Int(x, y))
+            {
+                return uneCase;
+            }
+        }
+
+        return null;
+    }
+
+    public void SetCases(Case[] cases)
+    {
+        _cases = cases;
     }
 
 }
