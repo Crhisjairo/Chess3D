@@ -10,16 +10,16 @@ public class PlayersController : MonoBehaviour
     //Initialisation des variables utiliser dans le script
     private const string PieceTag = "Piece";
     private const string CaseDuTableauTag = "CaseDuTableau";
-    
+
     [SerializeField] private Animator _drivenCamAnimator;
-    
-    public static PlayersController Instance { private set; get;}
-    
+
+    public static PlayersController Instance { private set; get; }
+
     public Piece _pieceSelectionne;
 
     public Joueur _joueurActive;
     [SerializeField] private Joueur[] _joueurs;
-    
+
 
     private void Awake()
     {
@@ -43,7 +43,7 @@ public class PlayersController : MonoBehaviour
             DeplacerPionAuClickPosition();
         }
     }
-    
+
     private void LoadAndSetPlayerData()
     {
         //TODO modifier ça pour le faire en fonction des données de la BD à distance
@@ -52,13 +52,13 @@ public class PlayersController : MonoBehaviour
     public void SetPlayersSettingsAndStartGame(PlayerData playerData, float secondesPourJoueur)
     {
         //On débute avec le premier joueur, joueur local
-        int numeroJoueurQuiCommence = (int) Joueur.NumeroJoueur.Joueur1 - 1; //Enum qui se trouve dans Joueur
-        _joueurActive = _joueurs[numeroJoueurQuiCommence]; 
+        int numeroJoueurQuiCommence = (int)Joueur.NumeroJoueur.Joueur1 - 1; //Enum qui se trouve dans Joueur
+        _joueurActive = _joueurs[numeroJoueurQuiCommence];
         _joueurActive.SetPiecesActives(true);
-        
+
         UIManager.Instance.UpdatePlayersTurn(_joueurActive);
-        
-        
+
+
         _joueurs[0].SetProperties(playerData, secondesPourJoueur);
         _joueurs[1].SetProperties(null, secondesPourJoueur);
     }
@@ -71,7 +71,7 @@ public class PlayersController : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             //Debug.Log("Touché " + hit.collider.name);
-            
+
             //On vérifie s'il s'agit d'une pièce ou une case
             if (hit.collider.CompareTag(PieceTag))
             {
@@ -92,7 +92,7 @@ public class PlayersController : MonoBehaviour
                 //On déplace la pièce, on la déseléctionne et on change de tour
                 //On envoie la position du centre du collider de la case
                 Case caseDestination = hit.collider.gameObject.GetComponent<Case>();
-                
+
                 //On check que la pièce soit active
                 if (!caseDestination.EstActive())
                 {
@@ -105,13 +105,13 @@ public class PlayersController : MonoBehaviour
                 {
                     MangerPieceAtCase(caseDestination);
                 }
-                
+
                 //Finalement, on se déplace.
                 DeplacerPieceToCase(caseDestination);
                 ChangerTour(); //on change de tour.
-                
+
             }
-            
+
         }
     }
 
@@ -124,26 +124,25 @@ public class PlayersController : MonoBehaviour
     {
         Piece pieceMangee = caseDestination.GetPieceDansLaCase();
         caseDestination.SetPieceDansLaCase(null);
-        
+
         _joueurActive.AjouterPieceMangee(pieceMangee);
-        
+
         Debug.Log("La pièce mangée est " + pieceMangee.name);
-        
+
         //JUSTE POUR DEBUG
         Debug.Log("Pièce mangées du " + _joueurActive.numeroJoueur + " sont:");
         foreach (var piece in _joueurActive.GetPiecesMangees())
         {
             Debug.Log("Nom: " + piece.name + " estActive: " + piece.GetEstActive());
         }
-        
-        pieceMangee.CacherPiece();
 
-        /**
-        if (ToString(pieceMangee.name = "Chess King White"))
+        pieceMangee.CacherPiece();
+     
+        if ((pieceMangee.name.Equals("Chess King White") || pieceMangee.name.Equals("Chess King Black"))) 
         {
             SceneManager.LoadScene("Victoire");
         }
-        */
+
         UIManager.Instance.UpdatePlayerPieces(_joueurActive.numeroJoueur, _joueurActive.GetPiecesMangees());
     }
 
