@@ -67,33 +67,24 @@ public class MouvementChevalierTests
 
         yield return null;
 
-        //Mouvements possibles des chevaliers
+        //Mouvements possibles d'un chevalier
         Case caseTableau00 = caseGo00.GetComponent<Case>();
-        caseTableau00.coordonneesDeCasePourBlanc = new Vector2Int(1, 2);//Mouvement vers toute la droite
+        caseTableau00.coordonneesDeCasePourBlanc = new Vector2Int(1, 2); // 1 pas vers la droite, 2 pas vers le haut
         Case caseTableau01 = caseGo01.GetComponent<Case>();
-        caseTableau01.coordonneesDeCasePourBlanc = new Vector2Int(-1, 2);
+        caseTableau01.coordonneesDeCasePourBlanc = new Vector2Int(-1, 2); // 1 pas vers la gauche, 2 pas vers le haut
         Case caseTableau02 = caseGo02.GetComponent<Case>();
-        caseTableau02.coordonneesDeCasePourBlanc = new Vector2Int(2, -1);
+        caseTableau02.coordonneesDeCasePourBlanc = new Vector2Int(2, -1); // 2 pas vers la droite, 1 pas vers le bas
         Case caseTableau03 = caseGo03.GetComponent<Case>();
-        caseTableau03.coordonneesDeCasePourBlanc = new Vector2Int(-2, -1);
+        caseTableau03.coordonneesDeCasePourBlanc = new Vector2Int(-2, -1); // 2 pas vers la gauche, 1 pas vers le bas
         Case caseTableau04 = caseGo04.GetComponent<Case>();
-        caseTableau04.coordonneesDeCasePourBlanc = new Vector2Int(1, -2);
+        caseTableau04.coordonneesDeCasePourBlanc = new Vector2Int(1, -2); // 1 pas vers la droite, 2 pas vers le bas
         Case caseTableau05 = caseGo05.GetComponent<Case>();
-        caseTableau05.coordonneesDeCasePourBlanc = new Vector2Int(-1, -2);
+        caseTableau05.coordonneesDeCasePourBlanc = new Vector2Int(-1, -2); // 1 pas vers la gauche, 2 pas vers le bas
         Case caseTableau06 = caseGo06.GetComponent<Case>();
-        caseTableau06.coordonneesDeCasePourBlanc = new Vector2Int(2, 1);
+        caseTableau06.coordonneesDeCasePourBlanc = new Vector2Int(2, 1); // 2 pas vers la droite, 1 pas vers le haut
         Case caseTableau07 = caseGo07.GetComponent<Case>();
-        caseTableau07.coordonneesDeCasePourBlanc = new Vector2Int(-2, 1);
-       
+        caseTableau07.coordonneesDeCasePourBlanc = new Vector2Int(-2, 1); // 2 pas vers la gauche, 1 pas vers le haut
+
     }
 
-
-    /// <summary>
-    /// 
-    /// </summary>
-    [Test]
-    public IEnumerator MouvementWithEnumeratorPasses()
-    {
-        yield return null;
-    }
 }
