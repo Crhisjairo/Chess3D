@@ -1,90 +1,71 @@
 using System.Collections;
-using System.Collections.Generic;
+using UnityEngine;
+using _Scripts;
 using NUnit.Framework;
 using UnityEditor;
-using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
-
-/// <summary>
-/// Classe qui teste le mouvement des chevaliers
-/// </summary>
 public class MouvementChevalierTests
 {
-    private GameObject _board;
-    private GameObject _caseTableau;
-    private GameObject _chevalier;
-    private GameObject _gameManager;
-    private GameObject _playerController;
+    //Initalisation de tous les variables que nous allons utiliser au long du code
+    private GameObject boardPrefab;
+    private GameObject caseTableauPrefab;
+    private GameObject chevalierPrefab;
 
-    /// <summary>
-    /// 
-    /// </summary>
-    [SetUp]
-    public void SetUp()
+
+    //Initialisation des gameObject dont nous avons besoin pour tester ce code
+    private GameObject gameManagerGo;
+    private GameObject playerControllerGo;
+    private GameObject uIManagerGo;
+    private GameObject boardGo;
+
+    [OneTimeSetUp]
+    //Methode dans laquels nous prenons les assets de tous de notre scene pour pouvoir les tester
+    public void OneTimeSetup()
     {
-        _board = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Board.prefab");
-        _caseTableau = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Cube.prefab");
-        _chevalier = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Pieces/Chess Knight White.prefab");
-        _gameManager = GameObject.Find("GameManager");
-        _playerController = GameObject.Find("Players");
+        boardPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Board.prefab");
+        caseTableauPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Cube.prefab");
+        chevalierPrefab = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Pieces/Chess Knight White.prefab");
+    }
+    [UnitySetUp]
+    public IEnumerator SetUp()
+    {
+        SceneManager.LoadSceneAsync("Board");
+        var waitForScene = new WaitForSceneLoaded("Board");
+        yield return waitForScene;
+
+        gameManagerGo = GameObject.Find("GameManager");
+        playerControllerGo = GameObject.Find("Players");
+        uIManagerGo = GameObject.Find("UIManager");
+        boardGo = GameObject.Find("Board");
     }
 
-
-    /// <summary>
-    /// 
-    /// </summary>
+    // Methode qui test si la piece est actuellement sur la piece 
     [Test]
-    public void VerifierCaseContientPiece()
+    public void CaseContientPieceApresAvoirSetLaPiece()
     {
-        Case caseTableau = _caseTableau.GetComponent<Case>();
-        ChevalierComportement chevalier = _chevalier.GetComponent<ChevalierComportement>();
+        //On ajoute aux variables que nous avons initialiser, les comporsantes des scripts que nous voulons tester.
+        Case caseTableau = caseTableauPrefab.GetComponent<Case>();
+        ChevalierComportement chevalier = chevalierPrefab.GetComponent<ChevalierComportement>();
+
 
         caseTableau.SetPieceDansLaCase(chevalier);
-
+        //Assertation qui verifie si la case qui est dans la piece est la meme que celle de la variable roque que
+        //nous avons initialiser           
         Assert.AreEqual(caseTableau.GetPieceDansLaCase(), chevalier);
     }
 
     [UnityTest]
-    public IEnumerator DeplacementChevalier()
+    public IEnumerator EstJoueurActivePremierJoueur()
     {
-        GameObject caseGo00 = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Cube.prefab");
-        GameObject caseGo01 = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Cube.prefab");
-        GameObject caseGo02 = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Cube.prefab");
-        GameObject caseGo03 = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Cube.prefab");
-        GameObject caseGo04 = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Cube.prefab");
-        GameObject caseGo05 = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Cube.prefab");
-        GameObject caseGo06 = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Cube.prefab");
-        GameObject caseGo07 = AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Cube.prefab");
+        GameManager gameManager = gameManagerGo.GetComponent<GameManager>();
+        PlayersController playersController = playerControllerGo.GetComponent<PlayersController>();
 
-        GameObject boardGo =
-            AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Pieces/Chess Rook White.prefab");
-        BoardManager boardManager = boardGo.GetComponent<BoardManager>();
+        gameManager.OnClickStartGame();
 
-        GameObject chevalierGo =
-            AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Pieces/Chess Rook White.prefab");
-        ChevalierComportement chevalier = chevalierGo.GetComponent<ChevalierComportement>();
+        Assert.AreEqual(playersController._joueurActive.numeroJoueur, Joueur.NumeroJoueur.Joueur1);
 
         yield return null;
-
-        //Mouvements possibles d'un chevalier
-        Case caseTableau00 = caseGo00.GetComponent<Case>();
-        caseTableau00.coordonneesDeCasePourBlanc = new Vector2Int(1, 2); // 1 pas vers la droite, 2 pas vers le haut
-        Case caseTableau01 = caseGo01.GetComponent<Case>();
-        caseTableau01.coordonneesDeCasePourBlanc = new Vector2Int(-1, 2); // 1 pas vers la gauche, 2 pas vers le haut
-        Case caseTableau02 = caseGo02.GetComponent<Case>();
-        caseTableau02.coordonneesDeCasePourBlanc = new Vector2Int(2, -1); // 2 pas vers la droite, 1 pas vers le bas
-        Case caseTableau03 = caseGo03.GetComponent<Case>();
-        caseTableau03.coordonneesDeCasePourBlanc = new Vector2Int(-2, -1); // 2 pas vers la gauche, 1 pas vers le bas
-        Case caseTableau04 = caseGo04.GetComponent<Case>();
-        caseTableau04.coordonneesDeCasePourBlanc = new Vector2Int(1, -2); // 1 pas vers la droite, 2 pas vers le bas
-        Case caseTableau05 = caseGo05.GetComponent<Case>();
-        caseTableau05.coordonneesDeCasePourBlanc = new Vector2Int(-1, -2); // 1 pas vers la gauche, 2 pas vers le bas
-        Case caseTableau06 = caseGo06.GetComponent<Case>();
-        caseTableau06.coordonneesDeCasePourBlanc = new Vector2Int(2, 1); // 2 pas vers la droite, 1 pas vers le haut
-        Case caseTableau07 = caseGo07.GetComponent<Case>();
-        caseTableau07.coordonneesDeCasePourBlanc = new Vector2Int(-2, 1); // 2 pas vers la gauche, 1 pas vers le haut
-
     }
-
 }
