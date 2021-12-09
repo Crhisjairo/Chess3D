@@ -16,8 +16,7 @@ using UnityEngine.TestTools;
         private GameObject boardPrefab;
         private GameObject caseTableauPrefab;
         private GameObject roquePrefab;
-        
-        
+
         //Initialisation des gameObject dont nous avons besoin pour tester ce code
         private GameObject gameManagerGo;
         private GameObject playerControllerGo;

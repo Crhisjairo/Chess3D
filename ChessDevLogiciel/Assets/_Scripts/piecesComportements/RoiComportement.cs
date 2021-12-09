@@ -19,7 +19,8 @@ public class RoiComportement : Piece
       new Vector2Int(-1, 1),  //move pour manger en diagonal gauche
       new Vector2Int(1, -1),//move pour manger en diagonal en bas gauche
       new Vector2Int(0, -1), //move pour diagonale derriere
-      new Vector2Int(1, 0)
+      new Vector2Int(1, 0), 
+      new Vector2Int(-1, 0)
     };
     /**
      * Dans la méthode Start(), on set up tous les variables pour qu'elles prennent les composants dont elles vont avoir
@@ -98,23 +99,6 @@ public class RoiComportement : Piece
             
         }
         
-        //Comportement roi-roque
-        foreach (Case uneCase in _cases)
-        {
-            Vector2Int coordonneesDeCase = new Vector2Int();
-
-            if (numeroJoueur is Joueur.NumeroJoueur.Joueur1)
-            {
-                coordonneesDeCase = uneCase.coordonneesDeCasePourBlanc;
-            }
-            else if (numeroJoueur is Joueur.NumeroJoueur.Joueur2)
-            {
-                coordonneesDeCase = uneCase.coordonneesDeCasePourNoir;
-            }
-        }
-
-        Case roqueDroite = _cases[2];
-        Case roqueGauche = _cases[6];
         /**
         Vector2Int movedroite = moveSet[6];
         //Vector2Int nextMovee = moveSet[6] + coordonneesDeCetteCase;
