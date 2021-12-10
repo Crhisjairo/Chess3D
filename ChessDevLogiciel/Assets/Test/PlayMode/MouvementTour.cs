@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 using _Scripts;
 using NUnit.Framework;
 using UnityEditor;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 /**

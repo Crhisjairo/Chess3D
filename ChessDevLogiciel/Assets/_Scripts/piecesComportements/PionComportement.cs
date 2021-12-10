@@ -95,7 +95,7 @@ public class PionComportement : Piece
             }
             else
             {
-               //BoardManager.Instance.ActiverCaseByCoord(firstMove.x, y, true, joueurActuel);
+               
                return;
             }
          }
