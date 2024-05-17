@@ -40,7 +40,7 @@ Some features were not implemented due to time constraints. Below are the featur
 4. Enjoy!
 
 ## Developpers
-Castaneda Garcia, Christian
-Duran Lezama, Diego Felipe
-Herard, Dorensky
-Guevarra, Ashley Lester Ian
+- Castaneda Garcia, Christian
+- Duran Lezama, Diego Felipe
+- Herard, Dorensky
+- Guevarra, Ashley Lester Ian
