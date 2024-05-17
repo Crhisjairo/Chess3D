@@ -20,6 +20,7 @@ Some features were not implemented due to time constraints. Below are the featur
 - Online multiplayer.
 - AI for single player mode.
 - Save/Load game in cloud.
+- Player's stats and ranking.
 - Improve UI/UX (we are principally developers 😅).
 
 ## Screenshots
@@ -27,14 +28,13 @@ Some features were not implemented due to time constraints. Below are the featur
 ![main-menu-1](https://drive.google.com/uc?export=view&id=1ALquhzrz9LE5Lcsv2jEWegekOApRQapU)
 ![main-menu-2](https://drive.google.com/uc?export=view&id=1SyE6IOka4YOctbFrEXKFt11jAA_1uPx3)
 ![main-menu-3](https://drive.google.com/uc?export=view&id=1MmI6BI9rbFKZx_QreQpgma4VzlDmUfV_)
-![gameplay-1](https://drive.google.com/uc?export=view&1bM4lRZG3fUuePBQ5cspvvll9q3hChTr9)
-![gameplay-2](https://drive.google.com/uc?export=view&7ahB3EXKDIzpXCYhXazf29RBa8e31lVs)
+![gameplay-2](https://drive.google.com/uc?export=view&id=17ahB3EXKDIzpXCYhXazf29RBa8e31lVs)
 ![gameplay-3](https://drive.google.com/uc?export=view&id=1itlMlYiLDH5QEE6Hnzgq0_uUR0gj7J74)
 
 
 ## Installation
 
-1. Search for the latest release.
+1. Search for the latest release in *Releases* tag.
 2. Download the zip package for the corresponding operating system.
 3. Run **Chess3D**
 4. Enjoy!
